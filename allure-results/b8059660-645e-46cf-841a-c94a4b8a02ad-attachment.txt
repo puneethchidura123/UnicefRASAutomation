@@ -1,0 +1,8 @@
+STEP: Click Username Textbox succeeded at 2025-02-19T02:39:57.556Z
+Logged in as:  ABAKHROMI
+STEP: Fill Username succeeded at 2025-02-19T02:39:57.646Z
+STEP: Fill Password succeeded at 2025-02-19T02:39:59.688Z
+STEP: Click Login Button succeeded at 2025-02-19T02:39:59.709Z
+STEP: Navigate to Trip Approver View failed at 2025-02-19T02:40:06.378Z
+Test: entitlementTravel_TripActivity_A.spec ended at 2025-02-19T02:40:07.175Z
+HTML report generated: D:\Azure-TravelRepo\TravelSimplificationProject\logs\entitlementTravel_TripActivity_A_2025-02-19_08-09-57.html

@@ -1,0 +1,33 @@
+{
+  "name": "travelsimplificationproject",
+  "version": "1.0.0",
+  "description": "Fiori App that handles trip requests and certifications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --headed",
+    "test:chrome": "npx playwright test --headed --project=chromium",
+    "test:headless": "npx playwright test",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "format": "npx prettier . --check",
+    "format:fix": "npx prettier . --write"
+  },
+"devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.45.1",
+    "@types/node": "^20.14.2",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
+    "allure-playwright": "^3.0.0-beta.11",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^1.6.1",
+    "prettier": "3.2.5",
+    "typescript": "^5.2.2"
+},
+  "dependencies": {
+    "allure-js-commons": "^3.0.0-beta.11",
+    "open": "^10.1.0"
+  }
+}

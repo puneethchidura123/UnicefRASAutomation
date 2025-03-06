@@ -1,0 +1,37 @@
+{
+  "tripDetailsData": {
+    "travelType": "Duty Travel",
+    "travelSubtype": "International",
+    "travelSchema": "Travel - non-staff member",
+    "countryName": "Mumbai",
+    "regionName": "Mumbai",
+    "dsaRate": "263.000",
+    "dsaCurrency": "INR",
+    "tripReason": "Mission International Travel",
+    "tripComments": "Comments - Mission International Travel projects"
+  },
+  "costAssignmentData": {
+    "grant": "SH230004",
+    "wbs": "0060/A0/07/881/018/001",
+    "approver": "ABAKHROMI",
+    "fund": "SH"
+  },
+  "expensesData": {
+    "document_Currency": "10000",
+    "document_Currency_Code": "INR"
+  },
+  "destinationtData": {
+    "destinationtype1": "Personal Deviation",
+    "destinationtype2": "Additional Destination"
+  },
+  "tripApprovalnotes": {
+    "notes": "Rejected"
+  },
+  "file": {
+    "filePath": "e2e/testdata/Attachments/TripForm01081277.pdf"
+  },
+  "tripData": {
+    "tripNumber": "0005001844",
+    "tripStatus": "Planned"
+  }
+}

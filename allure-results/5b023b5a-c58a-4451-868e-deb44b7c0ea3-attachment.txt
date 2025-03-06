@@ -1,0 +1,19 @@
+STEP: Click Username Textbox succeeded at 2025-02-19T02:44:07.935Z
+Logged in as:  ABAKHROMI
+STEP: Fill Username succeeded at 2025-02-19T02:44:07.993Z
+STEP: Fill Password succeeded at 2025-02-19T02:44:10.030Z
+STEP: Click Login Button succeeded at 2025-02-19T02:44:10.061Z
+STEP: Navigate to Trip Approver View succeeded at 2025-02-19T02:44:16.953Z
+Trip number: 0005001944
+STEP: Searching Trip Number succeeded at 2025-02-19T02:45:04.298Z
+STEP: Selecting Trip Checkbox succeeded at 2025-02-19T02:45:16.604Z
+STEP: Getting Trip Phase succeeded at 2025-02-19T02:45:16.696Z
+Trip Phase : 1
+STEP: Getting Workflow Status succeeded at 2025-02-19T02:45:16.733Z
+Work Status : HRMN
+STEP: Clicked on Reject Button succeeded at 2025-02-19T02:45:16.761Z
+STEP: Entering Note succeeded at 2025-02-19T02:45:21.915Z
+STEP: Clicked on Submit Button succeeded at 2025-02-19T02:45:27.004Z
+STEP: Clicked on OK Button in message box succeeded at 2025-02-19T02:45:37.156Z
+Test: entitlementTravel_TripActivity_A.spec ended at 2025-02-19T02:45:40.505Z
+HTML report generated: D:\Azure-TravelRepo\TravelSimplificationProject\logs\entitlementTravel_TripActivity_A_2025-02-19_08-10-21.html

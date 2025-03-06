@@ -1,0 +1,50 @@
+STEP: Click Username Textbox succeeded at 2025-02-19T02:40:21.777Z
+Logged in as:  jkasilingam
+STEP: Fill Username succeeded at 2025-02-19T02:40:21.891Z
+STEP: Fill Password succeeded at 2025-02-19T02:40:23.961Z
+STEP: Click Login Button succeeded at 2025-02-19T02:40:23.987Z
+STEP: Navigate to Travel Request View succeeded at 2025-02-19T02:40:30.730Z
+STEP: Navigate to Trip List View succeeded at 2025-02-19T02:40:30.387Z
+Generated Departure Date: 29.04.2025
+Generated Trip Begin Date: 30.04.2025
+Generated Arrival Date: 01.05.2025
+STEP: Generate Trip Dates succeeded at 2025-02-19T02:41:18.302Z
+STEP: Click Create Button succeeded at 2025-02-19T02:41:30.058Z
+STEP: getTripNumber succeeded at 2025-02-19T02:41:30.813Z
+STEP: getTripStatus succeeded at 2025-02-19T02:41:36.315Z
+Default Trip Number: 0000000000
+Default Trip Status: New
+STEP: Enter Trip Schema succeeded at 2025-02-19T02:41:46.263Z
+Total number of travellers: 5
+STEP: Entering details for traveler 1 succeeded at 2025-02-19T02:42:11.563Z
+STEP: enterGetTravellerDetails_Self succeeded at 2025-02-19T02:42:08.179Z
+STEP: enterEntitlementTripDetails_ESS_Seperation succeeded at 2025-02-19T02:41:30.771Z
+Button "Submit for Approval" is visible.
+Button "Save as Planned" is visible.
+Button "Cancel" is visible.
+STEP: validateWorkflowButtons succeeded at 2025-02-19T02:42:19.856Z
+STEP: clicked on Save as Planned button succeeded at 2025-02-19T02:42:20.020Z
+Error Message: Repatriation travel must have a Cost Assignment with fund "FSE" and grant "NON-GRANT". Please note that "FSE" will not be part of the picklist and will need to be typed on the field manually.
+STEP: Get Cost Assignment Error succeeded at 2025-02-19T02:42:23.446Z
+STEP: Re-enter Cost Assignment succeeded at 2025-02-19T02:42:23.665Z
+STEP: clicked on Save as Planned button succeeded at 2025-02-19T02:42:32.961Z
+STEP: getTripNumber succeeded at 2025-02-19T02:42:51.592Z
+Trip Number generated after clicking on Save as Planned: 0005001944
+STEP: getTripStatus succeeded at 2025-02-19T02:42:51.594Z
+Trip Status after clicking on Save as Planned: Planned
+STEP: clicked on Editbutton in Trip Details succeeded at 2025-02-19T02:42:51.668Z
+Resolved file path: D:\Azure-TravelRepo\TravelSimplificationProject\e2e\testdata\Attachments\TripForm01081277.pdf
+File name to check: TripForm01081277
+Attachment icon clicked, waiting for AutoIt script to run.
+AutoIt executable path: D:\Azure-TravelRepo\TravelSimplificationProject\e2e\AutoITScripts\file_upload.exe
+AutoIt script stdout: 
+Attached File Name: TripForm01081277
+STEP: uploadAttachment succeeded at 2025-02-19T02:43:02.280Z
+STEP: clicked on Submit for Approval button succeeded at 2025-02-19T02:43:20.356Z
+STEP: getTripStatus succeeded at 2025-02-19T02:43:44.506Z
+Trip Status after clicking on Submit for Approval Submitted
+Clicked on profile icon.
+Clicked on logout button.
+Clicked on sign out button.
+STEP: logout succeeded at 2025-02-19T02:43:44.558Z
+STEP: Logout as Traveller succeeded at 2025-02-19T02:43:44.558Z

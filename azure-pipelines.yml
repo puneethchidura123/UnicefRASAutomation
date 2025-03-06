@@ -1,0 +1,71 @@
+trigger: none  # Disabling automatic triggers, as this will run on a schedule
+
+schedules:
+- cron: "0 7 * * 5"  # Runs every Friday at 07:00 AM UTC (08:00 AM Valencia time, CET)
+  displayName: "Weekly Run - Valencia Time (Every Friday)"
+  always: true  # Ensures the pipeline runs even if there are no code changes
+  branches:
+    include:
+      - RamBranch  # Runs on RamBranch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  UPLOAD_ENABLED: 'false' # Set to 'false' to disable the upload step in the pipeline
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm ci
+    npx playwright install --with-deps chromium
+    npm install allure-playwright --save-dev
+    npm install -g allure-commandline
+  displayName: 'Install dependencies and Allure CLI'
+
+- script: |  
+    npx playwright test dutyTravelMESS-BUDORejectesTheTrip.spec.ts
+    npx playwright test dutyTravelMESS-TRAARejectesTheTrip.spec.ts
+   
+  env:
+    CI: 'true'
+    UPLOAD_ENABLED: $(UPLOAD_ENABLED)
+  displayName: 'Run Playwright tests'
+
+- script: |
+    mkdir -p combined-reports
+    cp -r allure-results combined-reports/allure-results
+    allure generate allure-results --clean -o combined-reports/allure-report
+  displayName: 'Generate and Combine Allure Report'
+
+# Publish JUnit XML report
+- task: PublishTestResults@2
+  displayName: 'Publish JUnit test results'
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/e2e-junit-results.xml'
+    searchFolder: 'test-results'
+    mergeTestResults: true
+    failTaskOnFailedTests: true
+    testRunTitle: 'My End-To-End Tests'
+  condition: succeededOrFailed()
+
+# Publish Playwright HTML report
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: 'playwright-report'
+    artifact: 'playwright-report'
+    publishLocation: 'pipeline'
+  condition: succeededOrFailed()
+
+# Publish combined reports (Allure results and Allure report)
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: 'combined-reports'
+    artifact: 'combined-reports'
+    publishLocation: 'pipeline'
+  condition: succeededOrFailed()

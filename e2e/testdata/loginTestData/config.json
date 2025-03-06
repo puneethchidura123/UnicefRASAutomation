@@ -1,0 +1,11 @@
+{
+  "username": "QA_RAS_hrbp_1",
+  "password": "Hrbp@123",
+  "username_hiring_manager": "QA_RAS_hiring_manager1",
+  "password_hiring_manager": "Rasmanager@123",
+  "test": "https://uniceftest.service-now.com/mp\n",
+  "dev": "https://unicefdev.service-now.com/mp\n",
+  "env": "test",
+  "test1": "https://uniceftest.service-now.com/login.do",
+  "test2": "https://uniceftest.service-now.com/mp\n"
+}
