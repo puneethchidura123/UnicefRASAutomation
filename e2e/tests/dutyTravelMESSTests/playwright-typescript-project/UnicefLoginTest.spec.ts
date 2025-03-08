@@ -1,11 +1,11 @@
 import { test, expect, chromium } from '@playwright/test';
 // import { test, expect, chromium } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/fixtures/pageFixtures.ts";
 import * as fs from 'fs';
-// import rasLoginPage from "D:/UnicefAutomation/UnicefRASAutomation/e2e/pages/rasPages/RasLoginPage.ts";
 import testData from "D:/UnicefAutomation/UnicefRASAutomation/e2e/testdata/loginTestData/TestData.json";
 import configData from "D:/UnicefAutomation/UnicefRASAutomation/e2e/testdata/loginTestData/config.json";
 import path from 'path';
 import { RasLoginPage } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/pages/rasPages/RasLoginPage.ts";
+import { RasHomePage } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts";
 
 import {
   logStep
@@ -34,8 +34,7 @@ function saveDataToFile(positionNumber: string, jprNumberText: string) {
 }
 
 
-test('login to ServiceNow', async () => {
-// rasLoginPage;
+test('login to RasLoginPage', async () => {
   test.setTimeout(300000);
   const config = configData;
   const testDataArray = testData;
@@ -60,6 +59,7 @@ test('login to ServiceNow', async () => {
         await page.waitForTimeout(1000);  // Optional: you may remove this as it might not be needed
 
   const rasLoginPage = new RasLoginPage(page);
+  const rasHomePage = new RasHomePage(page);
   await logStep("Login as HRBP", async () => {
     await rasLoginPage.loginToApplication(
       configData.username ?? "",
@@ -74,19 +74,11 @@ test('login to ServiceNow', async () => {
 
 
     try {
-
-        await page.waitForSelector('//span[text()="Job Positions"]', { timeout: 20000 });
-        await page.waitForTimeout(1000);
-
-        // Step 6: Navigate to "Job Positions"
-        await page.click('//span[text()="Job Positions"]');
-        await page.waitForTimeout(1000);
-
-        // Step 7: Open "RAS Recruitment Regular Form"
-        await page.click('//span[text()="RAS Recruitment Regular Form"]');
-        await page.waitForTimeout(1000);
-
         // Step 8: Fill in "Vacancy Announcement Duration"
+       await logStep("Navigating to RasHomePage", async () => {
+         await rasHomePage.navigatingToRasHomePage();
+       });
+
         await page.fill('input[name="vaccancy_announcement_duration_in_days"]', testData.vaccancy_announcement_duration_in_days);
         await page.waitForTimeout(1000);
   await page.locator('#s2id_sp_formfield_is_this_batch_recruitment a').click();
