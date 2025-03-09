@@ -61,7 +61,6 @@ class RegularRecruitmentPage {
           }
           console.log('No issues detected. Proceeding with further steps...');
         }
-        //position_number things are done
     });
 }
   async fillContactsInformation(primary_contact: string, hr_manager: string, hiring_manager: string) {
@@ -89,7 +88,9 @@ class RegularRecruitmentPage {
 
   }
 
-    async fillVAJobSpecification(batch_recruitment: string, contract_duration_months: string) {
+    async fillVAJobSpecification(batch_recruitment: string, contract_duration_months: string,
+    areas_of_education: string,
+    areas_of_work: string) {
       await logStep("fillVAJobSpecification", async () => {
         console.log('Step: Clicking the va_job_specification label...');
         const va_job_labelSelector = '//*[@id="va_job_specification"]';
@@ -135,6 +136,42 @@ class RegularRecruitmentPage {
                 // Wait for a few seconds to ensure the file upload completes
                 await this.page.waitForTimeout(7000);
                 console.log('File upload completed successfully.');
+
+                const iframeSelector = '(//iframe[@title="Rich Text Area" and contains(@class, "tox-edit-area__iframe")])[2]';
+                const iframeElement = await this.page.waitForSelector(iframeSelector);
+                const frame = await iframeElement.contentFrame();
+
+               if (frame) {
+                     const contentEditableSelector = 'body#tinymce.mce-content-body';
+                     await frame.fill(contentEditableSelector, 'This section is the purpose of the position. You are providing a snapshot of what the job entails, rather than simply cutting and pasting paragraphs from the JD. Add the key accountabilities, inserting only the headings (rather than all bullet points) elaborating where a full sentence is needed.\nLanguage tips: you may personalize this to the reader, e.g. "Join our team", and do not use impersonal, generic terms such as "the incumbent".');
+
+                     console.log('Text has been successfully entered into the iframe.');
+                 } else {
+                     console.log('Failed to access the iframe content.');
+                 }
+                await page.waitForTimeout(6000);
+                console.log('ENTERED => Purpose and roles & responsibilities');
+                console.log('Hitting TAB from hey board....');
+                await page.keyboard.press('Tab');
+                console.log('Hitting TAB from hey board....DONE');
+
+                await page.click('//*[@id="s2id_sp_formfield_areas_of_education"]/ul/li/input');
+                console.log('Clicked on Accounting dropdown')
+                await page.fill('//*[@id="s2id_sp_formfield_areas_of_education"]/ul/li/input', areas_of_education);
+                console.log('Filled on Accounting')
+                await page.waitForTimeout(5000);
+                await page.click(`//div[text()="${areas_of_education}"]`);
+                await page.waitForTimeout(5000);
+                console.log('Clicked on Accounting')
+
+                await page.click('//*[@id="s2id_sp_formfield_areas_of_work"]/ul/li/input');
+                console.log('Clicked on Accounting and Auditing')
+                await page.fill('//*[@id="s2id_sp_formfield_areas_of_work"]/ul/li/input', areas_of_work);
+                console.log('Filled on Accounting and Auditing')
+                await page.waitForTimeout(2000);
+                await page.click(`//div[text()="${areas_of_work}"]`);
+                await page.waitForTimeout(3000);
+                console.log('Clicked on Accounting and Auditing')
         }
 
       });

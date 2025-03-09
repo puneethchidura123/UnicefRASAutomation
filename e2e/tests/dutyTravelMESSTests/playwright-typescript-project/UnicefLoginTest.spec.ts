@@ -102,45 +102,11 @@ test('login to RasLoginPage', async () => {
        await logStep("fillVAJobSpecification", async () => {
          await regularRecruitmentPage.fillVAJobSpecification(
          testData.batch_recruitment ?? "",
-         testData.contract_duration_months ?? ""
+         testData.contract_duration_months ?? "",
+         testData.areas_of_education ?? "",
+         testData.areas_of_work ?? ""
          );
        });
-
-        const iframeSelector = '(//iframe[@title="Rich Text Area" and contains(@class, "tox-edit-area__iframe")])[2]';
-        const iframeElement = await page.waitForSelector(iframeSelector);
-        const frame = await iframeElement.contentFrame();
-
-       if (frame) {
-             const contentEditableSelector = 'body#tinymce.mce-content-body';
-             await frame.fill(contentEditableSelector, 'This section is the purpose of the position. You are providing a snapshot of what the job entails, rather than simply cutting and pasting paragraphs from the JD. Add the key accountabilities, inserting only the headings (rather than all bullet points) elaborating where a full sentence is needed.\nLanguage tips: you may personalize this to the reader, e.g. "Join our team", and do not use impersonal, generic terms such as "the incumbent".');
-
-             console.log('Text has been successfully entered into the iframe.');
-         } else {
-             console.log('Failed to access the iframe content.');
-         }
-        await page.waitForTimeout(6000);
-        console.log('ENTERED => Purpose and roles & responsibilities');
-        console.log('Hitting TAB from hey board....');
-        await page.keyboard.press('Tab');
-        console.log('Hitting TAB from hey board....DONE');
-
-        await page.click('//*[@id="s2id_sp_formfield_areas_of_education"]/ul/li/input');
-        console.log('Clicked on Accounting dropdown')
-        await page.fill('//*[@id="s2id_sp_formfield_areas_of_education"]/ul/li/input', testData.areas_of_education);
-        console.log('Filled on Accounting')
-        await page.waitForTimeout(5000);
-        await page.click(`//div[text()="${testData.areas_of_education}"]`);
-        await page.waitForTimeout(5000);
-        console.log('Clicked on Accounting')
-
-        await page.click('//*[@id="s2id_sp_formfield_areas_of_work"]/ul/li/input');
-        console.log('Clicked on Accounting and Auditing')
-        await page.fill('//*[@id="s2id_sp_formfield_areas_of_work"]/ul/li/input', testData.areas_of_work);
-        console.log('Filled on Accounting and Auditing')
-        await page.waitForTimeout(2000);
-        await page.click(`//div[text()="${testData.areas_of_work}"]`);
-        await page.waitForTimeout(3000);
-        console.log('Clicked on Accounting and Auditing')
 
         await page.waitForTimeout(7000);
         await page.click('//*[@id="va_minimum_requirements_desirables"]');
