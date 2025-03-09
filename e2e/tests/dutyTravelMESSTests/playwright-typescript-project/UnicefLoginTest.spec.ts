@@ -6,6 +6,7 @@ import configData from "D:/UnicefAutomation/UnicefRASAutomation/e2e/testdata/log
 import path from 'path';
 import { RasLoginPage } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/pages/rasPages/RasLoginPage.ts";
 import { RasHomePage } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts";
+import { RegularRecruitmentPage } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/pages/rasPages/RegularRecruitmentPage.ts";
 
 import {
   logStep
@@ -60,6 +61,7 @@ test('login to RasLoginPage', async () => {
 
   const rasLoginPage = new RasLoginPage(page);
   const rasHomePage = new RasHomePage(page);
+  const regularRecruitmentPage = new RegularRecruitmentPage(page);
   await logStep("Login as HRBP", async () => {
     await rasLoginPage.loginToApplication(
       configData.username ?? "",
@@ -74,128 +76,35 @@ test('login to RasLoginPage', async () => {
 
 
     try {
-        // Step 8: Fill in "Vacancy Announcement Duration"
        await logStep("Navigating to RasHomePage", async () => {
          await rasHomePage.navigatingToRasHomePage();
        });
 
-        await page.fill('input[name="vaccancy_announcement_duration_in_days"]', testData.vaccancy_announcement_duration_in_days);
-        await page.waitForTimeout(1000);
-  await page.locator('#s2id_sp_formfield_is_this_batch_recruitment a').click();
-  await page.getByRole('option', { name: testData.batch_recruitment }).click();
-        // Step 9: Select an option from the dropdown
-        await page.click('#s2id_sp_formfield_please_confirm_where_the_advertised_position_belongs_to .select2-choice');
-        await page.waitForTimeout(1000);
-        const optionSelector = '//div[contains(@class, "select2-result-label") and text()="Headquarter with GS and IP positions"]';
-        await page.waitForSelector(optionSelector, { state: 'visible', timeout: 10000 });
-        await page.click(optionSelector);
-        await page.waitForTimeout(1000);
+       await logStep("fillBasicInformation", async () => {
+         await regularRecruitmentPage.fillBasicInformation(testData.vaccancy_announcement_duration_in_days ?? "",
+         testData.batch_recruitment ?? "",
+         testData.position_number ?? "",
+         testData.position_numbers ?? [],
+         testData.primary_contact ?? "",
+         testData.hr_manager ?? "",
+         testData.hiring_manager ?? "",
+         );
+       });
 
-        if (testData.batch_recruitment === 'Yes') {
-          await page.getByRole('heading', { name: 'Multiple Position Details ' }).click();
+       await logStep("fillContactsInformation", async () => {
+         await regularRecruitmentPage.fillContactsInformation(
+         testData.primary_contact ?? "",
+         testData.hr_manager ?? "",
+         testData.hiring_manager ?? "",
+         );
+       });
 
-            for (const posNum of testData.position_numbers) {
-              await page.getByLabel('Add a row for Multiple').click();
-              await page.getByLabel('Position number').click();
-              await page.getByLabel('Position number').fill(posNum);
-              await page.keyboard.press('Tab');
-              await page.waitForTimeout(5000);
-              await page.getByRole('button', { name: 'Add' }).click();
-              await page.waitForTimeout(3000);
-            }
-        } else {
-          await page.fill('input[name="position_number"]', testData.position_number);
-          await page.waitForTimeout(1000);
-          await page.keyboard.press('Tab');
-          await page.waitForTimeout(10000);
-         const positionAlreadyExistsXPath = '//div[contains(text(), "There is already an active request/draft for this position number.")]';
-          console.log('Checking if "Position already exists" message is present...');
-          const elementHandle = await page.$(positionAlreadyExistsXPath);
-
-          if (!elementHandle) {
-              console.log('"Position already exists" message is not present. Continuing the flow...');
-          } else {
-              const isVisible = await elementHandle.isVisible();
-              console.log(`Element visibility: ${isVisible}`);
-              if (isVisible) {
-                  console.error('Error: Position already exists. Closing the browser...');
-                  await browser.close();
-                  process.exit(1);
-              } else {
-                  console.log('"Position already exists" element is not visible. Continuing...');
-              }
-          }
-
-          // Step 7: Continue the flow if no error
-          console.log('No issues detected. Proceeding with further steps...');
-        }
-
-        console.log('Step: Clicking the "Contacts" label...');
-        const labelSelector = '//label[contains(@class, "accordion-label") and @id="contacts"]';
-        await page.click(labelSelector);
-
-        console.log('"Contacts" label clicked successfully.');
-
-        await page.click('//*[@id="s2id_sp_formfield_hrbp"]/a/span[2]/b');
-        await page.fill('//label[contains(text(), "Primary Selection Support")]//following-sibling::input', testData.primary_contact);
-        await page.click(`//div[text()="${testData.primary_contact}"]`);
-        console.log('Clicked on primary_contact');
-
-        await page.click('//*[@id="s2id_sp_formfield_hr_representative"]/a/span[2]/b');
-        await page.fill('//label[contains(text(), "HR Representative")]//following-sibling::input', testData.hr_manager);
-        await page.click(`//div[text()="${testData.hr_manager}"]`);
-
-        await page.click('//*[@id="s2id_sp_formfield_hiring_manager"]/a/span[2]/b');
-        await page.fill('//label[contains(text(), "Hiring manager")]//following-sibling::input', testData.hiring_manager);
-        await page.click(`//div[text()="${testData.hiring_manager}"]`);
-        await page.waitForTimeout(7000);
-
-        console.log('Step: Clicking the va_job_specification label...');
-        const va_job_labelSelector = '//*[@id="va_job_specification"]';
-        await page.click(va_job_labelSelector);
-        await page.waitForTimeout(3000);
-        await page.getByLabel('form', { exact: true }).getByText('I hereby declare that all the').click();
-        await page.waitForTimeout(5000);
-        await page.fill('input[name="contract_duration_months"]', testData.contract_duration_months);
-        await page.waitForTimeout(3000);
-
-        if (testData.batch_recruitment === 'Yes') {
-                console.log('Step 2: Trigger the file upload dialog...Bulk');
-                const uploadButtonSelector = 'button[aria-label="Upload Attachment for Attach classified JD/classification notice and JD Required"]';
-                await page.waitForSelector(uploadButtonSelector, { state: 'visible', timeout: 7000 });
-
-                console.log('Step 3: Identify the hidden file input element...');
-                // Assumes the file input is a sibling of the button or dynamically added
-                const fileInputSelector = 'input[type="file"]'; // Adjust selector if necessary
-
-                console.log('Step 4: Upload the file...');
-                const fileName = 'jd.doc';
-                const filePath = path.resolve(__dirname, fileName);
-                console.log(`Resolved file path: ${filePath}`);
-                await page.setInputFiles(fileInputSelector, filePath);
-
-                // Wait for a few seconds to ensure the file upload completes
-                await page.waitForTimeout(7000);
-                console.log('File upload completed successfully.');
-        } else {
-                console.log('Step 2: Trigger the file upload dialog...');
-                const uploadButtonSelector = 'button[aria-label="Upload Attachment for Attach JD/TOR Required"]';
-                await page.waitForSelector(uploadButtonSelector, { state: 'visible', timeout: 7000 });
-
-                console.log('Step 3: Identify the hidden file input element...');
-                // Assumes the file input is a sibling of the button or dynamically added
-                const fileInputSelector = 'input[type="file"]'; // Adjust selector if necessary
-
-                console.log('Step 4: Upload the file...');
-                const fileName = 'jhansi.doc';
-                const filePath = path.resolve(__dirname, fileName);
-                console.log(`Resolved file path: ${filePath}`);
-                await page.setInputFiles(fileInputSelector, filePath);
-
-                // Wait for a few seconds to ensure the file upload completes
-                await page.waitForTimeout(7000);
-                console.log('File upload completed successfully.');
-        }
+       await logStep("fillVAJobSpecification", async () => {
+         await regularRecruitmentPage.fillVAJobSpecification(
+         testData.batch_recruitment ?? "",
+         testData.contract_duration_months ?? ""
+         );
+       });
 
         const iframeSelector = '(//iframe[@title="Rich Text Area" and contains(@class, "tox-edit-area__iframe")])[2]';
         const iframeElement = await page.waitForSelector(iframeSelector);
