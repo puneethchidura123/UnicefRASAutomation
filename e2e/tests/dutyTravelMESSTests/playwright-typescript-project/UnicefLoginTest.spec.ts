@@ -122,13 +122,7 @@ test('login to RasLoginPage', async () => {
          await regularRecruitmentPage.submitForm();
        });
 
-
-//         const submit_button = '(//button[text()="Submit"])[2]'
-//         await page.click(submit_button);
-//         console.log('clicked on submit button')
-
         const JPR_NUMBER =  '//*[@id="uiNotificationContainer"]/div/span/a/b';
-        // Wait for the element to be present and extract its text content
         const jprNumberText = await page.textContent(JPR_NUMBER);
         console.log('Extracted JPR Number:', jprNumberText);
 
