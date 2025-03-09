@@ -176,5 +176,43 @@ class RegularRecruitmentPage {
 
       });
   }
+
+    async fillVAMinimumRequirementsDesirables(tagline_for_every_child: string) {
+      await logStep("fillVAMinimumRequirementsDesirables", async () => {
+        await this.page.waitForTimeout(7000);
+        await this.page.click('//*[@id="va_minimum_requirements_desirables"]');
+        console.log('Clicked on va_minimum_requirements_desirables')
+        await this.page.waitForTimeout(2000);
+
+        console.log('Setting For every child, [insert tagline]....')
+        await this.page.click('//*[@id="s2id_sp_formfield_for_every_child"]');
+        await this.page.fill('//label[text()="For every child, [insert tagline]"]/following-sibling::input', tagline_for_every_child);
+        await this.page.click(`//ul[@class="select2-results" and @role="listbox"]//div[@role="option" and contains(., "${tagline_for_every_child}")]`);
+        console.log('Setting For every child, [insert tagline].... COMPLETED')
+      });
+    }
+    async fillFullVacancyAnnouncementText() {
+      await logStep("fillFullVacancyAnnouncementText", async () => {
+        await this.page.waitForTimeout(8000);
+        const full_vacancy_announcement_text = '//*[@id="full_vacancy_announcement_text"]';
+        console.log('clicking... on  full_vacancy_announcement_text');
+        await this.page.click(full_vacancy_announcement_text);
+        console.log('clicked on  full_vacancy_announcement_text');
+        await this.page.evaluate(() => {
+          const checkbox = document.getElementById('sp_formfield_remarks_checkbox');
+          if (checkbox && !checkbox.checked) {
+              checkbox.click();
+          }
+        });
+        console.log('Clicked on Acknowledgement checkbox');
+      });
+    }
+    async submitForm() {
+      await logStep("submitForm", async () => {
+        const submit_button = '(//button[text()="Submit"])[2]'
+        await this.page.click(submit_button);
+        console.log('clicked on submit button')
+      });
+    }
 }
 export { RegularRecruitmentPage };

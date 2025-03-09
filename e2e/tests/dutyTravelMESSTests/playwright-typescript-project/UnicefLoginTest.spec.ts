@@ -108,36 +108,24 @@ test('login to RasLoginPage', async () => {
          );
        });
 
-        await page.waitForTimeout(7000);
-        await page.click('//*[@id="va_minimum_requirements_desirables"]');
-        console.log('Clicked on va_minimum_requirements_desirables')
-        await page.waitForTimeout(2000);
+       await logStep("fillVAMinimumRequirementsDesirables", async () => {
+         await regularRecruitmentPage.fillVAMinimumRequirementsDesirables(
+         testData.tagline_for_every_child ?? ""
+         );
+       });
 
-        console.log('Setting For every child, [insert tagline]....')
-        await page.click('//*[@id="s2id_sp_formfield_for_every_child"]');
-        await page.fill('//label[text()="For every child, [insert tagline]"]/following-sibling::input', testData.tagline_for_every_child);
-        await page.click(`//ul[@class="select2-results" and @role="listbox"]//div[@role="option" and contains(., "${testData.tagline_for_every_child}")]`);
-        console.log('Setting For every child, [insert tagline].... COMPLETED')
+       await logStep("fillFullVacancyAnnouncementText", async () => {
+         await regularRecruitmentPage.fillFullVacancyAnnouncementText();
+       });
 
-        await page.waitForTimeout(8000);
-        const full_vacancy_announcement_text = '//*[@id="full_vacancy_announcement_text"]';
-        console.log('clicking... on  full_vacancy_announcement_text');
-        await page.click(full_vacancy_announcement_text);
-        console.log('clicked on  full_vacancy_announcement_text');
+       await logStep("submitForm", async () => {
+         await regularRecruitmentPage.submitForm();
+       });
 
 
-        await page.evaluate(() => {
-          const checkbox = document.getElementById('sp_formfield_remarks_checkbox');
-          if (checkbox && !checkbox.checked) {
-              checkbox.click();
-          }
-        });
-        console.log('Clicked on Acknowledgement checkbox');
-
-
-        const submit_button = '(//button[text()="Submit"])[2]'
-        await page.click(submit_button);
-        console.log('clicked on submit button')
+//         const submit_button = '(//button[text()="Submit"])[2]'
+//         await page.click(submit_button);
+//         console.log('clicked on submit button')
 
         const JPR_NUMBER =  '//*[@id="uiNotificationContainer"]/div/span/a/b';
         // Wait for the element to be present and extract its text content
