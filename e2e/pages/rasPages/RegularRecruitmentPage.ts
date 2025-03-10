@@ -96,33 +96,24 @@ class RegularRecruitmentPage {
         const va_job_labelSelector = '//*[@id="va_job_specification"]';
         await this.page.click(va_job_labelSelector);
         await this.page.waitForTimeout(3000);
-        await this.page.getByLabel('form', { exact: true }).getByText('I hereby declare that all the').click();
-        await this.page.waitForTimeout(5000);
-        await this.page.fill('input[name="contract_duration_months"]', contract_duration_months);
-        await this.page.waitForTimeout(3000);
+//         await this.page.getByLabel('form', { exact: true }).getByText('I hereby declare that all the').click();
+//         await this.page.waitForTimeout(5000);
+//         await this.page.fill('input[name="contract_duration_months"]', contract_duration_months);
+//         await this.page.waitForTimeout(3000);
 
         if (batch_recruitment === 'Yes') {
-                console.log('Step 2: Trigger the file upload dialog...Bulk');
-                const uploadButtonSelector = 'button[aria-label="Upload Attachment for Attach JD/TOR Required"]';
-                await this.page.waitForSelector(uploadButtonSelector, { state: 'visible', timeout: 7000 });
-
-                console.log('Step 3: Identify the hidden file input element...');
-                // Assumes the file input is a sibling of the button or dynamically added
-                const fileInputSelector = 'input[type="file"]'; // Adjust selector if necessary
-
-                console.log('Step 4: Upload the file...');
-                const fileName = 'jd.doc';
-                const filePath = path.resolve(__dirname, fileName);
-                console.log(`Resolved file path: ${filePath}`);
-                await this.page.setInputFiles(fileInputSelector, filePath);
-
-                // Wait for a few seconds to ensure the file upload completes
-                await this.page.waitForTimeout(7000);
+                await this.page.getByLabel('form', { exact: true }).getByText('I hereby declare that all the').click();
+                await this.page.waitForTimeout(5000);
+                await this.page.fill('input[name="contract_duration_months"]', contract_duration_months);
+                await this.page.waitForTimeout(3000);
                 console.log('File upload completed successfully.');
         } else {
+                await this.page.fill('input[name="contract_duration_months"]', contract_duration_months);
+                await this.page.waitForTimeout(3000);
+        }
                 console.log('Step 2: Trigger the file upload dialog...');
-//                 const uploadButtonSelector = 'button[aria-label="Upload Attachment for Attach JD/TOR Required"]';
-                await this.page.waitForSelector(uploadButtonSelector, { state: 'visible', timeout: 7000 });
+               const uploadButtonSelector = '//button[contains(@aria-label, "Upload Attachment")]';
+               await this.page.waitForSelector(uploadButtonSelector, { state: 'visible', timeout: 7000 });
 
                 console.log('Step 3: Identify the hidden file input element...');
                 const fileInputSelector = 'input[type="file"]'; // Adjust selector if necessary
@@ -149,30 +140,30 @@ class RegularRecruitmentPage {
                  } else {
                      console.log('Failed to access the iframe content.');
                  }
-                await page.waitForTimeout(6000);
+                await this.page.waitForTimeout(6000);
                 console.log('ENTERED => Purpose and roles & responsibilities');
                 console.log('Hitting TAB from hey board....');
-                await page.keyboard.press('Tab');
+                await this.page.keyboard.press('Tab');
                 console.log('Hitting TAB from hey board....DONE');
 
-                await page.click('//*[@id="s2id_sp_formfield_areas_of_education"]/ul/li/input');
+                await this.page.click('//*[@id="s2id_sp_formfield_areas_of_education"]/ul/li/input');
                 console.log('Clicked on Accounting dropdown')
-                await page.fill('//*[@id="s2id_sp_formfield_areas_of_education"]/ul/li/input', areas_of_education);
+                await this.page.fill('//*[@id="s2id_sp_formfield_areas_of_education"]/ul/li/input', areas_of_education);
                 console.log('Filled on Accounting')
-                await page.waitForTimeout(5000);
-                await page.click(`//div[text()="${areas_of_education}"]`);
-                await page.waitForTimeout(5000);
+                await this.page.waitForTimeout(5000);
+                await this.page.click(`//div[text()="${areas_of_education}"]`);
+                await this.page.waitForTimeout(5000);
                 console.log('Clicked on Accounting')
 
-                await page.click('//*[@id="s2id_sp_formfield_areas_of_work"]/ul/li/input');
+                await this.page.click('//*[@id="s2id_sp_formfield_areas_of_work"]/ul/li/input');
                 console.log('Clicked on Accounting and Auditing')
-                await page.fill('//*[@id="s2id_sp_formfield_areas_of_work"]/ul/li/input', areas_of_work);
+                await this.page.fill('//*[@id="s2id_sp_formfield_areas_of_work"]/ul/li/input', areas_of_work);
                 console.log('Filled on Accounting and Auditing')
-                await page.waitForTimeout(2000);
-                await page.click(`//div[text()="${areas_of_work}"]`);
-                await page.waitForTimeout(3000);
+                await this.page.waitForTimeout(2000);
+                await this.page.click(`//div[text()="${areas_of_work}"]`);
+                await this.page.waitForTimeout(3000);
                 console.log('Clicked on Accounting and Auditing')
-        }
+//         }
 
       });
   }
