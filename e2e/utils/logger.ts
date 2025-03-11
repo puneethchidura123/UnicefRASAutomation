@@ -6,11 +6,26 @@ let currentTestFileName: string = "default";
 let logFileName: string | null = null;
 
 // Define the logs directory at the project root
+// const logDir = path.resolve(__dirname, "../../logs");
+//
+// // Create the logs directory if it doesn't exist
+// if (!fs.existsSync(logDir)) {
+//   fs.mkdirSync(logDir);
+// }
+
 const logDir = path.resolve(__dirname, "../../logs");
 
-// Create the logs directory if it doesn't exist
-if (!fs.existsSync(logDir)) {
-  fs.mkdirSync(logDir);
+console.log("Resolved log directory path:", logDir); // Debugging step
+
+try {
+  if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir, { recursive: true }); // Ensure parent directories exist
+    console.log("✅ Log directory created:", logDir);
+  } else {
+    console.log("ℹ️ Log directory already exists:", logDir);
+  }
+} catch (error) {
+  console.error("❌ Error creating log directory:", error);
 }
 
 // Function to generate a timestamp
