@@ -33,4 +33,4 @@ class RasLoginPage {
     });
   }
 }
-export { RasLoginPage };
+export default  RasLoginPage ;

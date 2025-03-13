@@ -1,33 +1,39 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="5.216253000000001">
-<testsuite name="rasTests/UnicefLoginTest.spec.ts" timestamp="2025-03-13T10:48:40.658Z" hostname="chromium" tests="1" failures="1" skipped="0" time="4.876" errors="0">
-<testcase name="login to RasLoginPage" classname="rasTests/UnicefLoginTest.spec.ts" time="4.876">
-<failure message="UnicefLoginTest.spec.ts:36:5 login to RasLoginPage" type="FAILURE">
-<![CDATA[  [chromium] › rasTests/UnicefLoginTest.spec.ts:36:5 › login to RasLoginPage ───────────────────────
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="17.750469000000002">
+<testsuite name="rasTests/rasHRBPRRFormSubmissionTest.spec.ts" timestamp="2025-03-13T12:19:27.041Z" hostname="chromium" tests="1" failures="1" skipped="0" time="17.048" errors="0">
+<testcase name="login to RasLoginPage" classname="rasTests/rasHRBPRRFormSubmissionTest.spec.ts" time="17.048">
+<failure message="rasHRBPRRFormSubmissionTest.spec.ts:60:5 login to RasLoginPage" type="FAILURE">
+<![CDATA[  [chromium] › rasTests/rasHRBPRRFormSubmissionTest.spec.ts:60:5 › login to RasLoginPage ───────────
 
-    Error: browser.newContext: "deviceScaleFactor" option is not supported with null "viewport"
+    Error: page.waitForTimeout: Target page, context or browser has been closed
 
-      46 |     });
-      47 |
-    > 48 |   const context = await browser.newContext({
-         |                   ^
-      49 |     viewport: null // Correct way to disable viewport
-      50 |     //viewport: { width: 1280, height: 720 }, // Define a specific viewport size
-      51 |   //deviceScaleFactor: 2, // Use a valid scale factor
+      45 | test.beforeEach(async ({ page }) => {
+      46 |   await page.goto(process.env.URL ?? "");
+    > 47 |   await page.waitForTimeout(20000);
+         |              ^
+      48 | });
+      49 |
+      50 | /**
 
-        at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/UnicefLoginTest.spec.ts:48:19
+        at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/rasHRBPRRFormSubmissionTest.spec.ts:47:14
 
-    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
-    test-results/rasTests-UnicefLoginTest-login-to-RasLoginPage-chromium/trace.zip
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/rasTests-rasHRBPRRFormSubmissionTest-login-to-RasLoginPage-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/rasTests-rasHRBPRRFormSubmissionTest-login-to-RasLoginPage-chromium/trace.zip
     Usage:
 
-        npx playwright show-trace test-results/rasTests-UnicefLoginTest-login-to-RasLoginPage-chromium/trace.zip
+        npx playwright show-trace test-results/rasTests-rasHRBPRRFormSubmissionTest-login-to-RasLoginPage-chromium/trace.zip
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
 </failure>
 <system-out>
 <![CDATA[
-[[ATTACHMENT|rasTests-UnicefLoginTest-login-to-RasLoginPage-chromium/trace.zip]]
+[[ATTACHMENT|rasTests-rasHRBPRRFormSubmissionTest-login-to-RasLoginPage-chromium/video.webm]]
+
+[[ATTACHMENT|rasTests-rasHRBPRRFormSubmissionTest-login-to-RasLoginPage-chromium/trace.zip]]
 ]]>
 </system-out>
 </testcase>

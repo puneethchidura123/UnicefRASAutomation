@@ -1,7 +1,7 @@
 import { test, expect, chromium } from '@playwright/test';
 import testData from "../../testdata/loginTestData/TestData.json"
 import configData from "../../testdata/loginTestData/config.json"
-import { RasLoginPage } from "../../pages/rasPages/RasLoginPage";
+//import { RasLoginPage } from "../../pages/rasPages/RasLoginPage";
 //import { RasLoginPage } from "../../../pages/rasPages/RasLoginPage.ts";
 import { RasHomePage } from "../../pages/rasPages/RasHomePage";
 import { RegularRecruitmentPage } from "../../pages/rasPages/RegularRecruitmentPage";
@@ -62,14 +62,14 @@ test('login to RasLoginPage', async () => {
         }
         await page.waitForTimeout(1000);  // Optional: you may remove this as it might not be needed
 
-  const rasLoginPage = new RasLoginPage(page);
+  //const rasLoginPage = new RasLoginPage(page);
   const rasHomePage = new RasHomePage(page);
-  const regularRecruitmentPage = new RegularRecruitmentPage(page);
+  //const regularRecruitmentPage = new RegularRecruitmentPage(page);
   await logStep("Login as HRBP", async () => {
-    await rasLoginPage.loginToApplication(
-      configData.username ?? "",
-      configData.password ?? ""
-    );
+    // await rasLoginPage.loginToApplication(
+    //   configData.username ?? "",
+    //   configData.password ?? ""
+    // );
   });
 
         await page.waitForTimeout(3000); // Added a longer wait for the login process to complete
@@ -83,62 +83,67 @@ test('login to RasLoginPage', async () => {
          await rasHomePage.navigatingToRasHomePage();
        });
 
-       await logStep("fillBasicInformation", async () => {
-         await regularRecruitmentPage.fillBasicInformation(testData.vaccancy_announcement_duration_in_days ?? "",
-         testData.batch_recruitment ?? "",
-         testData.position_number ?? "",
-         testData.position_numbers ?? [],
-         testData.primary_contact ?? "",
-         testData.hr_manager ?? "",
-         testData.hiring_manager ?? "",
-         );
-       });
+      //  await logStep("fillBasicInformation", async () => {
+      //    await regularRecruitmentPage.fillBasicInformation(testData.vaccancy_announcement_duration_in_days ?? "",
+      //    testData.batch_recruitment ?? "",
+      //    testData.position_number ?? "",
+      //    testData.position_numbers ?? [],
+      //    //testData.primary_contact ?? "",
+      //    //testData.hr_manager ?? "",
+      //    //testData.hiring_manager ?? "",
+      //    );
+      //  });
 
-       await logStep("fillContactsInformation", async () => {
-         await regularRecruitmentPage.fillContactsInformation(
-         testData.primary_contact ?? "",
-         testData.hr_manager ?? "",
-         testData.hiring_manager ?? "",
-         );
-       });
+      //  await logStep("fillContactsInformation", async () => {
+      //    await regularRecruitmentPage.fillContactsInformation(
+      //    testData.primary_contact ?? "",
+      //    testData.hr_manager ?? "",
+      //    testData.hiring_manager ?? "",
+      //    );
+      //  });
 
-       await logStep("fillVAJobSpecification", async () => {
-         await regularRecruitmentPage.fillVAJobSpecification(
-         testData.batch_recruitment ?? "",
-         testData.contract_duration_months ?? "",
-         testData.areas_of_education ?? "",
-         testData.areas_of_work ?? ""
-         );
-       });
+    //    await logStep("fillVAJobSpecification", async () => {
+    //      await regularRecruitmentPage.fillVAJobSpecification(
+    //      testData.batch_recruitment ?? "",
+    //      testData.contract_duration_months ?? "",
+    //      testData.areas_of_education ?? "",
+    //      testData.areas_of_work ?? ""
+    //      );
+    //    });
 
-       await logStep("fillVAMinimumRequirementsDesirables", async () => {
-         await regularRecruitmentPage.fillVAMinimumRequirementsDesirables(
-         testData.tagline_for_every_child ?? ""
-         );
-       });
+    //    await logStep("fillVAMinimumRequirementsDesirables", async () => {
+    //      await regularRecruitmentPage.fillVAMinimumRequirementsDesirables(
+    //      testData.tagline_for_every_child ?? ""
+    //      );
+    //    });
 
-       await logStep("fillFullVacancyAnnouncementText", async () => {
-         await regularRecruitmentPage.fillFullVacancyAnnouncementText();
-       });
+    //    await logStep("fillFullVacancyAnnouncementText", async () => {
+    //      await regularRecruitmentPage.fillFullVacancyAnnouncementText();
+    //    });
 
-       await logStep("submitForm", async () => {
-         await regularRecruitmentPage.submitForm();
-       });
+    //    await logStep("submitForm", async () => {
+    //      await regularRecruitmentPage.submitForm();
+    //    });
 
-        const JPR_NUMBER =  '//*[@id="uiNotificationContainer"]/div/span/a/b';
-        const jprNumberText = await page.textContent(JPR_NUMBER);
-        console.log('Extracted JPR Number:', jprNumberText);
+    //     const JPR_NUMBER =  '//*[@id="uiNotificationContainer"]/div/span/a/b';
+    //     const jprNumberText = await page.textContent(JPR_NUMBER);
+    //     console.log('Extracted JPR Number:', jprNumberText);
 
-        saveDataToFile(testData.position_number, jprNumberText);
-        await page.waitForTimeout(5000);
-    } catch (error) {
-      console.error(`Error during login for ${testData.username}:`, error);
-    }
+    //     saveDataToFile(testData.position_number, jprNumberText);
+    //     await page.waitForTimeout(5000);
+    // } catch (error) {
+    //   console.error(`Error during login for ${testData.username}:`, error);
+    // }
 //     finally {
 //       if (browser) {
 //         console.log(`Closing browser for position: ${testData.position_number}`);
 //         await browser.close();
 //       }
 //     }
-  }
+      }
+      catch (error) {
+        //   console.error(`Error during login for ${testData.username}:`, error);
+         }
+      }
+  
 });
