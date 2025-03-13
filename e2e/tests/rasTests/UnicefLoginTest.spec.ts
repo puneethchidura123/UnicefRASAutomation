@@ -1,16 +1,12 @@
 import { test, expect, chromium } from '@playwright/test';
-// import { test, expect, chromium } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/fixtures/pageFixtures.ts";
-import * as fs from 'fs';
-import testData from "../../../testdata/loginTestData/TestData.json";
-import configData from "../../../testdata/loginTestData/config.json";
-import path from 'path';
-import { RasLoginPage } from "../../../pages/rasPages/RasLoginPage.ts";
-import { RasHomePage } from "../../../pages/rasPages/RasHomePage.ts";
-import { RegularRecruitmentPage } from "../../../pages/rasPages/RegularRecruitmentPage.ts";
+import testData from "../../testdata/loginTestData/TestData.json"
+import configData from "../../testdata/loginTestData/config.json"
+import { RasLoginPage } from "../../pages/rasPages/RasLoginPage";
+//import { RasLoginPage } from "../../../pages/rasPages/RasLoginPage.ts";
+import { RasHomePage } from "../../pages/rasPages/RasHomePage";
+import { RegularRecruitmentPage } from "../../pages/rasPages/RegularRecruitmentPage";
+import { logStep } from "../../utils/logger";
 
-import {
-  logStep
-} from "D:/UnicefAutomation/UnicefRASAutomation/e2e/utils/logger.ts";
 
 function saveDataToFile(positionNumber: string, jprNumberText: string) {
   const outputFile = path.resolve(__dirname, 'test_results.json');
