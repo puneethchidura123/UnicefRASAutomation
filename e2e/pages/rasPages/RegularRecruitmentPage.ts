@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 import { Browser } from "@playwright/test";
-import { logStep } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/utils/logger.ts";
-import path from 'path';
+//import { logStep } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/utils/logger.ts";
+import { logStep } from "../../utils/logger";
 
 class RegularRecruitmentPage {
   constructor(private readonly page: Page, private readonly browser: Browser) {}

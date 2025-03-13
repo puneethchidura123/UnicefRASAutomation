@@ -1,5 +1,6 @@
 import { Page } from "@playwright/test";
-import { logStep } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/utils/logger.ts";
+//import { logStep } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/utils/logger.ts";
+import { logStep } from "../../utils/logger";
 
 class RasHomePage {
   constructor(private readonly page: Page) {}

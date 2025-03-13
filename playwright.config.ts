@@ -26,11 +26,17 @@ export default defineConfig({
     headless: true,
     actionTimeout: 1_000_000,
     navigationTimeout: 1_000_000,
+    viewport: null, // Disable default viewport size
   },
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        launchOptions: {
+          args: ["--start-maximized"], // Add this to launch the browser maximized
+        },
+      },
     },
   ],
 });

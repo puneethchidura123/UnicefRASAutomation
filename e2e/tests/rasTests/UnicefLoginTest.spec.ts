@@ -6,6 +6,8 @@ import { RasLoginPage } from "../../pages/rasPages/RasLoginPage";
 import { RasHomePage } from "../../pages/rasPages/RasHomePage";
 import { RegularRecruitmentPage } from "../../pages/rasPages/RegularRecruitmentPage";
 import { logStep } from "../../utils/logger";
+import path from 'path';
+import * as fs from 'fs';
 
 
 function saveDataToFile(positionNumber: string, jprNumberText: string) {
@@ -35,6 +37,7 @@ test('login to RasLoginPage', async () => {
   test.setTimeout(300000);
   const config = configData;
   const testDataArray = testData;
+
     const browser = await chromium.launch({
       channel: 'chrome',
       headless: false,
@@ -44,7 +47,11 @@ test('login to RasLoginPage', async () => {
 
   const context = await browser.newContext({
     viewport: null // Correct way to disable viewport
+    //viewport: { width: 1280, height: 720 }, // Define a specific viewport size
+  //deviceScaleFactor: 2, // Use a valid scale factor
   });
+
+
     const page = await context.newPage();
         if(config.env === 'test'){
           await page.goto(config.test1, { waitUntil: 'domcontentloaded' });
