@@ -1,0 +1,13 @@
+STEP: Click Username Textbox succeeded at 2025-03-14T10:59:43.210Z
+Logged in as:  QA_RAS_hrbp_1
+STEP: Fill Username succeeded at 2025-03-14T10:59:43.294Z
+STEP: Fill Password succeeded at 2025-03-14T10:59:45.340Z
+STEP: Click Login Button succeeded at 2025-03-14T10:59:45.361Z
+STEP: Login as HRBP succeeded at 2025-03-14T10:59:43.210Z
+STEP: Ras home page succeeded at 2025-03-14T10:59:51.414Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-14T10:59:52.452Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-14T10:59:53.515Z
+STEP: fillBasicInformation TextBox failed at 2025-03-14T11:00:14.669Z
+STEP: fillBasicInformation failed at 2025-03-14T11:00:14.668Z
+Test: rasHRBPRRFormSubmissionTest.spec ended at 2025-03-14T11:00:16.926Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTest_2025-03-14_16-29-43.html

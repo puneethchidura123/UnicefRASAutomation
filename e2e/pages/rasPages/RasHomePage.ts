@@ -23,4 +23,4 @@ class RasHomePage {
     });
   }
 }
-export { RasHomePage };
+export default  RasHomePage ;

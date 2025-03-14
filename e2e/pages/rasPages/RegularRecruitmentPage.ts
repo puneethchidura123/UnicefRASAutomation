@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 import { Browser } from "@playwright/test";
-//import { logStep } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/utils/logger.ts";
+import * as path from "path";
 import { logStep } from "../../utils/logger";
 
 class RegularRecruitmentPage {
@@ -8,6 +8,7 @@ class RegularRecruitmentPage {
 //   private readonly va_job_labelSelector = '//*[@id="va_job_specification"]';
 //   private readonly uploadButtonSelector = 'button[aria-label="Upload Attachment for Attach JD/TOR Required"]';
   private readonly vacancyAnnouncementDurationTextBox = this.page.getByLabel('Vacancy Announcement (VA) duration in days.', { exact: true });
+  
   async fillBasicInformation(vacancy_announcement_duration_in_days: string,
    batch_recruitment: string,
    position_number: string,
@@ -53,7 +54,7 @@ class RegularRecruitmentPage {
               console.log(`Element visibility: ${isVisible}`);
               if (isVisible) {
                   console.error('Error: Position already exists. Closing the browser...');
-                  await browser.close();
+                  await this.browser.close();
                   process.exit(1);
               } else {
                   console.log('"Position already exists" element is not visible. Continuing...');
@@ -182,6 +183,7 @@ class RegularRecruitmentPage {
         console.log('Setting For every child, [insert tagline].... COMPLETED')
       });
     }
+
     async fillFullVacancyAnnouncementText() {
       await logStep("fillFullVacancyAnnouncementText", async () => {
         await this.page.waitForTimeout(8000);
@@ -198,6 +200,7 @@ class RegularRecruitmentPage {
         console.log('Clicked on Acknowledgement checkbox');
       });
     }
+
     async submitForm() {
       await logStep("submitForm", async () => {
         const submit_button = '(//button[text()="Submit"])[2]'
@@ -205,5 +208,22 @@ class RegularRecruitmentPage {
         console.log('clicked on submit button')
       });
     }
+
+    async saveAsDraft() {
+      await logStep("saving as draft", async () => {
+        const saveAsDraftButton = '//button[text()=" Save as Draft "]'
+        await this.page.click(saveAsDraftButton);
+        console.log('clicked on Save As Draft Button')
+      });
+    }
+
+    async printGeneratedJPRInConsole(){
+      await logStep("submitForm", async () => {
+        const JPR_NUMBER =  '//*[@id="uiNotificationContainer"]/div/span/a/b';
+        const jprNumberText = await this.page.textContent(JPR_NUMBER);
+        console.log('Extracted JPR Number is :', jprNumberText);
+      });
+    }
+
 }
-export { RegularRecruitmentPage };
+export default  RegularRecruitmentPage ;

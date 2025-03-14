@@ -1,5 +1,5 @@
 import { test, expect } from "../../fixtures/pageFixtures";
-import testData from "../../testdata/loginTestData/TestData.json"
+import testData from "../../testdata/loginTestData/TestData1.json"
 import configData from "../../testdata/loginTestData/config.json"
 import * as path from "path";
 import { readJsonFile, writeJsonFile } from "../../utils/jsonUtils";
@@ -42,9 +42,19 @@ test.beforeAll(async () => {
  * @param {Object} params.loginPage - Page object for the login page.
  * @param {Object} params.homePage - Page object for the home page.
  */
-test.beforeEach(async ({ page }) => {
-  await page.goto(process.env.URL ?? "");
-  await page.waitForTimeout(20000);
+test.beforeEach(async ({ page,rasLoginPage }) => {
+  //await page.goto(process.env.URL ?? "");
+  await page.goto(process.env.test1 ?? "", { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(2000);
+  await logStep("Login as HRBP", async () => {
+    await rasLoginPage.loginToApplication(
+      process.env.USER_NAME ?? "",
+      process.env.PASSWORD ?? ""
+    );
+  });
+  await page.waitForTimeout(2000);
+  await page.goto(process.env.test2 ?? "", { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(2000);
 });
 
 /**
@@ -57,11 +67,55 @@ test.afterAll(async () => {
   finalizeLogFile(); // Finalize the log file after all tests
 });
 
-test('login to RasLoginPage', async () => {
-  test.setTimeout(300000);
-  const config = configData;
-  const testDataArray = testData;
+test('login to RasLoginPage', async ({ page,rasHomePage,regularRecruitmentPage}) => {
+  await rasHomePage.navigatingToRasHomePage();
+  await page.waitForTimeout(20000);
+
+   await logStep("fillBasicInformation", async () => {
+         await regularRecruitmentPage.fillBasicInformation(testData.vaccancy_announcement_duration_in_days ?? "",
+         testData.batch_recruitment ?? "",
+         testData.position_number ?? "",
+         testData.position_numbers ?? [],
+         );
+       });
+
+  await logStep("fillContactsInformation", async () => {
+         await regularRecruitmentPage.fillContactsInformation(
+         testData.primary_contact ?? "",
+         testData.hr_manager ?? "",
+         testData.hiring_manager ?? "",
+         );
+       });
+
+       await logStep("fillVAJobSpecification", async () => {
+         await regularRecruitmentPage.fillVAJobSpecification(
+         testData.batch_recruitment ?? "",
+         testData.contract_duration_months ?? "",
+         testData.areas_of_education ?? "",
+         testData.areas_of_work ?? ""
+         );
+       });
+
+       await logStep("fillVAMinimumRequirementsDesirables", async () => {
+         await regularRecruitmentPage.fillVAMinimumRequirementsDesirables(
+         testData.tagline_for_every_child ?? ""
+         );
+       });
+
+       await logStep("fillFullVacancyAnnouncementText", async () => {
+         await regularRecruitmentPage.fillFullVacancyAnnouncementText();
+       });
+
+       await logStep("submitting RR Form", async () => {
+         await regularRecruitmentPage.submitForm();
+       });
+
+       await logStep("priniting the generated JPR Number ", async () => {
+        await regularRecruitmentPage.printGeneratedJPRInConsole()
+      });
 });
+
+
 /**
  * Test: Verifying whether BUDO is able to reject the trip submitted by the Traveller.
  */
