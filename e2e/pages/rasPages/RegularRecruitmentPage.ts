@@ -193,7 +193,7 @@ class RegularRecruitmentPage {
         console.log('clicked on  full_vacancy_announcement_text');
         await this.page.evaluate(() => {
           const checkbox = document.getElementById('sp_formfield_remarks_checkbox');
-          if (checkbox && !checkbox.checked) {
+          if (checkbox.checked) {
               checkbox.click();
           }
         });
@@ -213,7 +213,12 @@ class RegularRecruitmentPage {
       await logStep("saving as draft", async () => {
         const saveAsDraftButton = '//button[text()=" Save as Draft "]'
         await this.page.click(saveAsDraftButton);
-        console.log('clicked on Save As Draft Button')
+        console.log('clicked on Save_As_Draft Button')
+        await this.page.fill(' //*[@id="draftName"]', 'RR Form Draft');
+        console.log('entered draft name..')
+        await this.page.click('//*[@id="saveDraftButton"]')
+        console.log('clicked on Save button..')
+        this.page.waitForTimeout(10000)
       });
     }
 
