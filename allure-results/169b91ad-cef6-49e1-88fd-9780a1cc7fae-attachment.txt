@@ -1,0 +1,37 @@
+Error during login for undefined: locator.fill: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('//*[@id="x_adsr_recruit_job_position_request.valid_till"]')
+
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Publish.spec.ts:78:36 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@26',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Publish.spec.ts',
+      line: 78,
+      column: 36,
+      function: undefined
+    },
+    category: 'pw:api',
+    title: 'locator.fill(//*[@id="x_adsr_recruit_job_position_request.valid_till"])',
+    apiName: 'locator.fill',
+    params: {
+      selector: '//*[@id="x_adsr_recruit_job_position_request.valid_till"]',
+      value: '28/03/2025',
+      strict: true
+    },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742134888668,
+    error: {
+      message: 'Error: locator.fill: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        `  \x1B[2m- waiting for locator('//*[@id="x_adsr_recruit_job_position_request.valid_till"]')\x1B[22m\n`,
+      stack: 'Error: locator.fill: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        `  \x1B[2m- waiting for locator('//*[@id="x_adsr_recruit_job_position_request.valid_till"]')\x1B[22m\n` +
+        '\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Publish.spec.ts:78:36'
+    }
+  }
+}

@@ -192,8 +192,16 @@ class RegularRecruitmentPage {
         await this.page.click(full_vacancy_announcement_text);
         console.log('clicked on  full_vacancy_announcement_text');
         await this.page.evaluate(() => {
-          const checkbox = document.getElementById('sp_formfield_remarks_checkbox');
-          if (checkbox.checked) {
+          const checkbox = document.getElementById('sp_formfield_remarks_checkbox') as HTMLInputElement | null;
+        //   if (checkbox) {
+        //     const isChecked = await checkbox.isChecked(); // Check its state
+        //     if (!isChecked) {
+        //         await checkbox.click(); // Click if unchecked
+        //     }
+        // } else {
+        //     console.error('Checkbox not found!');
+        // }
+          if (checkbox && !checkbox.checked) {
               checkbox.click();
           }
         });
@@ -222,13 +230,23 @@ class RegularRecruitmentPage {
       });
     }
 
-    async printGeneratedJPRInConsole(){
-      await logStep("submitForm", async () => {
-        const JPR_NUMBER =  '//*[@id="uiNotificationContainer"]/div/span/a/b';
+    // async printGeneratedJPRInConsole(){
+    //   await logStep("submitForm", async () => {
+    //     const JPR_NUMBER =  '//*[@id="uiNotificationContainer"]/div/span/a/b';
+    //     const jprNumberText = await this.page.textContent(JPR_NUMBER);
+    //     console.log('Extracted JPR Number is :', jprNumberText);
+    //   });
+    // }
+
+    async printGeneratedJPRInConsole() {
+      return await logStep("submitForm", async () => {
+        const JPR_NUMBER = '//*[@id="uiNotificationContainer"]/div/span/a/b';
         const jprNumberText = await this.page.textContent(JPR_NUMBER);
-        console.log('Extracted JPR Number is :', jprNumberText);
+        console.log('Extracted JPR Number is:', jprNumberText);
+        return jprNumberText; // Return the extracted JPR number
       });
     }
+    
 
 }
 export default  RegularRecruitmentPage ;

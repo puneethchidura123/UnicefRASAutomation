@@ -1,0 +1,36 @@
+Error during login for undefined: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('menuitem', { name: 'Job Positions' })
+
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:49:71 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@19',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts',
+      line: 49,
+      column: 71,
+      function: undefined
+    },
+    category: 'pw:api',
+    title: "locator.getByRole('menuitem', { name: 'Job Positions' }).click",
+    apiName: 'locator.click',
+    params: {
+      selector: 'internal:role=menuitem[name="Job Positions"i]',
+      strict: true
+    },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742147276141,
+    error: {
+      message: 'Error: locator.click: Test timeout of 30000ms exceeded.\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for getByRole('menuitem', { name: 'Job Positions' })\x1B[22m\n",
+      stack: 'Error: locator.click: Test timeout of 30000ms exceeded.\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for getByRole('menuitem', { name: 'Job Positions' })\x1B[22m\n" +
+        '\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:49:71'
+    }
+  }
+}

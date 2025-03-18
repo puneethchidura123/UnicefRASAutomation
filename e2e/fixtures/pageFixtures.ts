@@ -1,18 +1,15 @@
 import { test as base } from "@playwright/test";
-//import LoginPage from "../pages/LoginPage";
 import RasLoginPage from "../pages/rasPages/RasLoginPage";
 import RasHomePage from "../pages/rasPages/RasHomePage";
 import RegularRecruitmentPage from "../pages/rasPages/RegularRecruitmentPage";
-// import CreateTripPage from "../pages/CreateTripPage";
-// import FooterBarComponent from "../pages/components/FooterBarComponent";
-// import HeaderBarComponent from "../pages/components/HeaderBarComponent";
-// import SearchDialogComponent from "../pages/components/SearchDialogComponent";
+import IntellaBOHomePage from "../pages/rasPages/IntellaBOHomePage";
 
 
 interface PageFixtures {
   rasLoginPage: RasLoginPage;
   rashomePage: RasHomePage;
   regularRecruitmentPage: RegularRecruitmentPage;
+  intellaBOHomePage: IntellaBOHomePage;
 }
 
 export const test = base.extend<PageFixtures>({
@@ -26,7 +23,9 @@ export const test = base.extend<PageFixtures>({
   regularRecruitmentPage: async ({ page }, use) => {
     await use(new RegularRecruitmentPage(page));
   },
-
+  intellaBOHomePage: async ({ page }, use) => {
+    await use(new IntellaBOHomePage(page));
+  },
 });
 
 export { expect } from "@playwright/test";

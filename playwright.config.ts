@@ -37,6 +37,7 @@ export default defineConfig({
         },
         viewport: null, // Ensure viewport size is not overridden
         deviceScaleFactor: undefined,
+        headless: false, // Run tests in headless mode
       },
     },
   ],

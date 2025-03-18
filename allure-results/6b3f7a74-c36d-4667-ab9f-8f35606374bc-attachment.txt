@@ -1,0 +1,20 @@
+STEP: Click Username Textbox succeeded at 2025-03-16T12:26:51.063Z
+Logged in as:  QA_RAS_hrbp_1
+STEP: Fill Username succeeded at 2025-03-16T12:26:51.138Z
+STEP: Fill Password succeeded at 2025-03-16T12:26:53.177Z
+STEP: Click Login Button succeeded at 2025-03-16T12:26:53.191Z
+STEP: Login as HRBP succeeded at 2025-03-16T12:26:51.062Z
+STEP: Ras home page succeeded at 2025-03-16T12:27:01.741Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-16T12:27:02.784Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-16T12:27:03.846Z
+clicking... on  full_vacancy_announcement_text
+clicked on  full_vacancy_announcement_text
+Clicked on Acknowledgement checkbox
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-16T12:27:24.946Z
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-16T12:27:24.945Z
+clicked on submit button
+STEP: submitForm succeeded at 2025-03-16T12:27:33.082Z
+STEP: submitting RR Form succeeded at 2025-03-16T12:27:33.082Z
+STEP: submitForm failed at 2025-03-16T12:27:33.249Z
+Test: rasHRBPRRFormSubmissionTest.spec ended at 2025-03-16T12:27:53.056Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTest_2025-03-16_17-56-51.html

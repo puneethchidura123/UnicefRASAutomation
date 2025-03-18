@@ -1,0 +1,25 @@
+Error during login for undefined: page.waitForTimeout: Target page, context or browser has been closed
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:56:22 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@25',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts',
+      line: 56,
+      column: 22,
+      function: undefined
+    },
+    category: 'pw:api',
+    title: 'page.waitForTimeout',
+    apiName: 'page.waitForTimeout',
+    params: { timeout: 500000 },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742132393734,
+    error: {
+      message: 'Error: page.waitForTimeout: Target page, context or browser has been closed',
+      stack: 'Error: page.waitForTimeout: Target page, context or browser has been closed\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:56:22'
+    }
+  }
+}

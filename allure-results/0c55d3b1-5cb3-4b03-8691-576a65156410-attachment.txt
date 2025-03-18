@@ -1,0 +1,15 @@
+STEP: Click Username Textbox succeeded at 2025-03-16T12:39:55.799Z
+Logged in as:  QA_RAS_hrbp_1
+STEP: Fill Username succeeded at 2025-03-16T12:39:55.934Z
+STEP: Fill Password succeeded at 2025-03-16T12:39:57.995Z
+STEP: Click Login Button succeeded at 2025-03-16T12:39:58.024Z
+STEP: Login as HRBP succeeded at 2025-03-16T12:39:55.799Z
+STEP: Ras home page succeeded at 2025-03-16T12:40:03.707Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-16T12:40:04.746Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-16T12:40:05.828Z
+Checking if "Position already exists" message is present...
+Element visibility: true
+STEP: fillBasicInformation TextBox failed at 2025-03-16T12:40:26.941Z
+STEP: fillBasicInformation failed at 2025-03-16T12:40:26.941Z
+Test: rasHRBPRRFormSubmissionTest.spec ended at 2025-03-16T12:40:42.828Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTest_2025-03-16_18-09-55.html

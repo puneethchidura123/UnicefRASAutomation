@@ -10,14 +10,11 @@ import {
   finalizeLogFile,
 } from "../../utils/logger";
 
-/**
- * Define the JSON file path to write the updated trip number to the JSON.
- */
-// use this later for logging
-// const jsonFilePath = path.resolve(
-//   __dirname,
-//   "../../testdata/dutyTravelMESS/dutyTravelMESS_rejectBUDO.json",
-// );
+import {
+  saveDataToFile,
+} from "../../utils/fileHandlingUtils";
+
+
 
 
 /**
@@ -48,8 +45,8 @@ test.beforeEach(async ({ page,rasLoginPage }) => {
   await page.waitForTimeout(2000);
   await logStep("Login as HRBP", async () => {
     await rasLoginPage.loginToApplication(
-      process.env.USER_NAME ?? "",
-      process.env.PASSWORD ?? ""
+      process.env.HRBP_USER_NAME ?? "",
+      process.env.HRBP_PASSWORD ?? ""
     );
   });
   await page.waitForTimeout(2000);
@@ -67,11 +64,11 @@ test.afterAll(async () => {
   finalizeLogFile(); // Finalize the log file after all tests
 });
 
-test('login to RasLoginPage', async ({ page,rasHomePage,regularRecruitmentPage}) => {
+test('RRFrom Submission Test', async ({ page,rasHomePage,regularRecruitmentPage}) => {
   await rasHomePage.navigatingToRasHomePage();
   await page.waitForTimeout(20000);
 
-   await logStep("fillBasicInformation", async () => {
+       await logStep("fillBasicInformation", async () => {
          await regularRecruitmentPage.fillBasicInformation(testData.vaccancy_announcement_duration_in_days ?? "",
          testData.batch_recruitment ?? "",
          testData.position_number ?? "",
@@ -79,7 +76,7 @@ test('login to RasLoginPage', async ({ page,rasHomePage,regularRecruitmentPage})
          );
        });
 
-  await logStep("fillContactsInformation", async () => {
+       await logStep("fillContactsInformation", async () => {
          await regularRecruitmentPage.fillContactsInformation(
          testData.primary_contact ?? "",
          testData.hr_manager ?? "",
@@ -110,9 +107,14 @@ test('login to RasLoginPage', async ({ page,rasHomePage,regularRecruitmentPage})
          await regularRecruitmentPage.submitForm();
        });
 
-       await logStep("priniting the generated JPR Number ", async () => {
-        await regularRecruitmentPage.printGeneratedJPRInConsole()
-      });
+       const jprNumber = await regularRecruitmentPage.printGeneratedJPRInConsole();
+
+      //  await logStep("priniting the generated JPR Number ", async () => {
+      //   await regularRecruitmentPage.printGeneratedJPRInConsole()
+      // });
+
+      saveDataToFile(testData.position_number ?? "",jprNumber ?? "");
+
 });
 
 
