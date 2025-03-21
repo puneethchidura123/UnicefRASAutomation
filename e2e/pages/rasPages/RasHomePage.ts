@@ -43,5 +43,11 @@ class RasHomePage {
           await this.page.getByRole('button', { name: 'Approve' }).click();
   }
 
+  async openDrafts(){
+    console.log("starting to navigate to my request...")
+    await this.page.click('//span[text()="My Draft"]');
+    console.log("completed navigating to my requestes...")
+  }
+
 }
 export default  RasHomePage ;

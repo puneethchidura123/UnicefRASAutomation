@@ -246,6 +246,12 @@ class RegularRecruitmentPage {
         return jprNumberText; // Return the extracted JPR number
       });
     }
+
+    async checkIfRequisitionIsAvailableInDrafts(JPR_NUMBER:string) {
+       await logStep("submitForm", async () => {
+        // code to check if requisition is available in drafts
+      });
+    }
     
 
 }

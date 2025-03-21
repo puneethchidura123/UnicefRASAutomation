@@ -1,0 +1,65 @@
+Error during login for undefined: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Approve' })
+
+    at RasHomePage.searchOpenRequestsAndApprove (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts:43:68)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:47:11 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@30',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts',
+      line: 43,
+      column: 68,
+      function: 'RasHomePage.searchOpenRequestsAndApprove'
+    },
+    category: 'pw:api',
+    title: "locator.getByRole('button', { name: 'Approve' }).click",
+    apiName: 'locator.click',
+    params: { selector: 'internal:role=button[name="Approve"i]', strict: true },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742297762173,
+    error: {
+      message: 'Error: locator.click: Test timeout of 30000ms exceeded.\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for getByRole('button', { name: 'Approve' })\x1B[22m\n",
+      stack: 'Error: locator.click: Test timeout of 30000ms exceeded.\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for getByRole('button', { name: 'Approve' })\x1B[22m\n" +
+        '\n' +
+        '    at RasHomePage.searchOpenRequestsAndApprove (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts:43:68)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:47:11'
+    }
+  }
+}
+Error during login for undefined: locator.click: Target page, context or browser has been closed
+    at RasHomePage.navigateToMyRequests (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts:27:70)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:46:29 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@38',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts',
+      line: 27,
+      column: 70,
+      function: 'RasHomePage.navigateToMyRequests'
+    },
+    category: 'pw:api',
+    title: "locator.getByRole('menuitem', { name: 'Job Positions' }).click",
+    apiName: 'locator.click',
+    params: {
+      selector: 'internal:role=menuitem[name="Job Positions"i]',
+      strict: true
+    },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742297762176,
+    error: {
+      message: 'Error: locator.click: Target page, context or browser has been closed',
+      stack: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        '    at RasHomePage.navigateToMyRequests (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts:27:70)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:46:29'
+    }
+  }
+}

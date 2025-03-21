@@ -1,12 +1,13 @@
 import { test as base } from "@playwright/test";
-import RasLoginPage from "../pages/rasPages/RasLoginPage";
+import IntellaFOLoginPage from "../pages/rasPages/intellaFO/IntellaFOLoginPage";
+import IntellaBOLoginPage from "../pages/rasPages/intellaBO/IntellaBOLoginPage";
 import RasHomePage from "../pages/rasPages/RasHomePage";
 import RegularRecruitmentPage from "../pages/rasPages/RegularRecruitmentPage";
-import IntellaBOHomePage from "../pages/rasPages/IntellaBOHomePage";
-
+import IntellaBOHomePage from "../pages/rasPages/intellaBO/IntellaBOHomePage";
 
 interface PageFixtures {
-  rasLoginPage: RasLoginPage;
+  intellaFOLoginPage: IntellaFOLoginPage;
+  intellaBOLoginPage: IntellaBOLoginPage;
   rashomePage: RasHomePage;
   regularRecruitmentPage: RegularRecruitmentPage;
   intellaBOHomePage: IntellaBOHomePage;
@@ -14,8 +15,11 @@ interface PageFixtures {
 
 export const test = base.extend<PageFixtures>({
   //page object creation
-  rasLoginPage: async ({ page }, use) => {
-    await use(new RasLoginPage(page));
+  intellaFOLoginPage: async ({ page }, use) => {
+    await use(new IntellaFOLoginPage(page));
+  },
+  intellaBOLoginPage: async ({ page }, use) => {
+    await use(new IntellaBOLoginPage(page));
   },
   rasHomePage: async ({ page }, use) => {
     await use(new RasHomePage(page));

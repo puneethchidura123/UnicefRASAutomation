@@ -3,14 +3,15 @@
   "password": "Hrbp@123",
   "vaccancy_announcement_duration_in_days": "9",
   "batch_recruitment": "No",
-  "position_number": "00123800",
+  "position_number": "00115564",
   "position_numbers": ["00128241"],
   "primary_contact": "Eva Kastner",
   "hr_manager": "Eva Kastner",
   "hiring_manager": "QA_RAS_ hiring_manager1",
-  "contract_duration_months": "9",
+  "contract_duration_months": "14",
   "areas_of_education": "Accounting",
   "areas_of_work": "Accounting and Auditing",
   "tagline_for_every_child": "a hero",
-  "valid_till": "16/03/2025"
+  "valid_till": "16/03/2025",
+  "jpr" :"jpr"
 }

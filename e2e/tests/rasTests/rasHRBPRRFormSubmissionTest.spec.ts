@@ -39,19 +39,12 @@ test.beforeAll(async () => {
  * @param {Object} params.loginPage - Page object for the login page.
  * @param {Object} params.homePage - Page object for the home page.
  */
-test.beforeEach(async ({ page,rasLoginPage }) => {
-  //await page.goto(process.env.URL ?? "");
-  await page.goto(process.env.test1 ?? "", { waitUntil: 'domcontentloaded' });
-  await page.waitForTimeout(2000);
-  await logStep("Login as HRBP", async () => {
-    await rasLoginPage.loginToApplication(
-      process.env.HRBP_USER_NAME ?? "",
-      process.env.HRBP_PASSWORD ?? ""
+test.beforeEach(async ({ page,intellaFOLoginPage }) => {
+  await logStep("logging into intell Fo as HM", async () => {
+    await intellaFOLoginPage.loginToIntellaFO(process.env.HRBP_USER_NAME ?? "",
+    process.env.HRBP_PASSWORD ?? "",
     );
   });
-  await page.waitForTimeout(2000);
-  await page.goto(process.env.test2 ?? "", { waitUntil: 'domcontentloaded' });
-  await page.waitForTimeout(2000);
 });
 
 /**

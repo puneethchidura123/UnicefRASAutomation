@@ -1,0 +1,8 @@
+staring to login in as HM...
+completed  to login in as HM...
+STEP: logging into intell Fo as HM succeeded at 2025-03-18T11:31:26.417Z
+STEP: Ras home page succeeded at 2025-03-18T11:32:00.148Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-18T11:32:01.188Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-18T11:32:02.250Z
+Test: rasHRBPRRFormSubmissionTest.spec ended at 2025-03-18T11:32:16.397Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTest_2025-03-18_17-01-26.html

@@ -1,0 +1,4 @@
+staring to login in as HM...
+STEP: logging into intell Fo as HM failed at 2025-03-20T15:06:59.393Z
+Test: rasHRBPRRFormSubmissionTest.spec ended at 2025-03-20T15:07:09.878Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTest_2025-03-20_20-36-59.html
