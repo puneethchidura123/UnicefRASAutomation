@@ -1,28 +1,46 @@
 import * as path from "path";
-import * as fs from 'fs';
+import * as fs from "fs";
 
 export function saveDataToFile(positionNumber: string, jprNumberText: string) {
+  const outputFile = "D:\\UnicefAutomation\\UnicefRASAutomation\\e2e\\testdata\\loginTestData\\TestData1.json";
+  const result = {
+    positionNumber,
+    jprNumberText,
+    timestamp: new Date().toISOString(),
+  };
 
-    // this functions takes two args - position_number, JPr Number
-    //and saves them to a file - "test_results.json"
+  try {
+    // Check if the file exists
+    if (fs.existsSync(outputFile)) {
+      // Read the existing data
+      const fileData = fs.readFileSync(outputFile, "utf8");
+      const jsonData = JSON.parse(fileData);
 
-    const outputFile = path.resolve(__dirname, 'test_results.json');
-    const result = { positionNumber, jprNumberText, timestamp: new Date().toISOString() };
-  
-    try {
-      // Check if the file exists
-      if (fs.existsSync(outputFile)) {
-        // Append to the existing file
-        const fileData = fs.readFileSync(outputFile, 'utf8');
-        const jsonData = JSON.parse(fileData);
-        jsonData.push(result);
-        fs.writeFileSync(outputFile, JSON.stringify(jsonData, null, 2));
+      // Update specific fields
+      if (jsonData.output) {
+        jsonData.output.position_number = positionNumber;
+        jsonData.output.jpr = jprNumberText;
+        jsonData.output.timestamp = result.timestamp; // Add or overwrite the timestamp
       } else {
-        // Create a new file with the data
-        fs.writeFileSync(outputFile, JSON.stringify([result], null, 2));
+        throw new Error("output not found in TestData1.json");
       }
-      console.log('Successfully saved data to file:', result);
-    } catch (error) {
-      console.error('Error saving data to file:', error);
+
+      // Write the updated JSON back to the file
+      fs.writeFileSync(outputFile, JSON.stringify(jsonData, null, 2));
+      console.log("Successfully updated TestData1.json:", jsonData);
+    } else {
+      // If the file doesn't exist, create a new one with the structure
+      const newData = {
+        output: {
+          position_number: positionNumber,
+          jpr: jprNumberText,
+          timestamp: result.timestamp,
+        },
+      };
+      fs.writeFileSync(outputFile, JSON.stringify(newData, null, 2));
+      console.log("File not found. Created new TestData1.json:", newData);
     }
+  } catch (error) {
+    console.error("Error saving data to file:", error);
   }
+}
