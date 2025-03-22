@@ -14,6 +14,8 @@ class RegularRecruitmentPage {
    position_number: string,
    position_numbers: string[]) {
     await logStep("fillBasicInformation TextBox", async () => {
+    console.log('batch_recruitment');
+    console.log(batch_recruitment);
     await this.vacancyAnnouncementDurationTextBox.fill(vacancy_announcement_duration_in_days);
     await this.page.waitForTimeout(1000);
     await this.page.locator('#s2id_sp_formfield_is_this_batch_recruitment a').click();

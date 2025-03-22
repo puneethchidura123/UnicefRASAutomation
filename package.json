@@ -10,7 +10,8 @@
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . --fix",
     "format": "npx prettier . --check",
-    "format:fix": "npx prettier . --write"
+    "format:fix": "npx prettier . --write",
+    "run-all-tests": "npx playwright test rasHRBPRRFormSubmissionTest.spec.ts --headed && npx playwright test rasHMRRFormApprovalTest.spec.ts --headed && npx playwright test rasRasAgentRRFormPublishTest.spec.ts --headed"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",

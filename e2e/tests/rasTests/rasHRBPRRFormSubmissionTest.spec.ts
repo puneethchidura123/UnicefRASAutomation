@@ -62,33 +62,33 @@ test('RRFrom Submission Test', async ({ page,rasHomePage,regularRecruitmentPage}
   await page.waitForTimeout(20000);
 
        await logStep("fillBasicInformation", async () => {
-         await regularRecruitmentPage.fillBasicInformation(testData.vaccancy_announcement_duration_in_days ?? "",
-         testData.batch_recruitment ?? "",
-         testData.position_number ?? "",
-         testData.position_numbers ?? [],
+         await regularRecruitmentPage.fillBasicInformation(testData.inputData.vaccancy_announcement_duration_in_days ?? "",
+         testData.inputData.batch_recruitment ?? "",
+         testData.inputData.position_number ?? "",
+         testData.inputData.position_numbers ?? [],
          );
        });
 
        await logStep("fillContactsInformation", async () => {
          await regularRecruitmentPage.fillContactsInformation(
-         testData.primary_contact ?? "",
-         testData.hr_manager ?? "",
-         testData.hiring_manager ?? "",
+         testData.inputData.primary_contact ?? "",
+         testData.inputData.hr_manager ?? "",
+         testData.inputData.hiring_manager ?? "",
          );
        });
 
        await logStep("fillVAJobSpecification", async () => {
          await regularRecruitmentPage.fillVAJobSpecification(
-         testData.batch_recruitment ?? "",
-         testData.contract_duration_months ?? "",
-         testData.areas_of_education ?? "",
-         testData.areas_of_work ?? ""
+         testData.inputData.batch_recruitment ?? "",
+         testData.inputData.contract_duration_months ?? "",
+         testData.inputData.areas_of_education ?? "",
+         testData.inputData.areas_of_work ?? ""
          );
        });
 
        await logStep("fillVAMinimumRequirementsDesirables", async () => {
          await regularRecruitmentPage.fillVAMinimumRequirementsDesirables(
-         testData.tagline_for_every_child ?? ""
+         testData.inputData.tagline_for_every_child ?? ""
          );
        });
 
@@ -106,127 +106,6 @@ test('RRFrom Submission Test', async ({ page,rasHomePage,regularRecruitmentPage}
       //   await regularRecruitmentPage.printGeneratedJPRInConsole()
       // });
 
-      saveDataToFile(testData.position_number ?? "",jprNumber ?? "");
+      saveDataToFile(testData.inputData.position_number ?? "",jprNumber ?? "");
 
 });
-
-
-/**
- * Test: Verifying whether BUDO is able to reject the trip submitted by the Traveller.
- */
-
-// test("BUDO Rejects the Trip", async ({
-//   page,
-//   loginPage,
-//   homePage,
-// //   tripListViewPage,
-// //   tripApprovalListViewPage,
-//   createTripPage,
-//   headerBarComponent,
-// }) => {
-//   await logTestStart("BUDO Rejects the Trip");
-
-//   await logStep("Login as Traveller", async () => {
-//     await loginPage.loginToApplication(
-//       process.env.TRAVELLER_USERID ?? "",
-//       process.env.TRAVELLER_PASSWORD ?? "",
-//     );
-//   });
-
-//   await logStep("Navigate to Trip List View", async () => {
-//     await homePage.navigateToTripListView();
-//   });
-
-// //   const {
-// //     departureDate: departureDate1,
-// //     tripBeginDate: tripBeginDate1,
-// //     arrivalDate: arrivalDate1,
-// //   } = await logStep(
-// //     "Generate Trip Dates",
-// //     async () => await tripListViewPage.generateTripDates(),
-// //   );
-
-// //   await logStep(
-// //     "Click Create Button",
-// //     async () => await tripListViewPage.clickCreateButton(),
-// //   );
-
-//   const { tripNumber, tripStatus } = await logStep(
-//     "Plan Trip",
-//     async () =>
-//       await planTrip(
-//         page,
-//         loginPage,
-//         homePage,
-// //         tripListViewPage,
-//         createTripPage,
-//         testData,
-//         departureDate1,
-//         arrivalDate1,
-//         tripBeginDate1,
-//       ),
-//   );
-
-//   testData.tripData = {
-//     tripNumber: await tripNumber,
-//     tripStatus: await tripStatus,
-//   };
-
-//   await logStep("Write Test Data to JSON", async () =>
-//     writeJsonFile(jsonFilePath, testData),
-//   );
-
-//   await logStep("Click Edit Button", async () => {
-//     await createTripPage.clickEditbutton();
-//     await page.waitForTimeout(5000);
-//   });
-
-//   // Set default value for UPLOAD_ENABLED to true if not defined
-//   const uploadEnabled = process.env.UPLOAD_ENABLED !== "false";
-
-//   // Check the environment variable before calling uploadAttachment
-//   if (uploadEnabled) {
-//     await createTripPage.uploadAttachment(testData);
-//   }
-//   await logStep("Click Submit Approval", async () => {
-//     await createTripPage.clickSubmitApproval();
-//     await page.waitForTimeout(5000);
-//   });
-
-//   const updated_TripStatus = await logStep(
-//     "Get Updated Trip Status",
-//     async () => createTripPage.getTripStatus(),
-//   );
-//   console.log("Updated Trip Status: ", await updated_TripStatus);
-
-//   await expect(await updated_TripStatus).toBe("Submitted");
-//   await page.waitForTimeout(5000);
-
-//   await logStep("Logout as Traveller", async () => {
-//     await headerBarComponent.logout();
-//     await page.waitForTimeout(15000);
-//   });
-
-//   await logStep("Login as BUDO", async () => {
-//     await page.goto(process.env.URL ?? "");
-//     await loginPage.loginToApplication(
-//       process.env.BUDO_USERID ?? "",
-//       process.env.BUDO_PASSWORD ?? "",
-//     );
-//   });
-
-//   await logStep("Navigate to Trip Approver View", async () => {
-//     await homePage.navigateToTripApproverView();
-//   });
-
-//   await logStep("Reject Trip", async () => {
-//     await rejectTrip(
-//       page,
-//       loginPage,
-//       homePage,
-// //       tripApprovalListViewPage,
-//       testData,
-//       "1",
-//     );
-//   });
-// });
