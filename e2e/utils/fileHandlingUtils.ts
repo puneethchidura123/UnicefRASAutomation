@@ -2,7 +2,13 @@ import * as path from "path";
 import * as fs from "fs";
 
 export function saveDataToFile(positionNumber: string, jprNumberText: string) {
-  const outputFile = "D:\\UnicefAutomation\\UnicefRASAutomation\\e2e\\testdata\\loginTestData\\TestData1.json";
+  const outputFile = path.resolve(
+    __dirname,
+    "..",
+    "testdata",
+    "loginTestData",
+    "TestData1.json"
+  );
   const result = {
     positionNumber,
     jprNumberText,

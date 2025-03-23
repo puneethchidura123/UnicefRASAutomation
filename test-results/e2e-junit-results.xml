@@ -1,67 +1,16 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="160.967407">
-<testsuite name="rasTests/rasHRBPRRFormSubmissionTest.spec.ts" timestamp="2025-03-20T15:07:38.031Z" hostname="chromium" tests="1" failures="0" skipped="0" time="159.597" errors="0">
-<testcase name="RRFrom Submission Test" classname="rasTests/rasHRBPRRFormSubmissionTest.spec.ts" time="159.597">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="67.796463">
+<testsuite name="rasTests/rasRasAgentRRFormPublishTest.spec.ts" timestamp="2025-03-23T06:56:21.059Z" hostname="chromium" tests="1" failures="0" skipped="0" time="66.694" errors="0">
+<testcase name="RR Form publish by RAS Agent Test" classname="rasTests/rasRasAgentRRFormPublishTest.spec.ts" time="66.694">
 <system-out>
-<![CDATA[staring to login in as HM...
-completed  to login in as HM...
-STEP: logging into intell Fo as HM succeeded at 2025-03-20T15:07:38.710Z
-STEP: Ras home page succeeded at 2025-03-20T15:08:33.695Z
-STEP: Navigating to Job Positions Page succeeded at 2025-03-20T15:08:34.730Z
-STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-20T15:08:35.776Z
-Checking if "Position already exists" message is present...
-"Position already exists" message is not present. Continuing the flow...
-No issues detected. Proceeding with further steps...
-STEP: fillBasicInformation TextBox succeeded at 2025-03-20T15:08:56.894Z
-STEP: fillBasicInformation succeeded at 2025-03-20T15:08:56.894Z
-Step: Clicking the "Contacts" label...
-"Contacts" label clicked successfully.
-Clicked on primary_contact
-STEP: fillContactsInformation succeeded at 2025-03-20T15:09:11.571Z
-STEP: fillContactsInformation succeeded at 2025-03-20T15:09:11.571Z
-Step: Clicking the va_job_specification label...
-Step 2: Trigger the file upload dialog...
-Step 3: Identify the hidden file input element...
-Step 4: Upload the file...
-Resolved file path: /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/jd.doc
-File upload completed successfully.
-Text has been successfully entered into the iframe.
-ENTERED => Purpose and roles & responsibilities
-Hitting TAB from hey board....
-Hitting TAB from hey board....DONE
-Clicked on Accounting dropdown
-Filled on Accounting
-Clicked on Accounting
-Clicked on Accounting and Auditing
-Filled on Accounting and Auditing
-Clicked on Accounting and Auditing
-STEP: fillVAJobSpecification succeeded at 2025-03-20T15:09:22.169Z
-STEP: fillVAJobSpecification succeeded at 2025-03-20T15:09:22.169Z
-Clicked on va_minimum_requirements_desirables
-Setting For every child, [insert tagline]....
-Setting For every child, [insert tagline].... COMPLETED
-STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-20T15:09:57.214Z
-STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-20T15:09:57.214Z
-clicking... on  full_vacancy_announcement_text
-clicked on  full_vacancy_announcement_text
-Clicked on Acknowledgement checkbox
-STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-20T15:10:06.577Z
-STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-20T15:10:06.577Z
-clicked on submit button
-STEP: submitForm succeeded at 2025-03-20T15:10:14.727Z
-STEP: submitting RR Form succeeded at 2025-03-20T15:10:14.727Z
-Extracted JPR Number is: JPR0001176
-STEP: submitForm succeeded at 2025-03-20T15:10:14.937Z
-Successfully saved data to file: {
-  positionNumber: [32m'00115564'[39m,
-  jprNumberText: [32m'JPR0001176'[39m,
-  timestamp: [32m'2025-03-20T15:10:17.253Z'[39m
-}
-Test: rasHRBPRRFormSubmissionTest.spec ended at 2025-03-20T15:10:18.142Z
-HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTest_2025-03-20_20-37-38.html
+<![CDATA[STEP: logging into intell Bo as RAS Agent succeeded at 2025-03-23T06:56:21.688Z
+clicking on Favorites...
+clicked on Favorites...
+starting to enter valid till date..
+finished entering  till date..
 
-[[ATTACHMENT|rasTests-rasHRBPRRFormSubmissionTest-RRFrom-Submission-Test-chromium/video.webm]]
+[[ATTACHMENT|rasTests-rasRasAgentRRForm-47585-m-publish-by-RAS-Agent-Test-chromium/video.webm]]
 
-[[ATTACHMENT|rasTests-rasHRBPRRFormSubmissionTest-RRFrom-Submission-Test-chromium/trace.zip]]
+[[ATTACHMENT|rasTests-rasRasAgentRRForm-47585-m-publish-by-RAS-Agent-Test-chromium/trace.zip]]
 ]]>
 </system-out>
 </testcase>
