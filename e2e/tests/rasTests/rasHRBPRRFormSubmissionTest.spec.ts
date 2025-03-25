@@ -58,6 +58,7 @@ test.afterAll(async () => {
 });
 
 test('RRFrom Submission Test', async ({ page,rasHomePage,regularRecruitmentPage}) => {
+try {
   await rasHomePage.navigatingToRasHomePage();
   await page.waitForTimeout(20000);
 
@@ -107,7 +108,14 @@ test('RRFrom Submission Test', async ({ page,rasHomePage,regularRecruitmentPage}
       //  await logStep("priniting the generated JPR Number ", async () => {
       //   await regularRecruitmentPage.printGeneratedJPRInConsole()
       // });
-
+      expect(jprNumber).toBeTruthy(); // Passes if jprNumber is not null/undefined/empty
+      console.log(`JPR Number: ${jprNumber}`);
+      expect(cleanedReqState).toBeTruthy(); // Passes if cleanedReqState is not null/undefined/empty
+      console.log(`Request State: ${cleanedReqState}`);
+      expect(cleanedReqState).toEqual('Awaiting Approval');
       saveDataToFile(testData.inputData.position_number ?? "",jprNumber ?? "",cleanedReqState ?? "");
-
+    } catch (error) {
+    console.error('Test failed due to:', error);
+    throw new Error('JPR or Request State is not visible or does not match expected values.');
+  }
 });
