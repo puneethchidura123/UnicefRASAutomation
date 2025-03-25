@@ -1,4 +1,5 @@
 import { Page } from "@playwright/test";
+import { expect } from "../../fixtures/pageFixtures";
 //import { logStep } from "D:/UnicefAutomation/UnicefRASAutomation/e2e/utils/logger.ts";
 import { logStep } from "../../utils/logger";
 
@@ -38,9 +39,23 @@ class RasHomePage {
           await this.page.waitForTimeout(3000);
           await this.page.getByRole('button', { name: 'Search Open Requests' }).click();
           console.log("completed searching for the required request...")
+          await this.page.waitForTimeout(5000);
+          const approvalStateLocator = await this.page.locator("//span[@class='ng-binding' and normalize-space(text())='Awaiting Approval']");
+          await expect(approvalStateLocator).toBeVisible();
+
           await this.page.getByLabel(`${jprNumber} , ${jprNumber}`).click();
           await this.page.locator('section').click();
           await this.page.getByRole('button', { name: 'Approve' }).click();
+          await this.page.waitForTimeout(5000);
+          this.navigateToMyRequests();
+          await this.page.getByPlaceholder('Search Open Requests').click();
+          await this.page.getByPlaceholder('Search Open Requests').fill(jprNumber);
+          await this.page.waitForTimeout(3000);
+          await this.page.getByRole('button', { name: 'Search Open Requests' }).click();
+          console.log("completed searching for the required request...")
+          await this.page.waitForTimeout(5000);
+          const pendingStateLocator = await this.page.locator("//span[@class='ng-binding' and normalize-space(text())='Pending RAS Validation']");
+          await expect(pendingStateLocator).toBeVisible();
   }
 
   async openDrafts(){
