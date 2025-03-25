@@ -6,8 +6,8 @@ export function saveDataToFile(positionNumber: string, jprNumberText: string) {
     __dirname,
     "..",
     "testdata",
-    "loginTestData",
-    "TestData1.json"
+    "RRFormTestData",
+    "rrform_path1_testdata.json"
   );
   const result = {
     positionNumber,

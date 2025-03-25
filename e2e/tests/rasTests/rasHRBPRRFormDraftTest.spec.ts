@@ -13,7 +13,7 @@ import {
 import {
   saveDataToFile,
 } from "../../utils/fileHandlingUtils";
-import RegularRecruitmentPage from "../../pages/rasPages/RegularRecruitmentPage";
+import RegularRecruitmentPage from "../../pages/intellaFO/RASRegularRecruitmentForm";
 
 
 

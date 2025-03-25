@@ -3,8 +3,8 @@ import testData from "../../testdata/loginTestData/TestData.json"
 import configData from "../../testdata/loginTestData/config.json"
 //import { RasLoginPage } from "../../pages/rasPages/RasLoginPage";
 //import { RasLoginPage } from "../../../pages/rasPages/RasLoginPage.ts";
-import { RasHomePage } from "../../pages/rasPages/RasHomePage";
-import { RegularRecruitmentPage } from "../../pages/rasPages/RegularRecruitmentPage";
+import { RasHomePage } from "../../pages/intellaFO/RasHomePage";
+import { RegularRecruitmentPage } from "../../pages/intellaFO/RASRegularRecruitmentForm";
 import { logStep } from "../../utils/logger";
 import path from 'path';
 import * as fs from 'fs';
