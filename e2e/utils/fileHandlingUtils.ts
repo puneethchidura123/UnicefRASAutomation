@@ -1,12 +1,13 @@
 import * as path from "path";
 import * as fs from "fs";
 
-export function saveDataToFile(positionNumber: string, jprNumberText: string) {
+export function saveDataToFile(positionNumber: string, jprNumberText: string, reqState: string) {
   const outputFile = "D:\\UnicefAutomation\\UnicefRASAutomation\\e2e\\testdata\\loginTestData\\TestData1.json";
   const result = {
     positionNumber,
     jprNumberText,
     timestamp: new Date().toISOString(),
+    reqState
   };
 
   try {
@@ -21,6 +22,7 @@ export function saveDataToFile(positionNumber: string, jprNumberText: string) {
         jsonData.output.position_number = positionNumber;
         jsonData.output.jpr = jprNumberText;
         jsonData.output.timestamp = result.timestamp; // Add or overwrite the timestamp
+        jsonData.output.reqState = result.reqState; // Add or overwrite the timestamp
       } else {
         throw new Error("output not found in TestData1.json");
       }
@@ -35,6 +37,7 @@ export function saveDataToFile(positionNumber: string, jprNumberText: string) {
           position_number: positionNumber,
           jpr: jprNumberText,
           timestamp: result.timestamp,
+          reqState: result.reqState,
         },
       };
       fs.writeFileSync(outputFile, JSON.stringify(newData, null, 2));

@@ -101,11 +101,13 @@ test('RRFrom Submission Test', async ({ page,rasHomePage,regularRecruitmentPage}
        });
 
        const jprNumber = await regularRecruitmentPage.printGeneratedJPRInConsole();
-
+       const reqState = await regularRecruitmentPage.printReqStateInConsole();
+       const cleanedReqState = reqState.trim(); // Use a new variable
+       console.log(cleanedReqState)
       //  await logStep("priniting the generated JPR Number ", async () => {
       //   await regularRecruitmentPage.printGeneratedJPRInConsole()
       // });
 
-      saveDataToFile(testData.inputData.position_number ?? "",jprNumber ?? "");
+      saveDataToFile(testData.inputData.position_number ?? "",jprNumber ?? "",cleanedReqState ?? "");
 
 });

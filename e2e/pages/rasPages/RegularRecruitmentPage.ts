@@ -248,6 +248,15 @@ class RegularRecruitmentPage {
         return jprNumberText; // Return the extracted JPR number
       });
     }
+    async printReqStateInConsole() {
+      return await logStep("submitForm", async () => {
+        const REQ_STATE = "//div[@class='ng-binding ng-scope' and normalize-space(text())='Awaiting Approval']";
+        const reqStateText = await this.page.textContent(REQ_STATE);
+        console.log('The expected req state is:', reqStateText);
+        return reqStateText; // Return the extracted JPR number
+      });
+    }
+
 
     async checkIfRequisitionIsAvailableInDrafts(JPR_NUMBER:string) {
        await logStep("submitForm", async () => {
