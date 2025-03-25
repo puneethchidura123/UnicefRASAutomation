@@ -1,4 +1,5 @@
 import { Page } from "@playwright/test";
+import { expect } from "../../../fixtures/pageFixtures";
 import { logStep } from "../../../utils/logger";
 
 
@@ -18,6 +19,22 @@ class IntellaBOHomePage {
                   await this.page.waitForTimeout(5000);
                   await this.page.locator('iframe[name="gsft_main"]').contentFrame().getByLabel(`Open record: ${jprNumber}`).click();
                   await this.page.waitForTimeout(5000);
+
+                  const frame = await this.page.frameLocator('iframe[name="gsft_main"]');
+                  const isSaveButtonVisible = await frame
+                    .locator('[id="x_adsr_recruit_job_position_request\\.form_header"]')
+                    .getByRole('button', { name: 'Save' })
+                    .isVisible();
+
+                  expect(isSaveButtonVisible).toBeTruthy();
+
+                  const isDiscussButtonVisible = await frame
+                    .locator('[id="x_adsr_recruit_job_position_request\\.form_header"]')
+                    .getByRole('button', { name: 'Discuss' })
+                    .isVisible();
+
+                  expect(isDiscussButtonVisible).toBeTruthy();
+
                   await this.page.locator('iframe[name="gsft_main"]').contentFrame().getByRole('searchbox', { name: 'Mandatory - must be populated' }).click();
                   await this.page.waitForTimeout(5000);
                   await this.page.locator('iframe[name="gsft_main"]').contentFrame().getByRole('cell', { name: 'QA_RAS_ agent1' }).click();
@@ -33,7 +50,20 @@ class IntellaBOHomePage {
                   await this.page.waitForTimeout(2000);
                   await this.page.locator('iframe[name="gsft_main"]').contentFrame().locator('[id="x_adsr_recruit_job_position_request\\.form_header"]').getByRole('button', { name: 'Save' }).click();
                   await this.page.waitForTimeout(5000);
+                  const isPublishButtonVisible = await frame
+                    .locator('[id="x_adsr_recruit_job_position_request\\.form_header"]')
+                    .getByRole('button', { name: 'Publish' })
+                    .isVisible();
+
+                  expect(isPublishButtonVisible).toBeTruthy();
                   await this.page.locator('iframe[name="gsft_main"]').contentFrame().locator('#approve_request').click();
+                  await this.page.waitForTimeout(8000);
+                  const isSaveButtonVisible1 = await frame
+                    .locator('[id="x_adsr_recruit_job_position_request\\.form_header"]')
+                    .getByRole('button', { name: 'Save' })
+                    .isVisible();
+
+                  expect(isSaveButtonVisible1).toBeTruthy();
                   await this.page.waitForTimeout(8000);
 
   }
