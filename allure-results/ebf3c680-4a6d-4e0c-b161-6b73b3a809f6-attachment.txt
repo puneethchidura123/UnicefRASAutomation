@@ -1,0 +1,44 @@
+Error occured locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for frameLocator('iframe[name="gsft_main"]').getByRole('searchbox', { name: 'Mandatory - must be populated' })
+
+    at IntellaBOHomePage.publishToTMS (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaBO/IntellaBOHomePage.ts:21:152)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaBOUtils.ts:35:9
+    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)
+    at publishRequisition (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaBOUtils.ts:33:5)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/RRFromPath1/rasRasAgentRRFormPublishTestWithUtils.spec.ts:35:5 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@26',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaBO/IntellaBOHomePage.ts',
+      line: 21,
+      column: 152,
+      function: 'IntellaBOHomePage.publishToTMS'
+    },
+    category: 'pw:api',
+    title: 'locator.click(iframe[name="gsft_main"] >> internal:control=enter-frame >> internal:role=searchbox[name="Mandatory - must be populated"i])',
+    apiName: 'locator.click',
+    params: {
+      selector: 'iframe[name="gsft_main"] >> internal:control=enter-frame >> internal:role=searchbox[name="Mandatory - must be populated"i]',
+      strict: true
+    },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742992829761,
+    error: {
+      message: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        `  \x1B[2m- waiting for frameLocator('iframe[name="gsft_main"]').getByRole('searchbox', { name: 'Mandatory - must be populated' })\x1B[22m\n`,
+      stack: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        `  \x1B[2m- waiting for frameLocator('iframe[name="gsft_main"]').getByRole('searchbox', { name: 'Mandatory - must be populated' })\x1B[22m\n` +
+        '\n' +
+        '    at IntellaBOHomePage.publishToTMS (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaBO/IntellaBOHomePage.ts:21:152)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaBOUtils.ts:35:9\n' +
+        '    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)\n' +
+        '    at publishRequisition (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaBOUtils.ts:33:5)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/RRFromPath1/rasRasAgentRRFormPublishTestWithUtils.spec.ts:35:5'
+    }
+  }
+}

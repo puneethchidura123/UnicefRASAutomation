@@ -39,6 +39,22 @@ test.beforeAll(async () => {
  * @param {Object} params.homePage - Page object for the home page.
  */
 test.beforeEach(async ({ page,intellaFOLoginPage,rasHomePage,rASRegularRecruitmentForm}) => {
+  
+
+});
+
+/**
+ * Hook to finalize the log file after all tests have run.
+ * This function is called after all tests are completed and ensures that the log file is
+ * properly closed and finalized. It is used to ensure that all log entries are written
+ * to the file and no data is lost.
+ */
+test.afterAll(async () => {
+  finalizeLogFile(); // Finalize the log file after all tests
+});
+
+test('RRFrom Submission Test', async ({page,intellaFOLoginPage,rasHomePage,rASRegularRecruitmentForm}) => {
+
   await logStep("Starting to Submit the RRF with the Data provided", async () => {
     await submitRRF(page,
       intellaFOLoginPage,
@@ -60,75 +76,11 @@ test.beforeEach(async ({ page,intellaFOLoginPage,rasHomePage,rASRegularRecruitme
   );
   });
 
-  await logStep("prinibg the generate JPR and saving to test data file",async () =>{
+  await logStep("printing the generate JPR and saving to test data file",async () =>{
     await printJPRAndSaveToTestDataFile(
       rASRegularRecruitmentForm,
       testData.inputData.position_number ?? "",
     );
   });
-  
-});
-
-/**
- * Hook to finalize the log file after all tests have run.
- * This function is called after all tests are completed and ensures that the log file is
- * properly closed and finalized. It is used to ensure that all log entries are written
- * to the file and no data is lost.
- */
-test.afterAll(async () => {
-  finalizeLogFile(); // Finalize the log file after all tests
-});
-
-test('RRFrom Submission Test', async ({ page,rasHomePage,rASRegularRecruitmentForm}) => {
-  //await rasHomePage.openRegularRecruitmentForm();
-  //await page.waitForTimeout(2000);
-
-      //  await logStep("fillBasicInformation", async () => {
-      //    await rASRegularRecruitmentForm.fillBasicInformation(testData.inputData.vaccancy_announcement_duration_in_days ?? "",
-      //    testData.inputData.batch_recruitment ?? "",
-      //    testData.inputData.position_number ?? "",
-      //    testData.inputData.position_numbers ?? [],
-      //    );
-      //  });
-
-      //  await logStep("fillContactsInformation", async () => {
-      //    await rASRegularRecruitmentForm.fillContactsInformation(
-      //    testData.inputData.primary_contact ?? "",
-      //    testData.inputData.hr_manager ?? "",
-      //    testData.inputData.hiring_manager ?? "",
-      //    );
-      //  });
-
-      //  await logStep("fillVAJobSpecification", async () => {
-      //    await rASRegularRecruitmentForm.fillVAJobSpecification(
-      //    testData.inputData.batch_recruitment ?? "",
-      //    testData.inputData.contract_duration_months ?? "",
-      //    testData.inputData.areas_of_education ?? "",
-      //    testData.inputData.areas_of_work ?? ""
-      //    );
-      //  });
-
-      //  await logStep("fillVAMinimumRequirementsDesirables", async () => {
-      //    await rASRegularRecruitmentForm.fillVAMinimumRequirementsDesirables(
-      //    testData.inputData.tagline_for_every_child ?? ""
-      //    );
-      //  });
-
-      //  await logStep("fillFullVacancyAnnouncementText", async () => {
-      //    await rASRegularRecruitmentForm.fillFullVacancyAnnouncementText();
-      //  });
-
-      //  await logStep("submitting RR Form", async () => {
-      //    await rASRegularRecruitmentForm.submitForm();
-      //  });
-
-      //const jprNumber = await rASRegularRecruitmentForm.printGeneratedJPRInConsole();
-       
-      //  await logStep("priniting the generated JPR Number ", async () => {
-      //   await rASRegularRecruitmentForm.printGeneratedJPRInConsole()
-      // });
-
-      // saveDataToFile(testData.inputData.position_number ?? "",jprNumber ?? "");
-      // await page.waitForTimeout(100000000);
 
 });

@@ -87,3 +87,22 @@ export async function submitRRF(
     });
     saveDataToFile(position_number,jprNumber ?? "");
   }
+
+  
+  export async function approveRequisition(
+    intellaFOLoginPage,
+    hm_user_name,
+    hm_password,
+    rasHomePage,
+    requisition_number
+  ){
+    await logStep("logging into intella FO as a Hiring Manager", async () => {
+      await intellaFOLoginPage.loginToIntellaFO(hm_user_name,hm_password);
+    });
+    await logStep("navigating to My Requests", async () => {
+      await rasHomePage.navigateToMyRequests();
+    });
+    await logStep("searching in open requisition and approve", async () => {
+      await rasHomePage.searchOpenRequestsAndApprove(requisition_number);
+    });
+  }
