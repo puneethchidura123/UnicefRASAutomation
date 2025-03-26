@@ -4,7 +4,7 @@ import * as path from "path";
 import { logStep } from "../../utils/logger";
 
 class RegularRecruitmentPage {
-  constructor(private readonly page: Page, private readonly browser: Browser) {}
+  constructor(private readonly page: Page) {}
 //   private readonly va_job_labelSelector = '//*[@id="va_job_specification"]';
 //   private readonly uploadButtonSelector = 'button[aria-label="Upload Attachment for Attach JD/TOR Required"]';
   private readonly vacancyAnnouncementDurationTextBox = this.page.getByLabel('Vacancy Announcement (VA) duration in days.', { exact: true });

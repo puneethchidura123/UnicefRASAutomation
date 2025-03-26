@@ -1,0 +1,14 @@
+staring to login in as HM...
+completed  to login in as HM...
+STEP: Ras home page succeeded at 2025-03-26T09:20:32.663Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-26T09:20:33.695Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-26T09:20:34.764Z
+batch_recruitment
+No
+Checking if "Position already exists" message is present...
+Element visibility: true
+STEP: fillBasicInformation TextBox failed at 2025-03-26T09:20:37.832Z
+STEP: fillingBasicInformation failed at 2025-03-26T09:20:37.832Z
+STEP: Starting to Submit the RRF with the Data provided failed at 2025-03-26T09:20:15.953Z
+Test: rasHRBPRRFormSubmissionTestWithUtils.spec ended at 2025-03-26T09:20:53.686Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTestWithUtils_2025-03-26_14-50-15.html

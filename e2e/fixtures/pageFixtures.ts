@@ -8,7 +8,7 @@ import IntellaBOHomePage from "../pages/intellaBO/IntellaBOHomePage";
 interface PageFixtures {
   intellaFOLoginPage: IntellaFOLoginPage;
   intellaBOLoginPage: IntellaBOLoginPage;
-  rashomePage: RasHomePage;
+  rasHomePage: RasHomePage;
   rASRegularRecruitmentForm: RASRegularRecruitmentForm;
   intellaBOHomePage: IntellaBOHomePage;
 }

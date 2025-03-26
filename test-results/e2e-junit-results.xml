@@ -1,58 +1,24 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="1005.311683">
-<testsuite name="RRFromPath1/rasHRBPRRFormSubmissionTest.spec.ts" timestamp="2025-03-25T01:12:16.879Z" hostname="chromium" tests="1" failures="1" skipped="0" time="1003.062" errors="0">
-<testcase name="RRFrom Submission Test" classname="RRFromPath1/rasHRBPRRFormSubmissionTest.spec.ts" time="1003.062">
-<failure message="rasHRBPRRFormSubmissionTest.spec.ts:58:5 RRFrom Submission Test" type="FAILURE">
-<![CDATA[  [chromium] › RRFromPath1/rasHRBPRRFormSubmissionTest.spec.ts:58:5 › RRFrom Submission Test ───────
-
-    Test timeout of 1000000ms exceeded.
-
-    Error: page.waitForTimeout: Test timeout of 1000000ms exceeded.
-
-      106 |
-      107 |       saveDataToFile(testData.inputData.position_number ?? "",jprNumber ?? "");
-    > 108 |       await page.waitForTimeout(100000000);
-          |                  ^
-      109 |
-      110 | });
-
-        at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/RRFromPath1/rasHRBPRRFormSubmissionTest.spec.ts:108:18
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/RRFromPath1-rasHRBPRRFormS-6863d-Test-RRFrom-Submission-Test-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/RRFromPath1-rasHRBPRRFormS-6863d-Test-RRFrom-Submission-Test-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    test-results/RRFromPath1-rasHRBPRRFormS-6863d-Test-RRFrom-Submission-Test-chromium/trace.zip
-    Usage:
-
-        npx playwright show-trace test-results/RRFromPath1-rasHRBPRRFormS-6863d-Test-RRFrom-Submission-Test-chromium/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</failure>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="101.676513">
+<testsuite name="RRFromPath1/rasHRBPRRFormSubmissionTestWithUtils.spec.ts" timestamp="2025-03-26T09:25:09.267Z" hostname="chromium" tests="1" failures="0" skipped="0" time="100.072" errors="0">
+<testcase name="RRFrom Submission Test" classname="RRFromPath1/rasHRBPRRFormSubmissionTestWithUtils.spec.ts" time="100.072">
 <system-out>
 <![CDATA[staring to login in as HM...
 completed  to login in as HM...
-STEP: logging into intell Fo as HM succeeded at 2025-03-25T01:12:18.050Z
-STEP: Ras home page succeeded at 2025-03-25T01:12:31.276Z
-STEP: Navigating to Job Positions Page succeeded at 2025-03-25T01:12:32.306Z
-STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-25T01:12:33.351Z
+STEP: Ras home page succeeded at 2025-03-26T09:25:24.324Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-26T09:25:25.361Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-26T09:25:26.420Z
 batch_recruitment
 No
 Checking if "Position already exists" message is present...
 "Position already exists" message is not present. Continuing the flow...
 No issues detected. Proceeding with further steps...
-STEP: fillBasicInformation TextBox succeeded at 2025-03-25T01:12:36.426Z
-STEP: fillBasicInformation succeeded at 2025-03-25T01:12:36.426Z
+STEP: fillBasicInformation TextBox succeeded at 2025-03-26T09:25:29.528Z
+STEP: fillingBasicInformation succeeded at 2025-03-26T09:25:29.528Z
 Step: Clicking the "Contacts" label...
 "Contacts" label clicked successfully.
 Clicked on primary_contact
-STEP: fillContactsInformation succeeded at 2025-03-25T01:12:52.096Z
-STEP: fillContactsInformation succeeded at 2025-03-25T01:12:52.096Z
+STEP: fillContactsInformation succeeded at 2025-03-26T09:25:44.263Z
+STEP: fillingContactsInformation succeeded at 2025-03-26T09:25:44.263Z
 Step: Clicking the va_job_specification label...
 Step 2: Trigger the file upload dialog...
 Step 3: Identify the hidden file input element...
@@ -69,33 +35,34 @@ Clicked on Accounting
 Clicked on Accounting and Auditing
 Filled on Accounting and Auditing
 Clicked on Accounting and Auditing
-STEP: fillVAJobSpecification succeeded at 2025-03-25T01:13:02.611Z
-STEP: fillVAJobSpecification succeeded at 2025-03-25T01:13:02.611Z
+STEP: fillVAJobSpecification succeeded at 2025-03-26T09:25:54.293Z
+STEP: fillingVAJobSpecification succeeded at 2025-03-26T09:25:54.293Z
 Clicked on va_minimum_requirements_desirables
 Setting For every child, [insert tagline]....
 Setting For every child, [insert tagline].... COMPLETED
-STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-25T01:13:37.610Z
-STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-25T01:13:37.609Z
+STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-26T09:26:29.334Z
+STEP: fillingVAMinimumRequirementsDesirables succeeded at 2025-03-26T09:26:29.334Z
 clicking... on  full_vacancy_announcement_text
 clicked on  full_vacancy_announcement_text
 Clicked on Acknowledgement checkbox
-STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-25T01:13:46.960Z
-STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-25T01:13:46.960Z
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-26T09:26:38.706Z
+STEP: fillingFullVacancyAnnouncementText succeeded at 2025-03-26T09:26:38.706Z
 clicked on submit button
-STEP: submitForm succeeded at 2025-03-25T01:13:55.113Z
-STEP: submitting RR Form succeeded at 2025-03-25T01:13:55.113Z
-Extracted JPR Number is: JPR0001205
-STEP: Extracting the generated JPR succeeded at 2025-03-25T01:13:55.315Z
-Extracted JPR Number is: JPR0001205
-STEP: Extracting the generated JPR succeeded at 2025-03-25T01:13:57.125Z
-STEP: priniting the generated JPR Number  succeeded at 2025-03-25T01:13:57.125Z
+STEP: submitForm succeeded at 2025-03-26T09:26:46.854Z
+STEP: submitting RR Form succeeded at 2025-03-26T09:26:46.854Z
+STEP: Starting to Submit the RRF with the Data provided succeeded at 2025-03-26T09:25:10.512Z
+Extracted JPR Number is: JPR0001215
+STEP: Extracting the generated JPR succeeded at 2025-03-26T09:26:47.047Z
+Extracted JPR Number is: JPR0001215
+STEP: Extracting the generated JPR succeeded at 2025-03-26T09:26:49.367Z
+STEP: priniting the generated JPR Number  succeeded at 2025-03-26T09:26:49.366Z
 Successfully updated TestData1.json: {
   inputData: {
     username: [32m'QA_RAS_hrbp_1'[39m,
     password: [32m'Hrbp@123'[39m,
     vaccancy_announcement_duration_in_days: [32m'9'[39m,
     batch_recruitment: [32m'No'[39m,
-    position_number: [32m'00018636'[39m,
+    position_number: [32m'00100020'[39m,
     position_numbers: [ [32m'00128241'[39m ],
     primary_contact: [32m'Eva Kastner'[39m,
     hr_manager: [32m'Eva Kastner'[39m,
@@ -107,19 +74,18 @@ Successfully updated TestData1.json: {
     valid_till: [32m'16/03/2025'[39m
   },
   output: {
-    position_number: [32m'00018636'[39m,
-    jpr: [32m'JPR0001205'[39m,
-    timestamp: [32m'2025-03-25T01:13:57.154Z'[39m
+    position_number: [32m'00100020'[39m,
+    jpr: [32m'JPR0001215'[39m,
+    timestamp: [32m'2025-03-26T09:26:49.392Z'[39m
   }
 }
-Test: rasHRBPRRFormSubmissionTest.spec ended at 2025-03-25T01:29:00.901Z
-HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTest_2025-03-25_06-42-18.html
+STEP: prinibg the generate JPR and saving to test data file succeeded at 2025-03-26T09:26:47.047Z
+Test: rasHRBPRRFormSubmissionTestWithUtils.spec ended at 2025-03-26T09:26:50.171Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTestWithUtils_2025-03-26_14-55-10.html
 
-[[ATTACHMENT|RRFromPath1-rasHRBPRRFormS-6863d-Test-RRFrom-Submission-Test-chromium/test-failed-1.png]]
+[[ATTACHMENT|RRFromPath1-rasHRBPRRFormS-07e5c-tils-RRFrom-Submission-Test-chromium/video.webm]]
 
-[[ATTACHMENT|RRFromPath1-rasHRBPRRFormS-6863d-Test-RRFrom-Submission-Test-chromium/video.webm]]
-
-[[ATTACHMENT|RRFromPath1-rasHRBPRRFormS-6863d-Test-RRFrom-Submission-Test-chromium/trace.zip]]
+[[ATTACHMENT|RRFromPath1-rasHRBPRRFormS-07e5c-tils-RRFrom-Submission-Test-chromium/trace.zip]]
 ]]>
 </system-out>
 </testcase>

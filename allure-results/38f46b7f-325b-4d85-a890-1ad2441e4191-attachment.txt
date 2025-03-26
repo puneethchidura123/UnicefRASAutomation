@@ -1,0 +1,15 @@
+staring to login in as HM...
+completed  to login in as HM...
+completed logging in via newly created utils....
+STEP: logging into intell Fo as HM 123 succeeded at 2025-03-26T08:10:05.638Z
+STEP: Ras home page succeeded at 2025-03-26T08:10:22.035Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-26T08:10:23.067Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-26T08:10:24.127Z
+batch_recruitment
+No
+Checking if "Position already exists" message is present...
+Element visibility: true
+STEP: fillBasicInformation TextBox failed at 2025-03-26T08:10:27.197Z
+STEP: fillBasicInformation failed at 2025-03-26T08:10:27.196Z
+Test: rasHRBPRRFormSubmissionTestWithUtils.spec ended at 2025-03-26T08:10:44.611Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTestWithUtils_2025-03-26_13-40-05.html
