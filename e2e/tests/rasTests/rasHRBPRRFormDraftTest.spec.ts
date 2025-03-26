@@ -1,6 +1,4 @@
 import { test, expect } from "../../fixtures/pageFixtures";
-import testData from "../../testdata/loginTestData/TestData1.json"
-import configData from "../../testdata/loginTestData/config.json"
 import * as path from "path";
 import { readJsonFile, writeJsonFile } from "../../utils/jsonUtils";
 import {

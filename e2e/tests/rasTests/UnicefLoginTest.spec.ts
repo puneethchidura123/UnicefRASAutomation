@@ -1,7 +1,4 @@
 import { test, expect, chromium } from '@playwright/test';
-import testData from "../../testdata/loginTestData/TestData.json"
-import configData from "../../testdata/loginTestData/config.json"
-//import { RasLoginPage } from "../../pages/rasPages/RasLoginPage";
 //import { RasLoginPage } from "../../../pages/rasPages/RasLoginPage.ts";
 import { RasHomePage } from "../../pages/intellaFO/RasHomePage";
 import { RegularRecruitmentPage } from "../../pages/intellaFO/RASRegularRecruitmentForm";

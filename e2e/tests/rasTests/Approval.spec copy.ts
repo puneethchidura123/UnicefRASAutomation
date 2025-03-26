@@ -1,8 +1,6 @@
 import { test, expect, chromium } from '@playwright/test';
 import * as fs from 'fs';
 import path from 'path';
-import testData from "../../testdata/loginTestData/TestData1.json"
-import configData from "../../testdata/loginTestData/config.json"
 import { readJsonFile, writeJsonFile } from "../../utils/jsonUtils";
 import {
   setTestFileName,
