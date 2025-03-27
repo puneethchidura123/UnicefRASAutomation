@@ -4,7 +4,7 @@
     "password": "Hrbp@123",
     "vaccancy_announcement_duration_in_days": "9",
     "batch_recruitment": "No",
-    "position_number": "00053165",
+    "position_number": "00120820",
     "position_numbers": [
       "00128241"
     ],
@@ -18,8 +18,8 @@
     "valid_till": "16/03/2025"
   },
   "output": {
-    "position_number": "00053165",
-    "jpr": "JPR0001218",
-    "timestamp": "2025-03-26T13:42:35.053Z"
+    "position_number": "00053160",
+    "jpr": "JPR0001223",
+    "timestamp": "2025-03-27T02:06:59.157Z"
   }
 }

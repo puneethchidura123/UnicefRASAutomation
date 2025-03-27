@@ -1,24 +1,32 @@
-<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="188.588492">
-<testsuite name="UAT 2 Scenarios/UAT_2-1.spec.ts" timestamp="2025-03-26T13:40:52.181Z" hostname="chromium" tests="3" failures="0" skipped="0" time="186.175" errors="0">
-<testcase name="RRFrom Submission Test" classname="UAT 2 Scenarios/UAT_2-1.spec.ts" time="102.845">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="104.67174800000001">
+<testsuite name="IntellaFrontEndFormSubmission/UAT_2-1.spec.ts" timestamp="2025-03-27T02:05:16.117Z" hostname="chromium" tests="1" failures="0" skipped="0" time="103.367" errors="0">
+<testcase name="RRFrom Submission Test by HRBP" classname="IntellaFrontEndFormSubmission/UAT_2-1.spec.ts" time="103.367">
 <system-out>
 <![CDATA[staring to login in as HM...
 completed  to login in as HM...
-STEP: Ras home page succeeded at 2025-03-26T13:41:07.202Z
-STEP: Navigating to Job Positions Page succeeded at 2025-03-26T13:41:08.241Z
-STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-26T13:41:09.309Z
-batch_recruitment
-No
+STEP: Ras home page succeeded at 2025-03-27T02:05:32.179Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-27T02:05:33.218Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-27T02:05:34.312Z
+sourcing to be selected is ::  Internal and External
 Checking if "Position already exists" message is present...
 "Position already exists" message is not present. Continuing the flow...
 No issues detected. Proceeding with further steps...
-STEP: fillBasicInformation TextBox succeeded at 2025-03-26T13:41:12.380Z
-STEP: fillingBasicInformation succeeded at 2025-03-26T13:41:12.380Z
+STEP: filling BasicInformation TextBox succeeded at 2025-03-27T02:05:37.412Z
+STEP: fillingBasicInformation succeeded at 2025-03-27T02:05:37.411Z
+child_safeguarding to be selected is ::  yes
+Child safeguarding information is Yes.
+starting to assert ChildSafegaurdingDependantFields
+checking if "Direct contact role" filed is visible
+checking if "Child data role" filed is visible
+checking if " Safeguarding response role:" filed is visible
+checking if " Assessed risk role" filed is visible
+finished to assert ChildSafegaurdingDependantFields
+STEP: fillingChildSafegaurdingInformation succeeded at 2025-03-27T02:05:53.242Z
 Step: Clicking the "Contacts" label...
 "Contacts" label clicked successfully.
 Clicked on primary_contact
-STEP: fillContactsInformation succeeded at 2025-03-26T13:41:28.887Z
-STEP: fillingContactsInformation succeeded at 2025-03-26T13:41:28.887Z
+STEP: fillContactsInformation succeeded at 2025-03-27T02:05:53.733Z
+STEP: fillingContactsInformation succeeded at 2025-03-27T02:05:53.733Z
 Step: Clicking the va_job_specification label...
 Step 2: Trigger the file upload dialog...
 Step 3: Identify the hidden file input element...
@@ -35,34 +43,34 @@ Clicked on Accounting
 Clicked on Accounting and Auditing
 Filled on Accounting and Auditing
 Clicked on Accounting and Auditing
-STEP: fillVAJobSpecification succeeded at 2025-03-26T13:41:39.928Z
-STEP: fillingVAJobSpecification succeeded at 2025-03-26T13:41:39.928Z
+STEP: fillVAJobSpecification succeeded at 2025-03-27T02:06:04.394Z
+STEP: fillingVAJobSpecification succeeded at 2025-03-27T02:06:04.394Z
 Clicked on va_minimum_requirements_desirables
 Setting For every child, [insert tagline]....
 Setting For every child, [insert tagline].... COMPLETED
-STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-26T13:42:15.003Z
-STEP: fillingVAMinimumRequirementsDesirables succeeded at 2025-03-26T13:42:15.003Z
+STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-27T02:06:39.591Z
+STEP: fillingVAMinimumRequirementsDesirables succeeded at 2025-03-27T02:06:39.591Z
 clicking... on  full_vacancy_announcement_text
 clicked on  full_vacancy_announcement_text
 Clicked on Acknowledgement checkbox
-STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-26T13:42:24.374Z
-STEP: fillingFullVacancyAnnouncementText succeeded at 2025-03-26T13:42:24.374Z
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-27T02:06:48.971Z
+STEP: fillingFullVacancyAnnouncementText succeeded at 2025-03-27T02:06:48.971Z
 clicked on submit button
-STEP: submitForm succeeded at 2025-03-26T13:42:32.512Z
-STEP: submitting RR Form succeeded at 2025-03-26T13:42:32.512Z
-STEP: Starting to Submit the RRF with the Data provided succeeded at 2025-03-26T13:40:53.407Z
-Extracted JPR Number is: JPR0001218
-STEP: Extracting the generated JPR succeeded at 2025-03-26T13:42:32.706Z
-Extracted JPR Number is: JPR0001218
-STEP: Extracting the generated JPR succeeded at 2025-03-26T13:42:35.026Z
-STEP: priniting the generated JPR Number  succeeded at 2025-03-26T13:42:35.026Z
+STEP: submitForm succeeded at 2025-03-27T02:06:57.112Z
+STEP: submitting RR Form succeeded at 2025-03-27T02:06:57.112Z
+STEP: Starting to Submit the RRF with the Data provided succeeded at 2025-03-27T02:05:16.820Z
+Extracted JPR Number is: JPR0001223
+STEP: Extracting the generated JPR succeeded at 2025-03-27T02:06:57.310Z
+Extracted JPR Number is: JPR0001223
+STEP: Extracting the generated JPR succeeded at 2025-03-27T02:06:59.130Z
+STEP: priniting the generated JPR Number  succeeded at 2025-03-27T02:06:59.130Z
 Successfully updated TestData1.json: {
   inputData: {
     username: [32m'QA_RAS_hrbp_1'[39m,
     password: [32m'Hrbp@123'[39m,
     vaccancy_announcement_duration_in_days: [32m'9'[39m,
     batch_recruitment: [32m'No'[39m,
-    position_number: [32m'00053165'[39m,
+    position_number: [32m'00120820'[39m,
     position_numbers: [ [32m'00128241'[39m ],
     primary_contact: [32m'Eva Kastner'[39m,
     hr_manager: [32m'Eva Kastner'[39m,
@@ -74,49 +82,16 @@ Successfully updated TestData1.json: {
     valid_till: [32m'16/03/2025'[39m
   },
   output: {
-    position_number: [32m'00053165'[39m,
-    jpr: [32m'JPR0001218'[39m,
-    timestamp: [32m'2025-03-26T13:42:35.053Z'[39m
+    position_number: [32m'00053160'[39m,
+    jpr: [32m'JPR0001223'[39m,
+    timestamp: [32m'2025-03-27T02:06:59.157Z'[39m
   }
 }
-STEP: printing the generate JPR and saving to test data file succeeded at 2025-03-26T13:42:32.706Z
+STEP: printing the generate JPR and saving to test data file succeeded at 2025-03-27T02:06:57.309Z
 
-[[ATTACHMENT|UAT 2 Scenarios-UAT_2-1-RRFrom-Submission-Test-chromium/video.webm]]
+[[ATTACHMENT|IntellaFrontEndFormSubmiss-9c8c4-rom-Submission-Test-by-HRBP-chromium/video.webm]]
 
-[[ATTACHMENT|UAT 2 Scenarios-UAT_2-1-RRFrom-Submission-Test-chromium/trace.zip]]
-]]>
-</system-out>
-</testcase>
-<testcase name="RRform Approval test by HM" classname="UAT 2 Scenarios/UAT_2-1.spec.ts" time="25.464">
-<system-out>
-<![CDATA[staring to login in as HM...
-completed  to login in as HM...
-STEP: logging into intella FO as a Hiring Manager succeeded at 2025-03-26T13:42:36.602Z
-starting to navigate to my request...
-completed navigating to my requestes...
-STEP: navigating to My Requests succeeded at 2025-03-26T13:42:50.482Z
-starting to search for the required request...
-completed searching for the required request...
-STEP: searching in open requisition and approve succeeded at 2025-03-26T13:42:56.624Z
-
-[[ATTACHMENT|UAT 2 Scenarios-UAT_2-1-RRform-Approval-test-by-HM-chromium/video.webm]]
-
-[[ATTACHMENT|UAT 2 Scenarios-UAT_2-1-RRform-Approval-test-by-HM-chromium/trace.zip]]
-]]>
-</system-out>
-</testcase>
-<testcase name="RR Form publish by RAS Agent Test" classname="UAT 2 Scenarios/UAT_2-1.spec.ts" time="57.866">
-<system-out>
-<![CDATA[STEP: logging into intell BO as RAS Agent succeeded at 2025-03-26T13:43:02.247Z
-clicking on Favorites...
-clicked on Favorites...
-starting to enter valid till date..
-finished entering  till date..
-STEP: publishing requisition to TMS succeeded at 2025-03-26T13:43:10.843Z
-
-[[ATTACHMENT|UAT 2 Scenarios-UAT_2-1-RR-Form-publish-by-RAS-Agent-Test-chromium/video.webm]]
-
-[[ATTACHMENT|UAT 2 Scenarios-UAT_2-1-RR-Form-publish-by-RAS-Agent-Test-chromium/trace.zip]]
+[[ATTACHMENT|IntellaFrontEndFormSubmiss-9c8c4-rom-Submission-Test-by-HRBP-chromium/trace.zip]]
 ]]>
 </system-out>
 </testcase>

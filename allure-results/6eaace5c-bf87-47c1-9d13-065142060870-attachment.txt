@@ -1,0 +1,79 @@
+staring to login in as HM...
+completed  to login in as HM...
+STEP: Ras home page succeeded at 2025-03-26T15:43:27.676Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-26T15:43:28.714Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-26T15:43:29.783Z
+batch_recruitment
+No
+Checking if "Position already exists" message is present...
+"Position already exists" message is not present. Continuing the flow...
+No issues detected. Proceeding with further steps...
+STEP: fillBasicInformation TextBox succeeded at 2025-03-26T15:43:32.854Z
+STEP: fillingBasicInformation succeeded at 2025-03-26T15:43:32.853Z
+Step: Clicking the "Contacts" label...
+"Contacts" label clicked successfully.
+Clicked on primary_contact
+STEP: fillContactsInformation succeeded at 2025-03-26T15:43:48.519Z
+STEP: fillingContactsInformation succeeded at 2025-03-26T15:43:48.519Z
+Step: Clicking the va_job_specification label...
+Step 2: Trigger the file upload dialog...
+Step 3: Identify the hidden file input element...
+Step 4: Upload the file...
+Resolved file path: /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/testdata/RRFormTestData/upload_file/jd.doc
+File upload completed successfully.
+Text has been successfully entered into the iframe.
+ENTERED => Purpose and roles & responsibilities
+Hitting TAB from hey board....
+Hitting TAB from hey board....DONE
+Clicked on Accounting dropdown
+Filled on Accounting
+Clicked on Accounting
+Clicked on Accounting and Auditing
+Filled on Accounting and Auditing
+Clicked on Accounting and Auditing
+STEP: fillVAJobSpecification succeeded at 2025-03-26T15:43:59.084Z
+STEP: fillingVAJobSpecification succeeded at 2025-03-26T15:43:59.084Z
+Clicked on va_minimum_requirements_desirables
+Setting For every child, [insert tagline]....
+Setting For every child, [insert tagline].... COMPLETED
+STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-26T15:44:34.124Z
+STEP: fillingVAMinimumRequirementsDesirables succeeded at 2025-03-26T15:44:34.124Z
+clicking... on  full_vacancy_announcement_text
+clicked on  full_vacancy_announcement_text
+Clicked on Acknowledgement checkbox
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-26T15:44:43.517Z
+STEP: fillingFullVacancyAnnouncementText succeeded at 2025-03-26T15:44:43.517Z
+clicked on submit button
+STEP: submitForm succeeded at 2025-03-26T15:44:51.662Z
+STEP: submitting RR Form succeeded at 2025-03-26T15:44:51.662Z
+STEP: Starting to Submit the RRF with the Data provided succeeded at 2025-03-26T15:43:10.264Z
+Extracted JPR Number is: JPR0001222
+STEP: Extracting the generated JPR succeeded at 2025-03-26T15:44:51.854Z
+Extracted JPR Number is: JPR0001222
+STEP: Extracting the generated JPR succeeded at 2025-03-26T15:44:54.176Z
+STEP: priniting the generated JPR Number  succeeded at 2025-03-26T15:44:54.175Z
+Successfully updated TestData1.json: {
+  inputData: {
+    username: 'QA_RAS_hrbp_1',
+    password: 'Hrbp@123',
+    vaccancy_announcement_duration_in_days: '9',
+    batch_recruitment: 'No',
+    position_number: '00120820',
+    position_numbers: [ '00128241' ],
+    primary_contact: 'Eva Kastner',
+    hr_manager: 'Eva Kastner',
+    hiring_manager: 'QA_RAS_ hiring_manager1',
+    contract_duration_months: '14',
+    areas_of_education: 'Accounting',
+    areas_of_work: 'Accounting and Auditing',
+    tagline_for_every_child: 'a hero',
+    valid_till: '16/03/2025'
+  },
+  output: {
+    position_number: '00120820',
+    jpr: 'JPR0001222',
+    timestamp: '2025-03-26T15:44:54.206Z'
+  }
+}
+saved jpr to be used for approval  is ::  JPR0001221
+STEP: printing the generate JPR and saving to test data file succeeded at 2025-03-26T15:44:51.854Z

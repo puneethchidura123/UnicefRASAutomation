@@ -2,6 +2,7 @@ import { Page } from "@playwright/test";
 import { Browser } from "@playwright/test";
 import * as path from "path";
 import { logStep } from "../../utils/logger";
+import { test, expect } from "@playwright/test"; 
 
 class RegularRecruitmentPage {
   constructor(private readonly page: Page) {}
@@ -9,13 +10,18 @@ class RegularRecruitmentPage {
 //   private readonly uploadButtonSelector = 'button[aria-label="Upload Attachment for Attach JD/TOR Required"]';
   private readonly vacancyAnnouncementDurationTextBox = this.page.getByLabel('Vacancy Announcement (VA) duration in days.', { exact: true });
   
-  async fillBasicInformation(vacancy_announcement_duration_in_days: string,
+  async fillBasicInformation(sourcing: string,
+    vacancy_announcement_duration_in_days: string,
    batch_recruitment: string,
    position_number: string,
    position_numbers: string[]) {
-    await logStep("fillBasicInformation TextBox", async () => {
-    console.log('batch_recruitment');
-    console.log(batch_recruitment);
+    await logStep("filling BasicInformation TextBox", async () => {
+    if(sourcing){
+      this.fillSourcing(sourcing)
+    }
+    else{
+      console.log('sourcing is MT ');
+    }
     await this.vacancyAnnouncementDurationTextBox.fill(vacancy_announcement_duration_in_days);
     await this.page.waitForTimeout(1000);
     await this.page.locator('#s2id_sp_formfield_is_this_batch_recruitment a').click();
@@ -66,6 +72,79 @@ class RegularRecruitmentPage {
         }
     });
 }
+
+// Start of basic info utils
+async fillSourcing(sourcing: string){
+    console.log('sourcing to be selected is :: ',sourcing);
+    await this.page.locator('//*[@id="s2id_sp_formfield_sourcing"]/a/span[2]/b').click();
+    await this.page.locator("//div[text()='"+sourcing+"']").click();
+}
+// end of basic info utils
+
+async fillChildSafegaurdingInformation(child_safeguarding:string){
+  console.log('child_safeguarding to be selected is :: ',child_safeguarding);
+  if (child_safeguarding.trim().toLowerCase() === "yes") {
+    console.log("Child safeguarding information is Yes.");
+    await this.page.locator('//span[text()="Child Safeguarding" and @class="ng-binding"]').click();
+    await this.page.locator('//*[@id="s2id_sp_formfield_elevated_risk_role_from_a_child_safeguarding_perspective"]').click();
+    await this.page.locator('//ul[contains(@aria-label,"from a child safeguarding perspective?")]/li[1]/div').click(); /// selecting Yes in child safe gaurding
+    await this.assertChildSafegaurdingDependantFields();
+  }
+}
+
+// Start of child safegaurding utils
+async assertChildSafegaurdingDependantFields(){
+  console.log('starting to assert ChildSafegaurdingDependantFields');
+  const errors: string[] = []; 
+  
+  try { 
+    console.log('checking if "Direct contact role" filed is visible');
+    await this.page.waitForSelector('//span[text()="Direct contact role"]', { state: 'visible' });
+    const isVisible = await this.page.isVisible('//span[text()="Direct contact role"]');
+    expect(isVisible).toBeTruthy(); // Asserts that the element is visible
+  } catch (e) { 
+    const error = e as Error;
+    errors.push("Direct contact role is not visible " + error.message); 
+  }
+  
+  try { 
+    console.log('checking if "Child data role" filed is visible');
+    await this.page.waitForSelector('//span[text()="Child data role"]', { state: 'visible' });
+    const isVisible = await this.page.isVisible('//span[text()="Child data role"]');
+    expect(isVisible).toBeTruthy(); // Asserts that the element is visible
+  } catch (e) { 
+    const error = e as Error;
+    errors.push("Child data role is not visible " + error.message); 
+  }
+
+  try { 
+    console.log('checking if " Safeguarding response role:" filed is visible');
+    await this.page.waitForSelector('//span[text()=" Safeguarding response role:"]', { state: 'visible' });
+    const isVisible = await this.page.isVisible('//span[text()=" Safeguarding response role:"]');
+    expect(isVisible).toBeTruthy(); // Asserts that the element is visible
+  } catch (e) { 
+    const error = e as Error;
+    errors.push("Safeguarding response role is not visible " + error.message); 
+  }
+
+  try { 
+    console.log('checking if " Assessed risk role" filed is visible');
+    await this.page.waitForSelector('//span[text()=" Assessed risk role"]', { state: 'visible' });
+    const isVisible = await this.page.isVisible('//span[text()=" Assessed risk role"]');
+    expect(isVisible).toBeTruthy(); // Asserts that the element is visible
+  } catch (e) { 
+    const error = e as Error;
+    errors.push("Assessed risk role is not visible " + error.message); 
+  }
+
+  if (errors.length > 0) { 
+  console.error("ChildSafegaurdingDependantFields assertion failures:", errors); 
+  throw new Error("ChildSafegaurdingDependantFields asserions failed"); 
+  } 
+  console.log('finished to assert ChildSafegaurdingDependantFields');
+}
+// End of child safegaurding utils
+
   async fillContactsInformation(primary_contact: string, hr_manager: string, hiring_manager: string) {
     await logStep("fillContactsInformation", async () => {
         console.log('Step: Clicking the "Contacts" label...');
@@ -233,13 +312,7 @@ class RegularRecruitmentPage {
       });
     }
 
-    // async printGeneratedJPRInConsole(){
-    //   await logStep("submitForm", async () => {
-    //     const JPR_NUMBER =  '//*[@id="uiNotificationContainer"]/div/span/a/b';
-    //     const jprNumberText = await this.page.textContent(JPR_NUMBER);
-    //     console.log('Extracted JPR Number is :', jprNumberText);
-    //   });
-    // }
+    
 
     async printGeneratedJPRInConsole() {
       return await logStep("Extracting the generated JPR", async () => {

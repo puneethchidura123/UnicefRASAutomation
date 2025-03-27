@@ -1,0 +1,10 @@
+staring to login in as HM...
+completed  to login in as HM...
+STEP: Ras home page succeeded at 2025-03-26T16:07:10.788Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-26T16:07:11.833Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-26T16:07:12.898Z
+batch_recruitment
+00120820
+STEP: fillBasicInformation TextBox failed at 2025-03-26T16:07:16.141Z
+STEP: fillingBasicInformation failed at 2025-03-26T16:07:16.141Z
+STEP: Starting to Submit the RRF with the Data provided failed at 2025-03-26T16:06:55.922Z

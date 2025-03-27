@@ -1,0 +1,6 @@
+STEP: logging into intell BO as RAS Agent succeeded at 2025-03-26T15:26:00.903Z
+clicking on Favorites...
+clicked on Favorites...
+starting to enter valid till date..
+finished entering  till date..
+STEP: publishing requisition to TMS succeeded at 2025-03-26T15:26:10.114Z

@@ -19,10 +19,12 @@ export async function submitRRF(
   hrbp_password,
   rasHomePage,
   rASRegularRecruitmentForm,
+  sourcing,
   vaccancy_announcement_duration_in_days,
   batch_recruitment,
   position_number,
   position_numbers,
+  child_safeguarding,
   primary_contact,
   hr_manager,
   hiring_manager,
@@ -37,11 +39,16 @@ export async function submitRRF(
     await page.waitForTimeout(2000);
 
     await logStep("fillingBasicInformation", async () => {
-      await rASRegularRecruitmentForm.fillBasicInformation(vaccancy_announcement_duration_in_days,
+      await rASRegularRecruitmentForm.fillBasicInformation(sourcing,
+        vaccancy_announcement_duration_in_days,
       batch_recruitment,
       position_number,
       position_numbers,
       );
+    });
+
+    await logStep("fillingChildSafegaurdingInformation", async () => {
+      await rASRegularRecruitmentForm.fillChildSafegaurdingInformation(child_safeguarding);
     });
 
     await logStep("fillingContactsInformation", async () => {
@@ -96,6 +103,7 @@ export async function submitRRF(
     rasHomePage,
     requisition_number
   ){
+    console.log('received jpr to approve is :: ',requisition_number);
     await logStep("logging into intella FO as a Hiring Manager", async () => {
       await intellaFOLoginPage.loginToIntellaFO(hm_user_name,hm_password);
     });
