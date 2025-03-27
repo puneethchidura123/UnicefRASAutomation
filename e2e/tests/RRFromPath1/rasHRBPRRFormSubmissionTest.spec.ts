@@ -104,7 +104,7 @@ test('RRFrom Submission Test', async ({ page,rasHomePage,rASRegularRecruitmentFo
         await rASRegularRecruitmentForm.printGeneratedJPRInConsole()
       });
 
-      saveDataToFile(testData.inputData.position_number ?? "",jprNumber ?? "");
+       saveDataToFile(testData.inputData.position_number ?? "",jprNumber ?? "");
       await page.waitForTimeout(100000000);
 
 });
