@@ -1,0 +1,33 @@
+Error occured page.waitForTimeout: Target page, context or browser has been closed
+    at IntellaBOHomePage.publishToTMS (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaBO/IntellaBOHomePage.ts:35:35)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaBOUtils.ts:35:9
+    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)
+    at publishRequisition (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaBOUtils.ts:33:5)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/E2ERegularRecruitmentFlow/RRPath1/RegularRecruitmentPath1_Part1.spec.ts:77:5 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@35',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaBO/IntellaBOHomePage.ts',
+      line: 35,
+      column: 35,
+      function: 'IntellaBOHomePage.publishToTMS'
+    },
+    category: 'pw:api',
+    title: 'page.waitForTimeout',
+    apiName: 'page.waitForTimeout',
+    params: { timeout: 5000 },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1743003974376,
+    error: {
+      message: 'Error: page.waitForTimeout: Target page, context or browser has been closed',
+      stack: 'Error: page.waitForTimeout: Target page, context or browser has been closed\n' +
+        '    at IntellaBOHomePage.publishToTMS (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaBO/IntellaBOHomePage.ts:35:35)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaBOUtils.ts:35:9\n' +
+        '    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)\n' +
+        '    at publishRequisition (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaBOUtils.ts:33:5)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/E2ERegularRecruitmentFlow/RRPath1/RegularRecruitmentPath1_Part1.spec.ts:77:5'
+    }
+  }
+}

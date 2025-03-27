@@ -1,0 +1,57 @@
+staring to login in as HM...
+completed  to login in as HM...
+STEP: logging into intell Fo as HM succeeded at 2025-03-23T16:48:33.138Z
+STEP: Ras home page succeeded at 2025-03-23T16:48:46.739Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-23T16:48:47.769Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-23T16:48:48.817Z
+batch_recruitment
+No
+Checking if "Position already exists" message is present...
+"Position already exists" message is not present. Continuing the flow...
+No issues detected. Proceeding with further steps...
+STEP: fillBasicInformation TextBox succeeded at 2025-03-23T16:48:51.906Z
+STEP: fillBasicInformation succeeded at 2025-03-23T16:48:51.906Z
+Step: Clicking the "Contacts" label...
+"Contacts" label clicked successfully.
+Clicked on primary_contact
+STEP: fillContactsInformation succeeded at 2025-03-23T16:49:06.560Z
+STEP: fillContactsInformation succeeded at 2025-03-23T16:49:06.560Z
+Step: Clicking the va_job_specification label...
+Step 2: Trigger the file upload dialog...
+Step 3: Identify the hidden file input element...
+Step 4: Upload the file...
+Resolved file path: /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/testdata/RRFormTestData/upload_file/jd.doc
+File upload completed successfully.
+Text has been successfully entered into the iframe.
+ENTERED => Purpose and roles & responsibilities
+Hitting TAB from hey board....
+Hitting TAB from hey board....DONE
+Clicked on Accounting dropdown
+Filled on Accounting
+Clicked on Accounting
+Clicked on Accounting and Auditing
+Filled on Accounting and Auditing
+Clicked on Accounting and Auditing
+STEP: fillVAJobSpecification succeeded at 2025-03-23T16:49:17.102Z
+STEP: fillVAJobSpecification succeeded at 2025-03-23T16:49:17.102Z
+Clicked on va_minimum_requirements_desirables
+Setting For every child, [insert tagline]....
+Setting For every child, [insert tagline].... COMPLETED
+STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-23T16:49:52.088Z
+STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-23T16:49:52.088Z
+clicking... on  full_vacancy_announcement_text
+clicked on  full_vacancy_announcement_text
+Clicked on Acknowledgement checkbox
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-23T16:50:01.424Z
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-23T16:50:01.424Z
+clicked on submit button
+STEP: submitForm succeeded at 2025-03-23T16:50:09.573Z
+STEP: submitting RR Form succeeded at 2025-03-23T16:50:09.573Z
+Extracted JPR Number is: JPR0001198
+STEP: Extracting the generated JPR succeeded at 2025-03-23T16:50:09.770Z
+starting printPositionNumberFromNotificationMessage method...
+inside try block..
+extracted_position_number : 
+STEP: Extracting Position Number From Sucess Message succeeded at 2025-03-23T16:50:12.093Z
+Test: rasHRBPRRFormSubmissionTest.spec ended at 2025-03-23T16:56:15.367Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTest_2025-03-23_22-18-33.html

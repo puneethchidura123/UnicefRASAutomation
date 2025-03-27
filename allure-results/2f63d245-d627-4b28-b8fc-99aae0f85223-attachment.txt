@@ -1,0 +1,33 @@
+Error during login for undefined: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Approve' })
+
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:59:63 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@29',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts',
+      line: 59,
+      column: 63,
+      function: undefined
+    },
+    category: 'pw:api',
+    title: "locator.getByRole('button', { name: 'Approve' }).click",
+    apiName: 'locator.click',
+    params: { selector: 'internal:role=button[name="Approve"i]', strict: true },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742147601514,
+    error: {
+      message: 'Error: locator.click: Test timeout of 30000ms exceeded.\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for getByRole('button', { name: 'Approve' })\x1B[22m\n",
+      stack: 'Error: locator.click: Test timeout of 30000ms exceeded.\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for getByRole('button', { name: 'Approve' })\x1B[22m\n" +
+        '\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:59:63'
+    }
+  }
+}

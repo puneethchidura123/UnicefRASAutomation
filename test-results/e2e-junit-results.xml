@@ -1,0 +1,99 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="104.67174800000001">
+<testsuite name="IntellaFrontEndFormSubmission/UAT_2-1.spec.ts" timestamp="2025-03-27T02:05:16.117Z" hostname="chromium" tests="1" failures="0" skipped="0" time="103.367" errors="0">
+<testcase name="RRFrom Submission Test by HRBP" classname="IntellaFrontEndFormSubmission/UAT_2-1.spec.ts" time="103.367">
+<system-out>
+<![CDATA[staring to login in as HM...
+completed  to login in as HM...
+STEP: Ras home page succeeded at 2025-03-27T02:05:32.179Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-27T02:05:33.218Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-27T02:05:34.312Z
+sourcing to be selected is ::  Internal and External
+Checking if "Position already exists" message is present...
+"Position already exists" message is not present. Continuing the flow...
+No issues detected. Proceeding with further steps...
+STEP: filling BasicInformation TextBox succeeded at 2025-03-27T02:05:37.412Z
+STEP: fillingBasicInformation succeeded at 2025-03-27T02:05:37.411Z
+child_safeguarding to be selected is ::  yes
+Child safeguarding information is Yes.
+starting to assert ChildSafegaurdingDependantFields
+checking if "Direct contact role" filed is visible
+checking if "Child data role" filed is visible
+checking if " Safeguarding response role:" filed is visible
+checking if " Assessed risk role" filed is visible
+finished to assert ChildSafegaurdingDependantFields
+STEP: fillingChildSafegaurdingInformation succeeded at 2025-03-27T02:05:53.242Z
+Step: Clicking the "Contacts" label...
+"Contacts" label clicked successfully.
+Clicked on primary_contact
+STEP: fillContactsInformation succeeded at 2025-03-27T02:05:53.733Z
+STEP: fillingContactsInformation succeeded at 2025-03-27T02:05:53.733Z
+Step: Clicking the va_job_specification label...
+Step 2: Trigger the file upload dialog...
+Step 3: Identify the hidden file input element...
+Step 4: Upload the file...
+Resolved file path: /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/testdata/RRFormTestData/upload_file/jd.doc
+File upload completed successfully.
+Text has been successfully entered into the iframe.
+ENTERED => Purpose and roles & responsibilities
+Hitting TAB from hey board....
+Hitting TAB from hey board....DONE
+Clicked on Accounting dropdown
+Filled on Accounting
+Clicked on Accounting
+Clicked on Accounting and Auditing
+Filled on Accounting and Auditing
+Clicked on Accounting and Auditing
+STEP: fillVAJobSpecification succeeded at 2025-03-27T02:06:04.394Z
+STEP: fillingVAJobSpecification succeeded at 2025-03-27T02:06:04.394Z
+Clicked on va_minimum_requirements_desirables
+Setting For every child, [insert tagline]....
+Setting For every child, [insert tagline].... COMPLETED
+STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-27T02:06:39.591Z
+STEP: fillingVAMinimumRequirementsDesirables succeeded at 2025-03-27T02:06:39.591Z
+clicking... on  full_vacancy_announcement_text
+clicked on  full_vacancy_announcement_text
+Clicked on Acknowledgement checkbox
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-27T02:06:48.971Z
+STEP: fillingFullVacancyAnnouncementText succeeded at 2025-03-27T02:06:48.971Z
+clicked on submit button
+STEP: submitForm succeeded at 2025-03-27T02:06:57.112Z
+STEP: submitting RR Form succeeded at 2025-03-27T02:06:57.112Z
+STEP: Starting to Submit the RRF with the Data provided succeeded at 2025-03-27T02:05:16.820Z
+Extracted JPR Number is: JPR0001223
+STEP: Extracting the generated JPR succeeded at 2025-03-27T02:06:57.310Z
+Extracted JPR Number is: JPR0001223
+STEP: Extracting the generated JPR succeeded at 2025-03-27T02:06:59.130Z
+STEP: priniting the generated JPR Number  succeeded at 2025-03-27T02:06:59.130Z
+Successfully updated TestData1.json: {
+  inputData: {
+    username: [32m'QA_RAS_hrbp_1'[39m,
+    password: [32m'Hrbp@123'[39m,
+    vaccancy_announcement_duration_in_days: [32m'9'[39m,
+    batch_recruitment: [32m'No'[39m,
+    position_number: [32m'00120820'[39m,
+    position_numbers: [ [32m'00128241'[39m ],
+    primary_contact: [32m'Eva Kastner'[39m,
+    hr_manager: [32m'Eva Kastner'[39m,
+    hiring_manager: [32m'QA_RAS_ hiring_manager1'[39m,
+    contract_duration_months: [32m'14'[39m,
+    areas_of_education: [32m'Accounting'[39m,
+    areas_of_work: [32m'Accounting and Auditing'[39m,
+    tagline_for_every_child: [32m'a hero'[39m,
+    valid_till: [32m'16/03/2025'[39m
+  },
+  output: {
+    position_number: [32m'00053160'[39m,
+    jpr: [32m'JPR0001223'[39m,
+    timestamp: [32m'2025-03-27T02:06:59.157Z'[39m
+  }
+}
+STEP: printing the generate JPR and saving to test data file succeeded at 2025-03-27T02:06:57.309Z
+
+[[ATTACHMENT|IntellaFrontEndFormSubmiss-9c8c4-rom-Submission-Test-by-HRBP-chromium/video.webm]]
+
+[[ATTACHMENT|IntellaFrontEndFormSubmiss-9c8c4-rom-Submission-Test-by-HRBP-chromium/trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

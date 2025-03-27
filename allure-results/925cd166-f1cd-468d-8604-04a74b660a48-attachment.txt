@@ -1,0 +1,18 @@
+Error during login for QA_RAS_hrbp_1: ReferenceError: path is not defined
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RegularRecruitmentPage.ts:123:34
+    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)
+    at RegularRecruitmentPage.fillVAJobSpecification (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RegularRecruitmentPage.ts:94:7)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/UnicefLoginTest.spec.ts:105:10
+    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/UnicefLoginTest.spec.ts:104:8
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/workerMain.js:346:9
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/testInfo.js:295:11
+    at TimeoutManager.withRunnable (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/timeoutManager.js:53:14)
+    at TestInfoImpl._runAsStage (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/testInfo.js:293:7)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/workerMain.js:338:7
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/testInfo.js:295:11
+    at TimeoutManager.withRunnable (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/timeoutManager.js:41:27)
+    at TestInfoImpl._runAsStage (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/testInfo.js:293:7)
+    at WorkerMain._runTest (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/workerMain.js:285:5)
+    at WorkerMain.runTestGroup (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/workerMain.js:205:11)
+    at process.<anonymous> (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/common/process.js:95:22)

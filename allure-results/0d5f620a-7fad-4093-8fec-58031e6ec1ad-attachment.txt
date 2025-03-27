@@ -1,0 +1,25 @@
+TEST env picked...
+STEP: Click Username Textbox succeeded at 2025-03-13T06:19:49.337Z
+Logged in as:  QA_RAS_hrbp_1
+STEP: Fill Username succeeded at 2025-03-13T06:19:49.395Z
+STEP: Fill Password succeeded at 2025-03-13T06:19:51.452Z
+STEP: Click Login Button succeeded at 2025-03-13T06:19:51.470Z
+STEP: Login as HRBP succeeded at 2025-03-13T06:19:49.337Z
+STEP: Ras home page succeeded at 2025-03-13T06:19:56.995Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-13T06:19:58.824Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-13T06:19:59.866Z
+STEP: Navigating to RasHomePage succeeded at 2025-03-13T06:19:56.995Z
+STEP: fillBasicInformation TextBox succeeded at 2025-03-13T06:20:00.949Z
+STEP: fillBasicInformation succeeded at 2025-03-13T06:20:00.949Z
+Step: Clicking the "Contacts" label...
+"Contacts" label clicked successfully.
+Clicked on primary_contact
+STEP: fillContactsInformation succeeded at 2025-03-13T06:20:16.550Z
+STEP: fillContactsInformation succeeded at 2025-03-13T06:20:16.550Z
+Step: Clicking the va_job_specification label...
+File upload completed successfully.
+Step 2: Trigger the file upload dialog...
+Step 3: Identify the hidden file input element...
+Step 4: Upload the file...
+STEP: fillVAJobSpecification failed at 2025-03-13T06:20:26.899Z
+STEP: fillVAJobSpecification failed at 2025-03-13T06:20:26.899Z

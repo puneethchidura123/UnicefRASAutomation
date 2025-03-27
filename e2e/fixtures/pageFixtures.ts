@@ -1,31 +1,35 @@
 import { test as base } from "@playwright/test";
-import LoginPage from "../pages/LoginPage";
-import HomePage from "../pages/HomePage";
-import RasLoginPage from "../pages/rasPages/RasLoginPage";
-import CreateTripPage from "../pages/CreateTripPage";
-import FooterBarComponent from "../pages/components/FooterBarComponent";
-import HeaderBarComponent from "../pages/components/HeaderBarComponent";
-import SearchDialogComponent from "../pages/components/SearchDialogComponent";
-
-
-
-
+import IntellaFOLoginPage from "../pages/intellaFO/IntellaFOLoginPage";
+import IntellaBOLoginPage from "../pages/intellaBO/IntellaBOLoginPage";
+import RasHomePage from "../pages/intellaFO/RasHomePage";
+import RASRegularRecruitmentForm from "../pages/intellaFO/RASRegularRecruitmentForm";
+import IntellaBOHomePage from "../pages/intellaBO/IntellaBOHomePage";
 
 interface PageFixtures {
-  loginPage: LoginPage;
-  homePage: HomePage;
-
-
+  intellaFOLoginPage: IntellaFOLoginPage;
+  intellaBOLoginPage: IntellaBOLoginPage;
+  rasHomePage: RasHomePage;
+  rASRegularRecruitmentForm: RASRegularRecruitmentForm;
+  intellaBOHomePage: IntellaBOHomePage;
 }
+
 export const test = base.extend<PageFixtures>({
   //page object creation
-  loginPage: async ({ page }, use) => {
-    await use(new LoginPage(page));
+  intellaFOLoginPage: async ({ page }, use) => {
+    await use(new IntellaFOLoginPage(page));
   },
-  homePage: async ({ page }, use) => {
-    await use(new HomePage(page));
+  intellaBOLoginPage: async ({ page }, use) => {
+    await use(new IntellaBOLoginPage(page));
   },
-
+  rasHomePage: async ({ page }, use) => {
+    await use(new RasHomePage(page));
+  },
+  rASRegularRecruitmentForm: async ({ page }, use) => {
+    await use(new RASRegularRecruitmentForm(page));
+  },
+  intellaBOHomePage: async ({ page }, use) => {
+    await use(new IntellaBOHomePage(page));
+  },
 });
 
 export { expect } from "@playwright/test";

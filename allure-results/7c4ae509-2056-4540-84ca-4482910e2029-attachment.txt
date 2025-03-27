@@ -1,0 +1,8 @@
+STEP: Click Username Textbox succeeded at 2025-03-14T10:16:20.758Z
+Logged in as:  QA_RAS_hrbp_1
+STEP: Fill Username succeeded at 2025-03-14T10:16:20.820Z
+STEP: Fill Password succeeded at 2025-03-14T10:16:22.873Z
+STEP: Click Login Button succeeded at 2025-03-14T10:16:22.891Z
+STEP: Login as HRBP succeeded at 2025-03-14T10:16:20.758Z
+Test: rasHRBPRRFormSubmissionTest.spec ended at 2025-03-14T10:16:27.797Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTest_2025-03-14_15-46-20.html

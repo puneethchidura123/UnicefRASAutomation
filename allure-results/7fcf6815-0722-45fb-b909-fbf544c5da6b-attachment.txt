@@ -1,0 +1,5 @@
+An error occurred: page.textContent: Test ended.
+Call log:
+  - waiting for locator('//*[@id="uiNotificationContainer"]/div/span/text()[2]')
+
+Notification message text is null or undefined

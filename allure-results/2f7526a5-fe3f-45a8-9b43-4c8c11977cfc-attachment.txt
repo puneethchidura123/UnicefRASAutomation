@@ -1,0 +1,27 @@
+Error during login for undefined: page.waitForTimeout: Target page, context or browser has been closed
+    at IntellaBOHomePage.publishToTMS (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaBO/IntellaBOHomePage.ts:24:35)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/rasRasAgentRRFormPublishTest.spec.ts:30:7 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@30',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaBO/IntellaBOHomePage.ts',
+      line: 24,
+      column: 35,
+      function: 'IntellaBOHomePage.publishToTMS'
+    },
+    category: 'pw:api',
+    title: 'page.waitForTimeout',
+    apiName: 'page.waitForTimeout',
+    params: { timeout: 5000 },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742825500489,
+    error: {
+      message: 'Error: page.waitForTimeout: Target page, context or browser has been closed',
+      stack: 'Error: page.waitForTimeout: Target page, context or browser has been closed\n' +
+        '    at IntellaBOHomePage.publishToTMS (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaBO/IntellaBOHomePage.ts:24:35)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/rasRasAgentRRFormPublishTest.spec.ts:30:7'
+    }
+  }
+}

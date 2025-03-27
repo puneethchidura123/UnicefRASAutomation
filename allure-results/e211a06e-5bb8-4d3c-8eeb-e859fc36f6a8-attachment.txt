@@ -1,0 +1,56 @@
+STEP: Click Username Textbox succeeded at 2025-03-15T09:34:59.298Z
+Logged in as:  QA_RAS_hrbp_1
+STEP: Fill Username succeeded at 2025-03-15T09:34:59.363Z
+STEP: Fill Password succeeded at 2025-03-15T09:35:01.416Z
+STEP: Click Login Button succeeded at 2025-03-15T09:35:01.430Z
+STEP: Login as HRBP succeeded at 2025-03-15T09:34:59.298Z
+STEP: Ras home page succeeded at 2025-03-15T09:35:09.019Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-15T09:35:10.062Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-15T09:35:11.116Z
+Checking if "Position already exists" message is present...
+"Position already exists" message is not present. Continuing the flow...
+No issues detected. Proceeding with further steps...
+STEP: fillBasicInformation TextBox succeeded at 2025-03-15T09:35:32.224Z
+STEP: fillBasicInformation succeeded at 2025-03-15T09:35:32.224Z
+Step: Clicking the "Contacts" label...
+"Contacts" label clicked successfully.
+Clicked on primary_contact
+STEP: fillContactsInformation succeeded at 2025-03-15T09:35:46.876Z
+STEP: fillContactsInformation succeeded at 2025-03-15T09:35:46.876Z
+Step: Clicking the va_job_specification label...
+Step 2: Trigger the file upload dialog...
+Step 3: Identify the hidden file input element...
+Step 4: Upload the file...
+Resolved file path: /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/jd.doc
+File upload completed successfully.
+Text has been successfully entered into the iframe.
+ENTERED => Purpose and roles & responsibilities
+Hitting TAB from hey board....
+Hitting TAB from hey board....DONE
+Clicked on Accounting dropdown
+Filled on Accounting
+Clicked on Accounting
+Clicked on Accounting and Auditing
+Filled on Accounting and Auditing
+Clicked on Accounting and Auditing
+STEP: fillVAJobSpecification succeeded at 2025-03-15T09:35:57.460Z
+STEP: fillVAJobSpecification succeeded at 2025-03-15T09:35:57.460Z
+Clicked on va_minimum_requirements_desirables
+Setting For every child, [insert tagline]....
+Setting For every child, [insert tagline].... COMPLETED
+STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-15T09:37:20.956Z
+STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-15T09:37:20.955Z
+clicking... on  full_vacancy_announcement_text
+clicked on  full_vacancy_announcement_text
+Clicked on Acknowledgement checkbox
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-15T09:37:30.316Z
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-15T09:37:30.316Z
+clicked on Save_As_Draft Button
+entered draft name..
+clicked on Save button..
+STEP: saving as draft succeeded at 2025-03-15T09:52:56.341Z
+STEP: saving RR Form as draft succeeded at 2025-03-15T09:52:56.341Z
+Test: rasHRBPRRFormSubmissionTest.spec ended at 2025-03-15T09:52:57.044Z
+HTML report generated: /Users/puneethchidura/UNICEF/UnicefRASAutomation/logs/rasHRBPRRFormSubmissionTest_2025-03-15_15-04-59.html
+STEP: submitForm failed at 2025-03-15T09:52:57.031Z
+STEP: priniting the generated JPR Number  failed at 2025-03-15T09:52:57.031Z

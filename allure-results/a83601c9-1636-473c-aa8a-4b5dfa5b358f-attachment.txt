@@ -1,0 +1,27 @@
+Error during login for undefined: page.waitForTimeout: Test timeout of 30000ms exceeded.
+    at RasHomePage.searchOpenRequestsAndApprove (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts:45:27)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:49:11 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@31',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts',
+      line: 45,
+      column: 27,
+      function: 'RasHomePage.searchOpenRequestsAndApprove'
+    },
+    category: 'pw:api',
+    title: 'page.waitForTimeout',
+    apiName: 'page.waitForTimeout',
+    params: { timeout: 500000 },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742149692182,
+    error: {
+      message: 'Error: page.waitForTimeout: Test timeout of 30000ms exceeded.',
+      stack: 'Error: page.waitForTimeout: Test timeout of 30000ms exceeded.\n' +
+        '    at RasHomePage.searchOpenRequestsAndApprove (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/RasHomePage.ts:45:27)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Approval.spec.ts:49:11'
+    }
+  }
+}

@@ -1,0 +1,65 @@
+Error during login for QA_RAS_hrbp_1: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for frameLocator('iframe[name="gsft_main"]').getByRole('searchbox', { name: 'Mandatory - must be populated' })
+
+    at IntellaBOHomePage.publishToTMS (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/intellaBO/IntellaBOHomePage.ts:21:152)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Publish.spec.ts:38:7 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@27',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/intellaBO/IntellaBOHomePage.ts',
+      line: 21,
+      column: 152,
+      function: 'IntellaBOHomePage.publishToTMS'
+    },
+    category: 'pw:api',
+    title: 'locator.click(iframe[name="gsft_main"] >> internal:control=enter-frame >> internal:role=searchbox[name="Mandatory - must be populated"i])',
+    apiName: 'locator.click',
+    params: {
+      selector: 'iframe[name="gsft_main"] >> internal:control=enter-frame >> internal:role=searchbox[name="Mandatory - must be populated"i]',
+      strict: true
+    },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742299071248,
+    error: {
+      message: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        `  \x1B[2m- waiting for frameLocator('iframe[name="gsft_main"]').getByRole('searchbox', { name: 'Mandatory - must be populated' })\x1B[22m\n`,
+      stack: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        `  \x1B[2m- waiting for frameLocator('iframe[name="gsft_main"]').getByRole('searchbox', { name: 'Mandatory - must be populated' })\x1B[22m\n` +
+        '\n' +
+        '    at IntellaBOHomePage.publishToTMS (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/intellaBO/IntellaBOHomePage.ts:21:152)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Publish.spec.ts:38:7'
+    }
+  }
+}
+Error during login for QA_RAS_hrbp_1: locator.click: Target page, context or browser has been closed
+    at IntellaBOHomePage.publishToTMS (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/intellaBO/IntellaBOHomePage.ts:10:76)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Publish.spec.ts:38:31 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@28',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/intellaBO/IntellaBOHomePage.ts',
+      line: 10,
+      column: 76,
+      function: 'IntellaBOHomePage.publishToTMS'
+    },
+    category: 'pw:api',
+    title: "locator.getByLabel('Favorites', { exact: true }).click",
+    apiName: 'locator.click',
+    params: { selector: 'internal:label="Favorites"s', strict: true },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742299071252,
+    error: {
+      message: 'Error: locator.click: Target page, context or browser has been closed',
+      stack: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        '    at IntellaBOHomePage.publishToTMS (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/rasPages/intellaBO/IntellaBOHomePage.ts:10:76)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Publish.spec.ts:38:31'
+    }
+  }
+}

@@ -1,0 +1,38 @@
+Error during login for undefined: locator.waitFor: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('//*[@id="x_adsr_recruit_job_position_request.valid_till"]') to be visible
+
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Publish.spec.ts:73:36 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@26',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Publish.spec.ts',
+      line: 73,
+      column: 36,
+      function: undefined
+    },
+    category: 'pw:api',
+    title: 'locator.waitFor(//*[@id="x_adsr_recruit_job_position_request.valid_till"])',
+    apiName: 'locator.waitFor',
+    params: {
+      selector: '//*[@id="x_adsr_recruit_job_position_request.valid_till"]',
+      strict: true,
+      omitReturnValue: true,
+      state: 'visible'
+    },
+    boxedStack: undefined,
+    steps: [],
+    complete: [Function: complete],
+    endWallTime: 1742134535164,
+    error: {
+      message: 'Error: locator.waitFor: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        `  \x1B[2m- waiting for locator('//*[@id="x_adsr_recruit_job_position_request.valid_till"]') to be visible\x1B[22m\n`,
+      stack: 'Error: locator.waitFor: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        `  \x1B[2m- waiting for locator('//*[@id="x_adsr_recruit_job_position_request.valid_till"]') to be visible\x1B[22m\n` +
+        '\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/rasTests/Publish.spec.ts:73:36'
+    }
+  }
+}
