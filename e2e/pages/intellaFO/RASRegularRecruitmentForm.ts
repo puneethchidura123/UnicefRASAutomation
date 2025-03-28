@@ -179,7 +179,7 @@ async assertChildSafegaurdingDependantFields(){
 
         console.log('"Contacts" label clicked successfully.');
 
-        await this.page.click('//*[@id="s2id_sp_formfield_hrbp"]/a/span[2]/b');
+        await this.page.click('//*[@id="s2id_sp_formfield_hrbp"]/a/span[2]/b');   //*[contains(@id,"hrbp")]
         await this.page.fill('//label[contains(text(), "Primary Selection Support")]//following-sibling::input', primary_contact);
         await this.page.click(`//div[text()="${primary_contact}"]`);
         console.log('Clicked on primary_contact');
