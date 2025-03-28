@@ -5,17 +5,24 @@ import { logStep } from "../../utils/logger";
 import { test, expect } from "@playwright/test"; 
 
 class RegularRecruitmentPage {
+  [x: string]: any;
   constructor(private readonly page: Page) {}
 //   private readonly va_job_labelSelector = '//*[@id="va_job_specification"]';
 //   private readonly uploadButtonSelector = 'button[aria-label="Upload Attachment for Attach JD/TOR Required"]';
   private readonly vacancyAnnouncementDurationTextBox = this.page.getByLabel('Vacancy Announcement (VA) duration in days.', { exact: true });
   
-  async fillBasicInformation(sourcing: string,
-    vacancy_announcement_duration_in_days: string,
-   batch_recruitment: string,
-   position_number: string,
-   position_numbers: string[]) {
+  async fillBasicInformation(
+   testData
+  ) {
     await logStep("filling BasicInformation TextBox", async () => {
+
+  const sourcing = testData.inputData.basic_information.sourcing;
+  const vacancy_announcement_duration_in_days = testData.inputData.basic_information.vaccancy_announcement_duration_in_days;
+  const please_confirm_where_the_advertised_position_belongs_to = testData.inputData.basic_information.please_confirm_where_the_advertised_position_belongs_to;
+  const batch_recruitment =  testData.inputData.basic_information.batch_recruitment;
+  const position_number= testData.inputData.basic_information.position_number;
+  const position_numbers= testData.inputData.basic_information.position_numbers;
+
     if(sourcing){
       this.fillSourcing(sourcing)
     }
@@ -27,12 +34,11 @@ class RegularRecruitmentPage {
     await this.page.locator('#s2id_sp_formfield_is_this_batch_recruitment a').click();
     await this.page.getByRole('option', { name: batch_recruitment }).click();
 
-    await this.page.click('#s2id_sp_formfield_please_confirm_where_the_advertised_position_belongs_to .select2-choice');
-    await this.page.waitForTimeout(1000);
-    const optionSelector = '//div[contains(@class, "select2-result-label") and text()="Headquarter with GS and IP positions"]';
-    await this.page.waitForSelector(optionSelector, { state: 'visible', timeout: 10000 });
-    await this.page.click(optionSelector);
-    await this.page.waitForTimeout(1000);
+    if(please_confirm_where_the_advertised_position_belongs_to){
+      await this.fillplease_confirm_where_the_advertised_position_belongs_to(please_confirm_where_the_advertised_position_belongs_to)
+    }else{
+      console.log('please_confirm_where_the_advertised_position_belongs_to is MT ');
+    }
 
         if (batch_recruitment === 'Yes') {
           await this.page.getByRole('heading', { name: 'Multiple Position Details ' }).click();
@@ -77,11 +83,24 @@ class RegularRecruitmentPage {
 async fillSourcing(sourcing: string){
     console.log('sourcing to be selected is :: ',sourcing);
     await this.page.locator('//*[@id="s2id_sp_formfield_sourcing"]/a/span[2]/b').click();
+    const generated_locator_for_sourcing = "//div[text()='"+sourcing+"']";
+    console.log('generated_locator_for_sourcing is :: ',generated_locator_for_sourcing)
     await this.page.locator("//div[text()='"+sourcing+"']").click();
+}
+
+async fillplease_confirm_where_the_advertised_position_belongs_to(please_confirm_where_the_advertised_position_belongs_to: string){
+  console.log('please_confirm_where_the_advertised_position_belongs_to to be selected is :: ',please_confirm_where_the_advertised_position_belongs_to);
+  console.log('expanding the **please_confirm_where_the_advertised_position_belongs_to** dropdown')
+  await this.page.locator('//*[@id="s2id_sp_formfield_please_confirm_where_the_advertised_position_belongs_to"]/a/span[2]/b').click();
+  console.log('selecting the required option i.e :: ',please_confirm_where_the_advertised_position_belongs_to)
+  await this.page.locator("//div[text()='"+please_confirm_where_the_advertised_position_belongs_to+"']").click();
 }
 // end of basic info utils
 
-async fillChildSafegaurdingInformation(child_safeguarding:string){
+async fillChildSafegaurdingInformation(
+  testData
+){
+  const child_safeguarding = testData.inputData.child_safeguarding.elevated_risk_role;
   console.log('child_safeguarding to be selected is :: ',child_safeguarding);
   if (child_safeguarding.trim().toLowerCase() === "yes") {
     console.log("Child safeguarding information is Yes.");
@@ -145,8 +164,15 @@ async assertChildSafegaurdingDependantFields(){
 }
 // End of child safegaurding utils
 
-  async fillContactsInformation(primary_contact: string, hr_manager: string, hiring_manager: string) {
+  async fillContactsInformation(
+    testData
+  ) {
     await logStep("fillContactsInformation", async () => {
+
+      const primary_contact = testData.inputData.contacts.primary_contact;
+      const hr_manager = testData.inputData.contacts.hr_manager;
+      const hiring_manager = testData.inputData.contacts.hiring_manager;
+
         console.log('Step: Clicking the "Contacts" label...');
         const labelSelector = '//label[contains(@class, "accordion-label") and @id="contacts"]';
         await this.page.click(labelSelector);
@@ -169,20 +195,20 @@ async assertChildSafegaurdingDependantFields(){
     });
 
   }
+    
+  async fillVAJobSpecification(
+    testData) {
+    await logStep("fillVAJobSpecification", async () => {
+    const batch_recruitment=testData.inputData.basic_information.batch_recruitment;
+    const contract_duration_months=testData.inputData.va_job_specification.contract_duration_months;
+    const areas_of_education=testData.inputData.va_job_specification.areas_of_education;
+    const areas_of_work=testData.inputData.va_job_specification.areas_of_work;
+    const flexibility=testData.inputData.va_job_specification.flexibility;
 
-    async fillVAJobSpecification(batch_recruitment: string, contract_duration_months: string,
-    areas_of_education: string,
-    areas_of_work: string) {
-      await logStep("fillVAJobSpecification", async () => {
         console.log('Step: Clicking the va_job_specification label...');
         const va_job_labelSelector = '//*[@id="va_job_specification"]';
         await this.page.click(va_job_labelSelector);
         await this.page.waitForTimeout(3000);
-//         await this.page.getByLabel('form', { exact: true }).getByText('I hereby declare that all the').click();
-//         await this.page.waitForTimeout(5000);
-//         await this.page.fill('input[name="contract_duration_months"]', contract_duration_months);
-//         await this.page.waitForTimeout(3000);
-
         if (batch_recruitment === 'Yes') {
                 await this.page.getByLabel('form', { exact: true }).getByText('I hereby declare that all the').click();
                 await this.page.waitForTimeout(5000);
@@ -237,7 +263,6 @@ async assertChildSafegaurdingDependantFields(){
                 await this.page.click(`//div[text()="${areas_of_education}"]`);
                 await this.page.waitForTimeout(5000);
                 console.log('Clicked on Accounting')
-
                 await this.page.click('//*[@id="s2id_sp_formfield_areas_of_work"]/ul/li/input');
                 console.log('Clicked on Accounting and Auditing')
                 await this.page.fill('//*[@id="s2id_sp_formfield_areas_of_work"]/ul/li/input', areas_of_work);
@@ -246,13 +271,75 @@ async assertChildSafegaurdingDependantFields(){
                 await this.page.click(`//div[text()="${areas_of_work}"]`);
                 await this.page.waitForTimeout(3000);
                 console.log('Clicked on Accounting and Auditing')
-//         }
-
+                if(flexibility){
+                  this.fillFlexibiltyAndValidateAddiitonalFiledsPopulation(flexibility);
+                }
+                else{
+                  console.log('sourcing is MT ');
+                }
       });
   }
 
-    async fillVAMinimumRequirementsDesirables(tagline_for_every_child: string) {
+// start of VAJobSpecification utils
+async fillFlexibiltyAndValidateAddiitonalFiledsPopulation(flexibility: string){
+  console.log('flexibility to be selected is :: ',flexibility);
+  const flexibilityLocator = this.page.locator('//*[@id="s2id_sp_formfield_flexibility_clause"]/a/span[2]/b');
+  console.log("Checking if the element is visible and clickable...");
+  const isVisible = await flexibilityLocator.isVisible();
+  if (!isVisible) {
+      //throw new Error("flexibility option is not visible on the page");
+      console.error('Terminating the test: Flexibility option is not visible on the page.');
+      //expect(isVisible).toBeTruthy();
+  }else{
+    flexibilityLocator.click();
+  }
+  //await this.page.locator('//*[@id="s2id_sp_formfield_flexibility_clause"]/a/span[2]/b').click();
+  const generated_locator_for_flexibility = "//div[text()='"+flexibility+"']";
+  console.log('generated_locator_for_flexibility is :: ',generated_locator_for_flexibility)
+  try {
+    // Wait for the element to be visible and clickable
+    await this.page.waitForSelector(generated_locator_for_flexibility, { state: "visible" });
+    // Click the element
+    await this.page.locator(generated_locator_for_flexibility).click();
+    console.log("Clicked on the flexibility option successfully.");
+  } catch (error) {
+    console.error("Error clicking the flexibility option:", error);
+  }
+  // Locate the file input element (hidden input element)
+  const fileInput = await this.page.locator('//*[@id="flexibility_clause_supporting_document"]/div/div/span/div/input'); 
+  // Path to the file to be uploaded
+  const filePath = path.resolve(__dirname, "../../testdata/RRFormTestData/upload_file/approval.doc");
+  // Set the file to upload
+  await fileInput.setInputFiles(filePath);
+  console.log('File upload completed successfully.');
+
+  console.log('starting to assert VAJobSpecification - Flexibility post upload ');
+  const errors: string[] = []; 
+  try { 
+    console.log('checking if delete button is visible');
+    await this.page.waitForSelector('//button[contains(@aria-label,"Delete Attachment")]', { state: 'visible' });
+    const isVisible = await this.page.isVisible('//button[contains(@aria-label,"Delete Attachment")]');
+    expect(isVisible).toBeTruthy(); // Asserts that the element is visible
+  } catch (e) { 
+    const error = e as Error;
+    errors.push("delete button is not visible " + error.message); 
+  }
+
+  if (errors.length > 0) { 
+    console.error("VAJobSpecification - Flexibility post upload assertion failures:", errors); 
+    throw new Error("VAJobSpecification - Flexibility post upload asserions failed"); 
+    } 
+    console.log('finished to assert VAJobSpecification - Flexibility post upload');
+
+  //await this.page.waitForTimeout(1000000);
+}
+//end of VAJobSpecification utils
+
+    async fillVAMinimumRequirementsDesirables(
+      testData
+    ) {
       await logStep("fillVAMinimumRequirementsDesirables", async () => {
+        const tagline_for_every_child=testData.inputData.va_minimum_requiremenets_and_desirables.tagline_for_every_child;
         await this.page.waitForTimeout(7000);
         await this.page.click('//*[@id="va_minimum_requirements_desirables"]');
         console.log('Clicked on va_minimum_requirements_desirables')
@@ -275,14 +362,6 @@ async assertChildSafegaurdingDependantFields(){
         console.log('clicked on  full_vacancy_announcement_text');
         await this.page.evaluate(() => {
           const checkbox = document.getElementById('sp_formfield_remarks_checkbox') as HTMLInputElement | null;
-        //   if (checkbox) {
-        //     const isChecked = await checkbox.isChecked(); // Check its state
-        //     if (!isChecked) {
-        //         await checkbox.click(); // Click if unchecked
-        //     }
-        // } else {
-        //     console.error('Checkbox not found!');
-        // }
           if (checkbox && !checkbox.checked) {
               checkbox.click();
           }

@@ -1,0 +1,57 @@
+Test Data: {
+  inputData: {
+    username: 'QA_RAS_hrbp_1',
+    password: 'Hrbp@123',
+    sourcing: 'Internal and External',
+    vaccancy_announcement_duration_in_days: '9',
+    please_confirm_where_the_advertised_position_belongs_to: 'HQ outposted',
+    batch_recruitment: 'No',
+    position_number: '00064983',
+    position_numbers: [ '00128241' ],
+    child_safeguarding: 'yes',
+    primary_contact: 'Eva Kastner',
+    hr_manager: 'Eva Kastner',
+    hiring_manager: 'QA_RAS_ hiring_manager1',
+    contract_duration_months: '14',
+    areas_of_education: 'Accounting',
+    areas_of_work: 'Accounting and Auditing',
+    flexibility: 'Yes',
+    tagline_for_every_child: 'a hero',
+    valid_till: '16/03/2025'
+  },
+  output: {
+    position_number: '00064983',
+    jpr: 'JPR0001224',
+    timestamp: '2025-03-28T08:13:31.754Z'
+  }
+}
+sourcing is ::  Internal and External
+error occured.123
+Successfully updated test data file: {
+  inputData: {
+    username: 'QA_RAS_hrbp_1',
+    password: 'Hrbp@123',
+    sourcing: 'Internal and External',
+    vaccancy_announcement_duration_in_days: '9',
+    please_confirm_where_the_advertised_position_belongs_to: 'HQ outposted',
+    batch_recruitment: 'No',
+    position_number: '00064983',
+    position_numbers: [ '00128241' ],
+    child_safeguarding: 'yes',
+    primary_contact: 'Eva Kastner',
+    hr_manager: 'Eva Kastner',
+    hiring_manager: 'QA_RAS_ hiring_manager1',
+    contract_duration_months: '14',
+    areas_of_education: 'Accounting',
+    areas_of_work: 'Accounting and Auditing',
+    flexibility: 'Yes',
+    tagline_for_every_child: 'a hero',
+    valid_till: '16/03/2025'
+  },
+  output: {
+    position_number: '00064983',
+    jpr: 'JPR0001224',
+    timestamp: '2025-03-28T08:23:39.845Z'
+  }
+}
+STEP: printing the generate JPR and saving to test data file succeeded at 2025-03-28T08:23:39.845Z

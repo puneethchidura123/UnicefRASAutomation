@@ -1,0 +1,20 @@
+Error saving data to file: TypeError: The "path" argument must be of type string or an instance of Buffer or URL. Received an instance of Object
+    at Object.writeFileSync (node:fs:2338:14)
+    at saveDataToFileLatest (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/fileHandlingUtils.ts:108:10)
+    at printJPRAndSaveToTestDataFileLatest (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaFOUtils.ts:166:25)
+    at stepFunction (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/IntellaFrontEndFormSubmission/UAT_2-2testModified.spec.ts:89:48)
+    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:26)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/IntellaFrontEndFormSubmission/UAT_2-2testModified.spec.ts:88:18
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/workerMain.js:346:9
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/testInfo.js:295:11
+    at TimeoutManager.withRunnable (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/timeoutManager.js:53:14)
+    at TestInfoImpl._runAsStage (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/testInfo.js:293:7)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/workerMain.js:338:7
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/testInfo.js:295:11
+    at TimeoutManager.withRunnable (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/timeoutManager.js:41:27)
+    at TestInfoImpl._runAsStage (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/testInfo.js:293:7)
+    at WorkerMain._runTest (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/workerMain.js:285:5)
+    at WorkerMain.runTestGroup (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/worker/workerMain.js:205:11)
+    at process.<anonymous> (/Users/puneethchidura/UNICEF/UnicefRASAutomation/node_modules/playwright/lib/common/process.js:95:22) {
+  code: 'ERR_INVALID_ARG_TYPE'
+}

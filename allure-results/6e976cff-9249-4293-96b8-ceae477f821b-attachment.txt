@@ -1,0 +1,96 @@
+Test Data: {
+  inputData: {
+    username: 'QA_RAS_hrbp_1',
+    password: 'Hrbp@123',
+    sourcing: 'Internal and External',
+    vaccancy_announcement_duration_in_days: '9',
+    please_confirm_where_the_advertised_position_belongs_to: 'HQ outposted',
+    batch_recruitment: 'No',
+    position_number: '00122603',
+    position_numbers: [ '00128241' ],
+    child_safeguarding: 'yes',
+    primary_contact: 'Eva Kastner',
+    hr_manager: 'Eva Kastner',
+    hiring_manager: 'QA_RAS_ hiring_manager1',
+    contract_duration_months: '14',
+    areas_of_education: 'Accounting',
+    areas_of_work: 'Accounting and Auditing',
+    flexibility: 'Yes',
+    tagline_for_every_child: 'a hero',
+    valid_till: '16/03/2025'
+  },
+  output: {
+    position_number: '00064983',
+    jpr: 'JPR0001226',
+    timestamp: '2025-03-28T09:22:10.404Z'
+  }
+}
+sourcing is ::  Internal and External
+started the submitRRFLatest method....
+staring to login in as HM...
+completed  to login in as HM...
+STEP: Ras home page succeeded at 2025-03-28T09:26:34.917Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-28T09:26:35.970Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-28T09:26:37.013Z
+sourcing to be selected is ::  Internal and External
+generated_locator_for_sourcing is ::  //div[text()='Internal and External']
+please_confirm_where_the_advertised_position_belongs_to to be selected is ::  HQ outposted
+expanding the **please_confirm_where_the_advertised_position_belongs_to** dropdown
+selecting the required option i.e ::  HQ outposted
+Checking if "Position already exists" message is present...
+"Position already exists" message is not present. Continuing the flow...
+No issues detected. Proceeding with further steps...
+STEP: filling BasicInformation TextBox succeeded at 2025-03-28T09:26:38.056Z
+STEP: fillingBasicInformation succeeded at 2025-03-28T09:26:38.055Z
+child_safeguarding to be selected is ::  yes
+Child safeguarding information is Yes.
+starting to assert ChildSafegaurdingDependantFields
+checking if "Direct contact role" filed is visible
+checking if "Child data role" filed is visible
+checking if " Safeguarding response role:" filed is visible
+checking if " Assessed risk role" filed is visible
+finished to assert ChildSafegaurdingDependantFields
+STEP: fillingChildSafegaurdingInformation succeeded at 2025-03-28T09:26:52.198Z
+Step: Clicking the "Contacts" label...
+"Contacts" label clicked successfully.
+Clicked on primary_contact
+STEP: fillContactsInformation succeeded at 2025-03-28T09:26:52.590Z
+STEP: fillingContactsInformation succeeded at 2025-03-28T09:26:52.590Z
+Step: Clicking the va_job_specification label...
+Step 2: Trigger the file upload dialog...
+Step 3: Identify the hidden file input element...
+Step 4: Upload the file...
+Resolved file path: /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/testdata/RRFormTestData/upload_file/jd.doc
+File upload completed successfully.
+Text has been successfully entered into the iframe.
+ENTERED => Purpose and roles & responsibilities
+Hitting TAB from hey board....
+Hitting TAB from hey board....DONE
+Clicked on Accounting dropdown
+Filled on Accounting
+Clicked on Accounting
+Clicked on Accounting and Auditing
+Filled on Accounting and Auditing
+Clicked on Accounting and Auditing
+flexibility to be selected is ::  Yes
+generated_locator_for_flexibility is ::  //div[text()='Yes']
+STEP: fillVAJobSpecification succeeded at 2025-03-28T09:27:02.611Z
+STEP: fillingVAJobSpecification succeeded at 2025-03-28T09:27:02.611Z
+Clicked on va_minimum_requirements_desirables
+Setting For every child, [insert tagline]....
+Setting For every child, [insert tagline].... COMPLETED
+STEP: fillVAMinimumRequirementsDesirables succeeded at 2025-03-28T09:27:37.706Z
+STEP: fillingVAMinimumRequirementsDesirables succeeded at 2025-03-28T09:27:37.706Z
+clicking... on  full_vacancy_announcement_text
+clicked on  full_vacancy_announcement_text
+Clicked on Acknowledgement checkbox
+STEP: fillFullVacancyAnnouncementText succeeded at 2025-03-28T09:27:47.115Z
+STEP: fillingFullVacancyAnnouncementText succeeded at 2025-03-28T09:27:47.115Z
+clicked on submit button
+STEP: submitForm succeeded at 2025-03-28T09:27:55.259Z
+STEP: submitting RR Form succeeded at 2025-03-28T09:27:55.259Z
+STEP: Starting to Submit the RRF with the Data provided succeeded at 2025-03-28T09:26:21.239Z
+Extracted JPR Number is: JPR0001227
+STEP: Extracting the generated JPR succeeded at 2025-03-28T09:27:55.456Z
+Successfully updated JSON file: /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/testdata/RRFormTestData/UAT_2-2RRF_With_External_and_Internal_Fixed-Term(NO)_HQ_Out_Posted.spec.json
+STEP: printing the generate JPR and saving to test data file succeeded at 2025-03-28T09:27:55.456Z

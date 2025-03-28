@@ -1,0 +1,42 @@
+{
+  "inputData": {
+    "username": "QA_RAS_hrbp_1",
+    "password": "Hrbp@123",
+    "basic_information": {
+      "sourcing": "Internal and External",
+      "vaccancy_announcement_duration_in_days": "9",
+      "please_confirm_where_the_advertised_position_belongs_to": "HQ outposted",
+      "batch_recruitment": "No",
+      "position_number": "00115107",
+      "position_numbers": [
+        "00128241"
+      ]
+    },
+    "child_safeguarding": {
+      "elevated_risk_role": "No"
+    },
+    "contacts": {
+      "primary_contact": "Eva Kastner",
+      "hr_manager": "Eva Kastner",
+      "hiring_manager": "QA_RAS_ hiring_manager1"
+    },
+    "va_job_specification": {
+      "contract_duration_months": "14",
+      "areas_of_education": "Accounting",
+      "areas_of_work": "Accounting and Auditing",
+      "flexibility": "Yes"
+    },
+    "va_minimum_requiremenets_and_desirables": {
+      "tagline_for_every_child": "a hero"
+    },
+    "full_vacancy_announcement_text": {
+      "any_additional_information_for_RAS_consideration": "",
+      "any_additional_information_for_Hiring_Manager_consideration": ""
+    },
+    "valid_till": "16/03/2025"
+  },
+  "output": {
+    "jpr": "JPR0001232",
+    "timestamp": "2025-03-28T12:27:48.497Z"
+  }
+}

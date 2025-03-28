@@ -1,0 +1,58 @@
+Error clicking the flexibility option: page.waitForSelector: Test ended.
+Call log:
+  - waiting for locator('//div[text()=\'Yes\']') to be visible
+
+    at RegularRecruitmentPage.fillFlexibiltyAndValidateAddiitonalFiledsPopulation (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaFO/RASRegularRecruitmentForm.ts:284:21)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaFO/RASRegularRecruitmentForm.ts:268:24
+    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)
+    at RegularRecruitmentPage.fillVAJobSpecification (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaFO/RASRegularRecruitmentForm.ts:195:7)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaFOUtils.ts:52:7
+    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)
+    at submitRRFLatest (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaFOUtils.ts:51:5)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/IntellaFrontEndFormSubmission/UAT_2-2testModified.spec.ts:78:7
+    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)
+    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/IntellaFrontEndFormSubmission/UAT_2-2testModified.spec.ts:77:5 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@88',
+    location: {
+      file: '/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaFO/RASRegularRecruitmentForm.ts',
+      line: 284,
+      column: 21,
+      function: 'RegularRecruitmentPage.fillFlexibiltyAndValidateAddiitonalFiledsPopulation'
+    },
+    category: 'pw:api',
+    title: "page.waitForSelector(//div[text()='Yes'])",
+    apiName: 'page.waitForSelector',
+    params: { selector: "//div[text()='Yes']", state: 'visible' },
+    boxedStack: undefined,
+    steps: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    complete: [Function: complete],
+    endWallTime: 1743155025990,
+    error: {
+      message: 'Error: page.waitForSelector: Test ended.\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for locator('//div[text()=\\'Yes\\']') to be visible\x1B[22m\n",
+      stack: 'Error: page.waitForSelector: Test ended.\n' +
+        'Call log:\n' +
+        "  \x1B[2m- waiting for locator('//div[text()=\\'Yes\\']') to be visible\x1B[22m\n" +
+        '\n' +
+        '    at RegularRecruitmentPage.fillFlexibiltyAndValidateAddiitonalFiledsPopulation (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaFO/RASRegularRecruitmentForm.ts:284:21)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaFO/RASRegularRecruitmentForm.ts:268:24\n' +
+        '    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)\n' +
+        '    at RegularRecruitmentPage.fillVAJobSpecification (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/pages/intellaFO/RASRegularRecruitmentForm.ts:195:7)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaFOUtils.ts:52:7\n' +
+        '    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)\n' +
+        '    at submitRRFLatest (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/intellaFOUtils.ts:51:5)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/IntellaFrontEndFormSubmission/UAT_2-2testModified.spec.ts:78:7\n' +
+        '    at logStep (/Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/utils/logger.ts:89:20)\n' +
+        '    at /Users/puneethchidura/UNICEF/UnicefRASAutomation/e2e/tests/IntellaFrontEndFormSubmission/UAT_2-2testModified.spec.ts:77:5'
+    }
+  }
+}

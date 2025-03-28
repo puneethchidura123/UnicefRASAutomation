@@ -1,0 +1,16 @@
+staring to login in as HM...
+completed  to login in as HM...
+STEP: Ras home page succeeded at 2025-03-27T12:49:38.331Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-27T12:49:39.369Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-27T12:49:40.414Z
+sourcing to be selected is ::  Internal and External
+please_confirm_where_the_advertised_position_belongs_to to be selected is ::  HQ Outposted
+expanding the **please_confirm_where_the_advertised_position_belongs_to** dropdown
+selecting the required option i.e ::  HQ Outposted
+generated locator is ::  //div[text()='HQ Outposted']
+selected ::  HQ Outposted
+Checking if "Position already exists" message is present...
+Element visibility: true
+STEP: filling BasicInformation TextBox failed at 2025-03-27T12:49:43.483Z
+STEP: fillingBasicInformation failed at 2025-03-27T12:49:43.482Z
+STEP: Starting to Submit the RRF with the Data provided failed at 2025-03-27T12:49:24.678Z

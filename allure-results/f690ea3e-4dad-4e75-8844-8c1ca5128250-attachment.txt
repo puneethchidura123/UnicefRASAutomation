@@ -1,0 +1,1 @@
+Terminating the test: Flexibility option is not visible on the page.

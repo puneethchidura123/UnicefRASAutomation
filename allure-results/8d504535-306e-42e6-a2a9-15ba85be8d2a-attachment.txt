@@ -1,0 +1,19 @@
+started the submitRRFLatest method....
+staring to login in as HM...
+completed  to login in as HM...
+STEP: Ras home page succeeded at 2025-03-28T10:28:52.854Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-28T10:28:53.888Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-28T10:28:54.934Z
+sourcing to be selected is ::  Internal and External
+generated_locator_for_sourcing is ::  //div[text()='Internal and External']
+please_confirm_where_the_advertised_position_belongs_to to be selected is ::  HQ outposted
+expanding the **please_confirm_where_the_advertised_position_belongs_to** dropdown
+selecting the required option i.e ::  HQ outposted
+Checking if "Position already exists" message is present...
+"Position already exists" message is not present. Continuing the flow...
+No issues detected. Proceeding with further steps...
+STEP: filling BasicInformation TextBox succeeded at 2025-03-28T10:28:55.980Z
+STEP: fillingBasicInformation succeeded at 2025-03-28T10:28:55.979Z
+child safegauridng123 :: { elevated_risk_role: 'Yes' }
+STEP: fillingChildSafegaurdingInformation failed at 2025-03-28T10:29:10.416Z
+STEP: Starting to Submit the RRF with the Data provided failed at 2025-03-28T10:28:39.073Z

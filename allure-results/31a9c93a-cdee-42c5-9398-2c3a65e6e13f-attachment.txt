@@ -1,0 +1,11 @@
+started the submitRRFLatest method....
+staring to login in as HM...
+completed  to login in as HM...
+STEP: Ras home page succeeded at 2025-03-28T10:02:19.967Z
+STEP: Navigating to Job Positions Page succeeded at 2025-03-28T10:02:20.998Z
+STEP: Navigating to RAS Recruitment Regular Form succeeded at 2025-03-28T10:02:22.041Z
+sourcing is ::  Internal and External123456
+sourcing to be selected is ::  Internal and External123456
+STEP: filling BasicInformation TextBox failed at 2025-03-28T10:02:23.089Z
+STEP: fillingBasicInformation failed at 2025-03-28T10:02:23.089Z
+STEP: Starting to Submit the RRF with the Data provided failed at 2025-03-28T10:02:06.041Z

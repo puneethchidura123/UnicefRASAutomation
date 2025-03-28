@@ -39,6 +39,7 @@ test('RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePa
       rASRegularRecruitmentForm,
       testData.inputData.sourcing ?? "",
       testData.inputData.vaccancy_announcement_duration_in_days ?? "",
+      testData.inputData.please_confirm_where_the_advertised_position_belongs_to ?? "",
            testData.inputData.batch_recruitment ?? "",
            testData.inputData.position_number ?? "",
            testData.inputData.position_numbers ?? [],
