@@ -15,7 +15,8 @@ import {
 import {
   loginToIntellaFO,
     printJPRAndSaveToTestDataFile,
-    submitRRF
+    submitRRF,
+    verifyRequisitionStatusPostSubmission
  } from "../../utils/intellaFOUtils";
  import {
     publishRequisition
@@ -24,16 +25,6 @@ import {
 const testDataPath = "e2e/testdata/RRFormTestData/UAT_2-2RRF_With_External_and_Internal_Fixed-Term(NO)_HQ_Out_Posted.spec.json"; 
 
 test.beforeEach(async ({ page,intellaFOLoginPage,rasHomePage}) => {
-    
-  });
-
-test.afterAll(async () => {
-    finalizeLogFile(); // Finalize the log file after all tests
-  });
-
-test('RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePage,rASRegularRecruitmentForm}) => {
-
-
   await logStep("Logging into intella FO", async () => {
     await loginToIntellaFO(
       page,
@@ -42,21 +33,30 @@ test('RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePa
     process.env.HRBP_PASSWORD ?? "",
   );
   });
+  });
 
-    await logStep("Starting to Submit the RRF with the Data provided", async () => {
+test.afterAll(async () => {
+    finalizeLogFile(); // Finalize the log file after all tests
+  });
+
+test('RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePage,rASRegularRecruitmentForm}) => {
+
+  await logStep("Starting to Submit the RRF with the Data provided", async () => {
       await submitRRF(page,
       rasHomePage,
       rASRegularRecruitmentForm,
       testData
     );
-    });
+  });
 
-    await logStep("printing the generate JPR and saving to test data file",async () =>{
-      await printJPRAndSaveToTestDataFile(
-        rASRegularRecruitmentForm,
-        testData,
-        testDataPath
+  await logStep("printing the generate JPR and saving to test data file",async () =>{
+   await printJPRAndSaveToTestDataFile(
+    rASRegularRecruitmentForm,
+    testData,
+    testDataPath
       );
     });
+
+  await verifyRequisitionStatusPostSubmission(rASRegularRecruitmentForm);
   
   });

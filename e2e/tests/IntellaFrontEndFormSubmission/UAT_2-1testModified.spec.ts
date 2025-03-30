@@ -15,25 +15,16 @@ import {
 import { printJPRAndSaveToTestDataFile,
     approveRequisition,
     submitRRF,
-    loginToIntellaFO
+    loginToIntellaFO,
+    verifyRequisitionStatusPostSubmission
  } from "../../utils/intellaFOUtils";
  import {
     publishRequisition
   } from "../../utils/intellaBOUtils";
 
-  const testDataPath = "e2e/testdata/RRFormTestData/UAT_2-1RRF_With_External_and_Internal_Fixed-Term(IP)_Rotational_Child_Safeguarding.spec.json";
-
+const testDataPath = "e2e/testdata/RRFormTestData/UAT_2-1RRF_With_External_and_Internal_Fixed-Term(IP)_Rotational_Child_Safeguarding.spec.json";
 
 test.beforeEach(async ({ page,intellaFOLoginPage,rasHomePage}) => {
-    
-  });
-
-test.afterAll(async () => {
-    finalizeLogFile(); // Finalize the log file after all tests
-  });
-
-test('UAT_2-1RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePage,rASRegularRecruitmentForm}) => {
-
   await logStep("Logging into intella FO", async () => {
     await loginToIntellaFO(
       page,
@@ -42,21 +33,29 @@ test('UAT_2-1RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,ra
     process.env.HRBP_PASSWORD ?? "",
   );
   });
+  });
 
-    await logStep("Starting to Submit the RRF with the Data provided", async () => {
+test.afterAll(async () => {
+    finalizeLogFile(); // Finalize the log file after all tests
+  });
+
+test('UAT_2-1RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePage,rASRegularRecruitmentForm}) => {
+
+  await logStep("Starting to Submit the RRF with the Data provided", async () => {
       await submitRRF(page,
       rasHomePage,
       rASRegularRecruitmentForm,
       testData
     );
-    });
+  });
   
-    await logStep("printing the generate JPR and saving to test data file",async () =>{
+  await logStep("printing the generate JPR and saving to test data file",async () =>{
       await printJPRAndSaveToTestDataFile(
         rASRegularRecruitmentForm,
         testData,
         testDataPath
       );
-    });
-  
   });
+
+  await verifyRequisitionStatusPostSubmission(rASRegularRecruitmentForm);
+});

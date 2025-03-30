@@ -100,14 +100,45 @@ async fillplease_confirm_where_the_advertised_position_belongs_to(please_confirm
 async fillChildSafegaurdingInformation(
   testData
 ){
-  const child_safeguarding = testData.inputData.child_safeguarding.elevated_risk_role;
-  console.log('child_safeguarding to be selected is :: ',child_safeguarding);
-  if (child_safeguarding.trim().toLowerCase() === "yes") {
+  const elevated_risk_role = testData.inputData.child_safeguarding.elevated_risk_role;
+  console.log('child_safeguarding to be selected is :: ',elevated_risk_role);
+  if (elevated_risk_role.trim().toLowerCase() === "yes") {
     console.log("Child safeguarding information is Yes.");
     await this.page.locator('//span[text()="Child Safeguarding" and @class="ng-binding"]').click();
     await this.page.locator('//*[@id="s2id_sp_formfield_elevated_risk_role_from_a_child_safeguarding_perspective"]').click();
-    await this.page.locator('//ul[contains(@aria-label,"from a child safeguarding perspective?")]/li[1]/div').click(); /// selecting Yes in child safe gaurding
+    await this.page.locator('//ul[contains(@aria-label,"from a child safeguarding perspective?")]/li[1]/div').click(); /// selecting Yes in child safegaurding
     await this.assertChildSafegaurdingDependantFields();
+
+    const direct_contact_role = testData.inputData.child_safeguarding.direct_contact_role;
+    const child_data_role = testData.inputData.child_safeguarding.direct_contact_role;
+    const safegaurding_response_role = testData.inputData.child_safeguarding.direct_contact_role;
+    const assessed_risk_role = testData.inputData.child_safeguarding.direct_contact_role;
+
+    if (direct_contact_role.trim().toLowerCase() === "yes") {
+    console.log("direct_contact_role is Yes.");
+    await this.page.locator('//*[@id="s2id_sp_formfield_direct_contact_role"]').click();
+    await this.page.locator('//ul[@aria-label="Direct contact role"]//descendant::div[text()="Yes"]').click(); /// selecting Yes in direct_contact_role
+    await this.page.fill('//*[@id="sp_formfield_hours_of_contact_with_children"]', testData.inputData.child_safeguarding.direct_contact_role_hours); // entering hours
+    }
+
+    if (child_data_role.trim().toLowerCase() === "yes") {
+      console.log("direct_contact_role is Yes.");
+      await this.page.locator('//*[@id="s2id_sp_formfield_child_data_role"]').click();
+      await this.page.locator('//ul[@aria-label="Child data role"]//descendant::div[text()="Yes"]').click(); /// selecting Yes in child_data_role
+      await this.page.fill('//*[@id="sp_formfield_hours_of_tranmitting_identifiable_data"]', testData.inputData.child_safeguarding.child_data_role_hours); // entering hours
+    }
+
+    if (safegaurding_response_role.trim().toLowerCase() === "yes") {
+      console.log("direct_contact_role is Yes.");
+      await this.page.locator('//*[@id="s2id_sp_formfield_safeguarding_response_role"]').click();
+      await this.page.locator('//ul[@aria-label=" Safeguarding response role:"]//descendant::div[text()="Yes"]').click(); /// selecting Yes in safegaurding_response_role
+    }
+    
+    if (assessed_risk_role.trim().toLowerCase() === "yes") {
+      console.log("direct_contact_role is Yes.");
+      await this.page.locator('//*[@id="s2id_sp_formfield_assessed_risk_role"]').click();
+      await this.page.locator('//ul[@aria-label=" Assessed risk role"]//descendant::div[text()="Yes"]').click(); /// selecting Yes in assessed_risk_role
+    }
   }
 }
 
@@ -244,7 +275,6 @@ async assertChildSafegaurdingDependantFields(){
                if (frame) {
                      const contentEditableSelector = 'body#tinymce.mce-content-body';
                      await frame.fill(contentEditableSelector, 'This section is the purpose of the position. You are providing a snapshot of what the job entails, rather than simply cutting and pasting paragraphs from the JD. Add the key accountabilities, inserting only the headings (rather than all bullet points) elaborating where a full sentence is needed.\nLanguage tips: you may personalize this to the reader, e.g. "Join our team", and do not use impersonal, generic terms such as "the incumbent".');
-
                      console.log('Text has been successfully entered into the iframe.');
                  } else {
                      console.log('Failed to access the iframe content.');
@@ -285,16 +315,13 @@ async fillFlexibiltyAndValidateAddiitonalFiledsPopulation(flexibility: string){
   console.log('flexibility to be selected is :: ',flexibility);
   const flexibilityLocator = this.page.locator('//*[@id="s2id_sp_formfield_flexibility_clause"]/a/span[2]/b');
   console.log("Checking if the element is visible and clickable...");
-  const isVisible = await flexibilityLocator.isVisible();
-  if (!isVisible) {
-      //throw new Error("flexibility option is not visible on the page");
-      console.error('Terminating the test: Flexibility option is not visible on the page.');
+  const isFlexibilityVisible = await flexibilityLocator.isVisible();
+  if (!isFlexibilityVisible) {
+      console.error('Flexibility option is not visible on the page.');
       //expect(isVisible).toBeTruthy();
   }else{
     flexibilityLocator.click();
-  }
-  //await this.page.locator('//*[@id="s2id_sp_formfield_flexibility_clause"]/a/span[2]/b').click();
-  const generated_locator_for_flexibility = "//div[text()='"+flexibility+"']";
+    const generated_locator_for_flexibility = "//div[text()='"+flexibility+"']";
   console.log('generated_locator_for_flexibility is :: ',generated_locator_for_flexibility)
   try {
     // Wait for the element to be visible and clickable
@@ -306,13 +333,18 @@ async fillFlexibiltyAndValidateAddiitonalFiledsPopulation(flexibility: string){
     console.error("Error clicking the flexibility option:", error);
   }
   // Locate the file input element (hidden input element)
-  const fileInput = await this.page.locator('//*[@id="flexibility_clause_supporting_document"]/div/div/span/div/input'); 
-  // Path to the file to be uploaded
+  const flexibilityFileInput = await this.page.locator('//*[@id="flexibility_clause_supporting_document"]/div/div/span/div/input'); 
+  const isFlexibilityFileInputVisible = await flexibilityFileInput.isVisible();
+  if(!isFlexibilityFileInputVisible){
+    console.error('flexibilityFileInput is not visible on the page.');
+  }else{
+    // Path to the file to be uploaded
   const filePath = path.resolve(__dirname, "../../testdata/RRFormTestData/upload_file/approval.doc");
   // Set the file to upload
-  await fileInput.setInputFiles(filePath);
+  await flexibilityFileInput.setInputFiles(filePath);
   console.log('File upload completed successfully.');
-
+  }
+  
   console.log('starting to assert VAJobSpecification - Flexibility post upload ');
   const errors: string[] = []; 
   try { 
@@ -330,8 +362,7 @@ async fillFlexibiltyAndValidateAddiitonalFiledsPopulation(flexibility: string){
     throw new Error("VAJobSpecification - Flexibility post upload asserions failed"); 
     } 
     console.log('finished to assert VAJobSpecification - Flexibility post upload');
-
-  //await this.page.waitForTimeout(1000000);
+  }
 }
 //end of VAJobSpecification utils
 
@@ -372,8 +403,8 @@ async fillFlexibiltyAndValidateAddiitonalFiledsPopulation(flexibility: string){
 
     async submitForm() {
       await logStep("submitForm", async () => {
-        const submit_button = '(//button[text()="Submit"])[2]'
-        await this.page.click(submit_button);
+        const submit_button = '//button[@id="submit-btn"]'
+        //await this.page.click(submit_button);
         console.log('clicked on submit button')
       });
     }
@@ -391,14 +422,33 @@ async fillFlexibiltyAndValidateAddiitonalFiledsPopulation(flexibility: string){
       });
     }
 
-    
-
     async printGeneratedJPRInConsole() {
       return await logStep("Extracting the generated JPR", async () => {
         const JPR_NUMBER = '//*[@id="uiNotificationContainer"]/div/span/a/b';
         const jprNumberText = await this.page.textContent(JPR_NUMBER);
         console.log('Extracted JPR Number is:', jprNumberText);
         return jprNumberText; // Return the extracted JPR number
+      });
+    }
+
+    async verifyRequisitionStatusPostSubmission() {
+      await logStep("verifying requisition status post RRF submission", async () => {
+        await this.page.waitForTimeout(5000);
+        const requisition_state_xpath = "//label[text()='State']/following-sibling::span/div";
+        const locator = this.page.locator(requisition_state_xpath);
+
+    try {
+    await expect(locator).toBeVisible({
+      timeout: 5000, // Adjust timeout as needed
+    });
+    const rawReqState = await locator.textContent();
+    const reqState = rawReqState ? rawReqState.trim() : "";
+    console.log("Requisition State:", reqState);
+    expect(reqState).toEqual("Awaiting Approval");
+  } catch (error) {
+    console.error("Error: Unable to verify requisition state. Element may not exist or is not visible.");
+    throw new Error("Test failed: Requisition state element is not visible or accessible.");
+  }
       });
     }
 
@@ -437,9 +487,7 @@ async fillFlexibiltyAndValidateAddiitonalFiledsPopulation(flexibility: string){
       //*[@id="uiNotificationContainer"]/div/span/text()[2]   => Position Number
       //*[@id="uiNotificationContainer"]/div  => Notification Contaier
     }
-
-
-
+    
     async checkIfRequisitionIsAvailableInDrafts(JPR_NUMBER:string) {
        await logStep("submitForm", async () => {
         // code to check if requisition is available in drafts

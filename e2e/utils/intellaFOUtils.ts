@@ -71,8 +71,7 @@ export async function submitRRF(
     });
   }
 
-
-  export async function printJPRAndSaveToTestDataFile(
+export async function printJPRAndSaveToTestDataFile(
     rASRegularRecruitmentForm,
     testData: any,
     testDataPath: string
@@ -81,8 +80,13 @@ export async function submitRRF(
     saveDataToFile(jprNumber ?? "",testData,testDataPath);
   }
 
+export async function verifyRequisitionStatusPostSubmission(
+    rASRegularRecruitmentForm
+  ){
+    await rASRegularRecruitmentForm.verifyRequisitionStatusPostSubmission();
+  }
   
-  export async function approveRequisition(
+export async function approveRequisition(
     intellaFOLoginPage,
     hm_user_name,
     hm_password,
