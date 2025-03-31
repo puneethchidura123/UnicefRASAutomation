@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="675.086379">
-<testsuite name="IntellaFrontEndFormSubmission/UAT_2-1testModified.spec.ts" timestamp="2025-03-30T10:53:52.098Z" hostname="chromium" tests="1" failures="0" skipped="1" time="0" errors="0">
-<testcase name="UAT_2-1RRFrom Submission Test by HRBP" classname="IntellaFrontEndFormSubmission/UAT_2-1testModified.spec.ts" time="0">
+<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="492.85914999999994">
+<testsuite name="IntellaFrontEndFormSubmission/UAT_2-1testModified.spec.ts" timestamp="2025-03-31T04:43:13.175Z" hostname="chromium" tests="1" failures="0" skipped="1" time="490.529" errors="0">
+<testcase name="UAT_2-1RRFrom Submission Test by HRBP" classname="IntellaFrontEndFormSubmission/UAT_2-1testModified.spec.ts" time="490.529">
 <skipped>
 </skipped>
 </testcase>
