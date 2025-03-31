@@ -22,6 +22,7 @@ class RegularRecruitmentPage {
   const batch_recruitment =  testData.inputData.basic_information.batch_recruitment;
   const position_number= testData.inputData.basic_information.position_number;
   const position_numbers= testData.inputData.basic_information.position_numbers;
+  const confidential_VA= testData.inputData.basic_information.confidential_VA;
 
     if(sourcing){
       this.fillSourcing(sourcing)
@@ -29,7 +30,31 @@ class RegularRecruitmentPage {
     else{
       console.log('sourcing is MT ');
     }
+
     await this.vacancyAnnouncementDurationTextBox.fill(vacancy_announcement_duration_in_days);
+    await this.page.waitForTimeout(1000);
+    if(sourcing==='Internal only') {
+      console.log(`Setting Confidential VA to: ${confidential_VA}`);
+
+      await this.page.locator('#s2id_sp_formfield_confidential_va a').click();
+      await this.page.getByRole('option', { name: confidential_VA }).click();
+
+      console.log("Step 1: Click on the 'Add Attachments' button...");
+      const addAttachmentSelector = 'a.sp-attachment-add';
+
+      const [fileChooser] = await Promise.all([
+          this.page.waitForEvent("filechooser"),
+          this.page.click(addAttachmentSelector),
+      ]);
+
+      console.log("Step 2: Select the file to upload...");
+      const filePath = path.resolve(__dirname, "../../testdata/RRFormTestData/upload_file/approval.doc");
+//       console.log(Resolved file path: ${filePath});
+      await fileChooser.setFiles(filePath);
+      await this.page.waitForTimeout(7000);
+      console.log("File upload completed successfully.");
+
+    }
     await this.page.waitForTimeout(1000);
     await this.page.locator('#s2id_sp_formfield_is_this_batch_recruitment a').click();
     await this.page.getByRole('option', { name: batch_recruitment }).click();
