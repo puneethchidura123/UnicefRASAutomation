@@ -56,7 +56,7 @@ test('RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePa
         rASRegularRecruitmentForm,
         testData.inputData.position_number ?? "",
       );
-      await page.waitForTimeout(4000);
+      await page.waitForTimeout(4/???/000);
       console.log('saved jpr to be used for approval  is :: ',testData.output.jpr);
     });
   
