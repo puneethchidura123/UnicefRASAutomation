@@ -48,10 +48,10 @@ class RegularRecruitmentPage {
       ]);
 
       console.log("Step 2: Select the file to upload...");
-      const filePath = path.resolve(__dirname, "../../testdata/RRFormTestData/upload_file/approval.doc");
+      const filePath = path.resolve(__dirname, "../../testdata/RRFormTestData/upload_file/approval_for_internal_only_sourcing.doc");
 //       console.log(Resolved file path: ${filePath});
       await fileChooser.setFiles(filePath);
-      await this.page.waitForTimeout(7000);
+      await this.page.waitForTimeout(3000);
       console.log("File upload completed successfully.");
 
     }
@@ -270,11 +270,24 @@ async assertChildSafegaurdingDependantFields(){
                 await this.page.waitForTimeout(5000);
                 await this.page.fill('input[name="contract_duration_months"]', contract_duration_months);
                 await this.page.waitForTimeout(3000);
-                console.log('File upload completed successfully.');
         } else {
                 await this.page.fill('input[name="contract_duration_months"]', contract_duration_months);
                 await this.page.waitForTimeout(3000);
         }
+        const uploadJDButton = await this.page.locator('//button[@aria-label="Upload Attachment for Attach JD/TOR Required"]');
+        const isUploadJDButtonVisible = uploadJDButton.isVisible();
+        if(!isUploadJDButtonVisible){
+          console.error('oops.uploadJDButton is not visible');
+        }else{
+          console.error('uploadJDButton is visible on the page.');
+  const uploadJDFileInput = await this.page.locator('//*[@id="attach_tor"]/div/div/span/div/input'); 
+  const filePath = path.resolve(__dirname, "../../testdata/RRFormTestData/upload_file/jd.doc");
+  // Set the file to upload
+  await uploadJDFileInput.setInputFiles(filePath);
+  console.log('JD File upload completed successfully.');
+  await this.page.waitForTimeout(3000);
+        }
+
                 console.log('Step 2: Trigger the file upload dialog...');
                const uploadButtonSelector = '//button[contains(@aria-label, "Upload Attachment")]';
                await this.page.waitForSelector(uploadButtonSelector, { state: 'visible', timeout: 7000 });
@@ -357,17 +370,22 @@ async fillFlexibiltyAndValidateAddiitonalFiledsPopulation(flexibility: string){
   } catch (error) {
     console.error("Error clicking the flexibility option:", error);
   }
+  await this.page.waitForTimeout(5000);
   // Locate the file input element (hidden input element)
-  const flexibilityFileInput = await this.page.locator('//*[@id="flexibility_clause_supporting_document"]/div/div/span/div/input'); 
-  const isFlexibilityFileInputVisible = await flexibilityFileInput.isVisible();
-  if(!isFlexibilityFileInputVisible){
-    console.error('flexibilityFileInput is not visible on the page.');
+  const flexibilityUploadButton = await this.page.locator('//button[@aria-label="Upload Attachment for Flexibility Clause Approval Document (required for IP and NO positions ) Required"]');
+  const isflexibilityUploadButtonVisible = await flexibilityUploadButton.isVisible();
+  if(!isflexibilityUploadButtonVisible){
+    console.error('flexibilityUploadButton is not visible on the page.');
   }else{
     // Path to the file to be uploaded
+  console.error('flexibilityUploadButton is visible on the page.');
+  const flexibilityFileInput = await this.page.locator('//*[@id="flexibility_clause_supporting_document"]/div/div/span/div/input'); 
+  //const isFlexibilityFileInputVisible = await flexibilityFileInput.isVisible();
   const filePath = path.resolve(__dirname, "../../testdata/RRFormTestData/upload_file/approval.doc");
   // Set the file to upload
   await flexibilityFileInput.setInputFiles(filePath);
-  console.log('File upload completed successfully.');
+  console.log('Approval File upload completed successfully.');
+  await this.page.waitForTimeout(3000);
   }
   
   console.log('starting to assert VAJobSpecification - Flexibility post upload ');
@@ -429,7 +447,7 @@ async fillFlexibiltyAndValidateAddiitonalFiledsPopulation(flexibility: string){
     async submitForm() {
       await logStep("submitForm", async () => {
         const submit_button = '//button[@id="submit-btn"]'
-        //await this.page.click(submit_button);
+        await this.page.click(submit_button);
         console.log('clicked on submit button')
       });
     }

@@ -8,7 +8,7 @@
       "vaccancy_announcement_duration_in_days": "9",
       "please_confirm_where_the_advertised_position_belongs_to": "HQ outposted",
       "batch_recruitment": "No",
-      "position_number": "00128942",
+      "position_number": "00129759",
       "position_numbers": [
         "00128241"
       ]
@@ -22,7 +22,7 @@
       "hiring_manager": "QA_RAS_ hiring_manager1"
     },
     "va_job_specification": {
-      "contract_duration_months": "11",
+      "contract_duration_months": "9",
       "areas_of_education": "Accounting",
       "areas_of_work": "Accounting and Auditing",
       "flexibility": "Yes"
@@ -37,7 +37,7 @@
     "valid_till": "16/03/2025"
   },
   "output": {
-    "jpr": "JPR0001232",
-    "timestamp": "2025-03-28T12:27:48.497Z"
+    "jpr": "JPR0001253",
+    "timestamp": "2025-04-01T13:01:07.646Z"
   }
 }

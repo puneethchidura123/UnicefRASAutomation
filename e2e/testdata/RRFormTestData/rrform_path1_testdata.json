@@ -2,24 +2,47 @@
   "inputData": {
     "username": "QA_RAS_hrbp_1",
     "password": "Hrbp@123",
-    "vaccancy_announcement_duration_in_days": "9",
-    "batch_recruitment": "No",
-    "position_number": "00120820",
-    "position_numbers": [
-      "00128241"
-    ],
-    "primary_contact": "Eva Kastner",
-    "hr_manager": "Eva Kastner",
-    "hiring_manager": "QA_RAS_ hiring_manager1",
-    "contract_duration_months": "14",
-    "areas_of_education": "Accounting",
-    "areas_of_work": "Accounting and Auditing",
-    "tagline_for_every_child": "a hero",
+    "basic_information": {
+      "sourcing": "Internal and External",
+      "vaccancy_announcement_duration_in_days": "9",
+      "please_confirm_where_the_advertised_position_belongs_to": "HQ outposted",
+      "batch_recruitment": "No",
+      "position_number": "00129431",
+      "position_numbers": [
+        "00128241"
+      ]
+    },
+    "child_safeguarding": {
+      "elevated_risk_role": "Yes",
+      "direct_contact_role": "Yes",
+      "direct_contact_role_hours": "15",
+      "child_data_role": "Yes",
+      "child_data_role_hours": "15",
+      "safegaurding_response_role": "Yes",
+      "assessed_risk_role": "Yes"
+    },
+    "contacts": {
+      "primary_contact": "Eva Kastner",
+      "hr_manager": "Eva Kastner",
+      "hiring_manager": "QA_RAS_ hiring_manager1"
+    },
+    "va_job_specification": {
+      "contract_duration_months": "10",
+      "areas_of_education": "Accounting",
+      "areas_of_work": "Accounting and Auditing",
+      "flexibility": "No"
+    },
+    "va_minimum_requiremenets_and_desirables": {
+      "tagline_for_every_child": "a hero"
+    },
+    "full_vacancy_announcement_text": {
+      "any_additional_information_for_RAS_consideration": "",
+      "any_additional_information_for_Hiring_Manager_consideration": ""
+    },
     "valid_till": "16/03/2025"
   },
   "output": {
-    "position_number": "00053160",
-    "jpr": "JPR0001223",
-    "timestamp": "2025-03-27T02:06:59.157Z"
+    "jpr": "JPR0001249",
+    "timestamp": "2025-03-31T06:03:37.574Z"
   }
 }

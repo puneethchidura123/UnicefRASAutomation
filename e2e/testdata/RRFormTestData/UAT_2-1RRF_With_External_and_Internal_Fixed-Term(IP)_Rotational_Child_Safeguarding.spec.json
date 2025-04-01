@@ -7,19 +7,19 @@
       "vaccancy_announcement_duration_in_days": "9",
       "please_confirm_where_the_advertised_position_belongs_to": "HQ outposted",
       "batch_recruitment": "No",
-      "position_number": "00129431",
+      "position_number": "00087242",
       "position_numbers": [
         "00128241"
       ]
     },
     "child_safeguarding": {
       "elevated_risk_role": "Yes",
-      "direct_contact_role":"Yes",
-      "direct_contact_role_hours":"15",
-      "child_data_role":"Yes",
-      "child_data_role_hours":"15",
-      "safegaurding_response_role":"Yes",
-      "assessed_risk_role":"Yes"
+      "direct_contact_role": "Yes",
+      "direct_contact_role_hours": "15",
+      "child_data_role": "Yes",
+      "child_data_role_hours": "15",
+      "safegaurding_response_role": "Yes",
+      "assessed_risk_role": "Yes"
     },
     "contacts": {
       "primary_contact": "Eva Kastner",
@@ -42,7 +42,7 @@
     "valid_till": "16/03/2025"
   },
   "output": {
-    "jpr": "JPR0001245",
-    "timestamp": "2025-03-30T09:57:37.352Z"
+    "jpr": "JPR0001255",
+    "timestamp": "2025-04-01T13:05:52.996Z"
   }
 }

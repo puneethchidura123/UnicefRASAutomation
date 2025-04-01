@@ -14,14 +14,25 @@ import {
 } from "../../../utils/fileHandlingUtils";
 import { printJPRAndSaveToTestDataFile,
     approveRequisition,
-    submitRRF
+    submitRRF,
+    loginToIntellaFO,
+    verifyRequisitionStatusPostSubmission
  } from "../../../utils/intellaFOUtils";
  import {
     publishRequisition
   } from "../../../utils/intellaBOUtils";
 
+const testDataPath = "e2e/testdata/RRFormTestData/rrform_path1_testdata.json";
+
 test.beforeEach(async ({ page,intellaFOLoginPage,rasHomePage}) => {
-    
+  await logStep("Logging into intella FO", async () => {
+    await loginToIntellaFO(
+      page,
+      intellaFOLoginPage,
+      process.env.HRBP_USER_NAME ?? "",
+    process.env.HRBP_PASSWORD ?? "",
+  );
+  });
   });
 
 test.afterAll(async () => {
@@ -30,37 +41,55 @@ test.afterAll(async () => {
 
 test('RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePage,rASRegularRecruitmentForm}) => {
 
-    await logStep("Starting to Submit the RRF with the Data provided", async () => {
+    // await logStep("Starting to Submit the RRF with the Data provided", async () => {
+    //   await submitRRF(page,
+    //     intellaFOLoginPage,
+    //     process.env.HRBP_USER_NAME ?? "",
+    //   process.env.HRBP_PASSWORD ?? "",
+    //   rasHomePage,
+    //   rASRegularRecruitmentForm,
+    //   testData.inputData.vaccancy_announcement_duration_in_days ?? "",
+    //        testData.inputData.batch_recruitment ?? "",
+    //        testData.inputData.position_number ?? "",
+    //        testData.inputData.position_numbers ?? [],
+    //        testData.inputData.primary_contact ?? "",
+    //        testData.inputData.hr_manager ?? "",
+    //        testData.inputData.hiring_manager ?? "",
+    //        testData.inputData.contract_duration_months ?? "",
+    //        testData.inputData.areas_of_education ?? "",
+    //        testData.inputData.areas_of_work ?? "",
+    //        testData.inputData.tagline_for_every_child ?? "",
+    // );
+    // });
+  
+    // await logStep("printing the generate JPR and saving to test data file",async () =>{
+    //   await printJPRAndSaveToTestDataFile(
+    //     rASRegularRecruitmentForm,
+    //     testData.inputData.position_number ?? "",
+    //   );
+    //   await page.waitForTimeout(4/???/000);
+    //   console.log('saved jpr to be used for approval  is :: ',testData.output.jpr);
+    // });
+  
+  await logStep("Starting to Submit the RRF with the Data provided", async () => {
       await submitRRF(page,
-        intellaFOLoginPage,
-        process.env.HRBP_USER_NAME ?? "",
-      process.env.HRBP_PASSWORD ?? "",
       rasHomePage,
       rASRegularRecruitmentForm,
-      testData.inputData.vaccancy_announcement_duration_in_days ?? "",
-           testData.inputData.batch_recruitment ?? "",
-           testData.inputData.position_number ?? "",
-           testData.inputData.position_numbers ?? [],
-           testData.inputData.primary_contact ?? "",
-           testData.inputData.hr_manager ?? "",
-           testData.inputData.hiring_manager ?? "",
-           testData.inputData.contract_duration_months ?? "",
-           testData.inputData.areas_of_education ?? "",
-           testData.inputData.areas_of_work ?? "",
-           testData.inputData.tagline_for_every_child ?? "",
+      testData
     );
-    });
+  });
   
-    await logStep("printing the generate JPR and saving to test data file",async () =>{
+  await logStep("printing the generate JPR and saving to test data file",async () =>{
       await printJPRAndSaveToTestDataFile(
         rASRegularRecruitmentForm,
-        testData.inputData.position_number ?? "",
+        testData,
+        testDataPath
       );
-      await page.waitForTimeout(4/???/000);
-      console.log('saved jpr to be used for approval  is :: ',testData.output.jpr);
-    });
-  
+  });
+
+  await verifyRequisitionStatusPostSubmission(rASRegularRecruitmentForm);
   }); 
+
 
 test('RRform Approval test by HM', async ({page,intellaFOLoginPage,rasHomePage}) => {
     console.log('passed jpr to approve is :: ',testData.output.jpr);
