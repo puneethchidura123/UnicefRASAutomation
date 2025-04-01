@@ -15,7 +15,8 @@ import {
 import {
   loginToIntellaFO,
     printJPRAndSaveToTestDataFile,
-    submitRRF
+    submitRRF,
+    verifyRequisitionStatusPostSubmission
  } from "../../utils/intellaFOUtils";
  import {
     publishRequisition
@@ -24,16 +25,6 @@ import {
 const testDataPath = "e2e/testdata/RRFormTestData/UAT_2-4RRF_With_Internal-Only.spec.json";
 
 test.beforeEach(async ({ page,intellaFOLoginPage,rasHomePage}) => {
-
-  });
-
-test.afterAll(async () => {
-    finalizeLogFile(); // Finalize the log file after all tests
-  });
-
-test('RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePage,rASRegularRecruitmentForm}) => {
-
-
   await logStep("Logging into intella FO", async () => {
     await loginToIntellaFO(
       page,
@@ -42,7 +33,13 @@ test('RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePa
     process.env.HRBP_PASSWORD ?? "",
   );
   });
+  });
 
+test.afterAll(async () => {
+    finalizeLogFile(); // Finalize the log file after all tests
+  });
+
+test('RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePage,rASRegularRecruitmentForm}) => {
     await logStep("Starting to Submit the RRF with the Data provided", async () => {
       await submitRRF(page,
       rasHomePage,
@@ -58,6 +55,8 @@ test('RRFrom Submission Test by HRBP', async ({page,intellaFOLoginPage,rasHomePa
         testDataPath
       );
     });
+
+    await verifyRequisitionStatusPostSubmission(rASRegularRecruitmentForm);
 
   });
 
